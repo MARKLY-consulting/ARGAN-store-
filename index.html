@@ -342,6 +342,14 @@
             font-style: italic;
         }
 
+        .etapes-rituel {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+            margin: 2rem 0;
+        }
+
         /* FOOTER */
         footer {
             background: #333;
@@ -446,9 +454,10 @@
             <button class="category-btn" onclick="filterProducts('corps')">Soins Corps</button>
             <button class="category-btn" onclick="filterProducts('visage')">Soins Visage</button>
             <button class="category-btn" onclick="filterProducts('masque')">Masques</button>
+            <button class="category-btn" onclick="filterProducts('cheveux')">Soins Cheveux</button>
         </div>
 
-        <!-- PRODUITS GRID - 3 PRODUITS (230ml SUPPRIMÉ) -->
+        <!-- PRODUITS GRID - 4 PRODUITS -->
         <div class="produits-grid">
             <!-- PRODUIT 1 - GOMMAGE -->
             <div class="produit-card" data-category="corps" onclick="showProduct('gommage')">
@@ -478,7 +487,7 @@
                 </div>
             </div>
 
-            <!-- PRODUIT 3 - MASQUE GHASSOUL (PRIX 100 DH) -->
+            <!-- PRODUIT 3 - MASQUE GHASSOUL -->
             <div class="produit-card" data-category="masque" onclick="showProduct('ghassoul')">
                 <div class="produit-image">
                     <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" 
@@ -488,6 +497,20 @@
                     <h3 class="produit-titre">Masque au Ghassoul & Fleur d'Oranger</h3>
                     <div class="produit-prix">100 DH</div>
                     <p>Purification & Sérénité pour visage et corps</p>
+                    <button class="btn-voir">Voir les détails</button>
+                </div>
+            </div>
+
+            <!-- PRODUIT 4 - PACK ANTI-CHUTE -->
+            <div class="produit-card" data-category="cheveux" onclick="showProduct('antichute')">
+                <div class="produit-image">
+                    <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" 
+                         alt="Pack Rituel Anti-Chute Argalux" width="1003" height="948">
+                </div>
+                <div class="produit-info">
+                    <h3 class="produit-titre">Pack Rituel Anti-Chute Argalux</h3>
+                    <div class="produit-prix">450 DH</div>
+                    <p>Gamme complète Force & Vitalité Capillaire</p>
                     <button class="btn-voir">Voir les détails</button>
                 </div>
             </div>
@@ -528,7 +551,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Données des produits - 3 PRODUITS (230ml SUPPRIMÉ)
+        // Données des produits - 4 PRODUITS
         const products = {
             'gommage': {
                 title: 'Gommage Figue de Barbarie – Éclat & Jeunesse (Corps et Visage)',
@@ -594,6 +617,35 @@
                     'Parfum : Fleur d\'oranger naturelle',
                     'Texture : Prête à l\'emploi, onctueuse'
                 ]
+            },
+            'antichute': {
+                title: 'Pack Rituel Anti-Chute Argalux – Force & Vitalité Capillaire',
+                price: '450 DH',
+                image: 'https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f',
+                description: `Redonnez vie à votre chevelure avec la Gamme Anti-Chute Argalux. Conçue pour freiner la chute des cheveux et stimuler leur croissance, cette routine complète associe les bienfaits ancestraux de l'argan à des actifs fortifiants modernes pour des cheveux plus denses, plus forts et éclatants de santé.`,
+                pourquoi: [
+                    'Action Ciblée : Aide à réduire visiblement la perte de cheveux et favorise la repousse.',
+                    'Enrichi en Argan : Nourrit le cuir chevelu et protège les longueurs contre les agressions extérieures.',
+                    'Résultats Visibles : Une chevelure plus volumineuse, plus résistante et une texture soyeuse.',
+                    'Convient à tous : Efficace sur tous les types de cheveux, particulièrement les cheveux ternes, cassants ou en manque de densité.'
+                ],
+                conseils: `Utilisez le shampooing 2 à 3 fois par semaine.
+                Appliquez le masque sur les longueurs et pointes après chaque shampooing, laissez poser 5 minutes, puis rincez.
+                Appliquez l'huile en bain d'huile 1 heure avant le lavage une fois par semaine.
+                Utilisez quelques gouttes de sérum sur cheveux secs ou humides pour sceller l'hydratation.`,
+                secret: 'L\'offre exclusive : Profitez de la puissance combinée de ces 4 produits pour transformer votre routine capillaire en un véritable soin professionnel à domicile.',
+                caracteristiques: [
+                    'Contenu : Shampooing Fortifiant 200ml + Masque Réparateur + Huile Capillaire + Sérum Finition',
+                    'Action : Anti-chute, fortifiant, croissance',
+                    'Type : Gamme complète capillaire',
+                    'Résultat : Cheveux plus denses, forts et éclatants'
+                ],
+                etapes: [
+                    'Le Shampooing Fortifiant (200ml) : Nettoie en douceur tout en renforçant la fibre capillaire dès la racine.',
+                    'Le Masque Réparateur : Un soin profond qui nourrit intensément, facilite le démêlage et redonne de la souplesse.',
+                    'L\'Huile Capillaire Anti-Chute : Concentré d\'huiles précieuses pour stimuler la microcirculation.',
+                    'Le Sérum Finition & Croissance : Texture légère pour brillance et protection au quotidien.'
+                ]
             }
         };
 
@@ -601,6 +653,18 @@
         function showProduct(productId) {
             const product = products[productId];
             if (!product) return;
+
+            let etapesHTML = '';
+            if (product.etapes) {
+                etapesHTML = `
+                    <div class="etapes-rituel">
+                        <h3>Les 4 Étapes de Votre Rituel :</h3>
+                        <ul>
+                            ${product.etapes.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
 
             const modalContent = document.getElementById('modalContent');
             modalContent.innerHTML = `
@@ -616,20 +680,22 @@
                             <p>${product.description}</p>
                         </div>
                         
+                        ${etapesHTML}
+                        
                         <div class="detail-caracteristiques">
-                            <h3>Les Bienfaits de ce Soin :</h3>
+                            <h3>Pourquoi adopter ${productId === 'antichute' ? 'cette gamme' : 'ce soin'} ?</h3>
                             <ul>
                                 ${product.pourquoi.map(item => `<li>${item}</li>`).join('')}
                             </ul>
                         </div>
                         
                         <div class="conseil-utilisation">
-                            <h3>Conseils d'Utilisation :</h3>
+                            <h3>Conseils d'utilisation :</h3>
                             <p>${product.conseils.replace(/\n/g, '<br>')}</p>
                         </div>
                         
                         <div class="secret-beaute">
-                            <h3>Pourquoi le choisir ?</h3>
+                            <h3>${productId === 'antichute' ? 'L\'offre exclusive' : 'Pourquoi le choisir ?'} :</h3>
                             <p>${product.secret}</p>
                         </div>
                         
@@ -673,7 +739,8 @@
             buttons.forEach(btn => {
                 if (btn.textContent.includes(category === 'all' ? 'Tous' : 
                     category === 'visage' ? 'Visage' : 
-                    category === 'corps' ? 'Corps' : 'Masques')) {
+                    category === 'corps' ? 'Corps' : 
+                    category === 'masque' ? 'Masques' : 'Cheveux')) {
                     btn.classList.add('active');
                 } else {
                     btn.classList.remove('active');
