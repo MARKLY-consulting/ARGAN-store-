@@ -445,10 +445,10 @@
             <button class="category-btn active" onclick="filterProducts('all')">Tous les produits</button>
             <button class="category-btn" onclick="filterProducts('corps')">Soins Corps</button>
             <button class="category-btn" onclick="filterProducts('visage')">Soins Visage</button>
-            <button class="category-btn" onclick="filterProducts('masque')">Masques & Soins</button>
+            <button class="category-btn" onclick="filterProducts('masque')">Masques</button>
         </div>
 
-        <!-- PRODUITS GRID - 4 PRODUITS -->
+        <!-- PRODUITS GRID - 3 PRODUITS (230ml SUPPRIMÉ) -->
         <div class="produits-grid">
             <!-- PRODUIT 1 - GOMMAGE -->
             <div class="produit-card" data-category="corps" onclick="showProduct('gommage')">
@@ -464,21 +464,7 @@
                 </div>
             </div>
 
-            <!-- PRODUIT 2 - HUILE D'ARGAN ARGALUX 230ml -->
-            <div class="produit-card" data-category="visage" onclick="showProduct('argalux230')">
-                <div class="produit-image">
-                    <img src="https://github.com/user-attachments/assets/7ec2803a-60d4-4f6a-8bdf-53e044d30511" 
-                         alt="Huile d'Argan Pure Argalux 230ml" width="1024" height="1024">
-                </div>
-                <div class="produit-info">
-                    <h3 class="produit-titre">Huile d'Argan Pure Argalux 230ml</h3>
-                    <div class="produit-prix">350 DH</div>
-                    <p>Format prestige pour corps et cheveux</p>
-                    <button class="btn-voir">Voir les détails</button>
-                </div>
-            </div>
-
-            <!-- PRODUIT 3 - HUILE D'ARGAN ARGALUX 50ml -->
+            <!-- PRODUIT 2 - HUILE D'ARGAN ARGALUX 50ml -->
             <div class="produit-card" data-category="visage" onclick="showProduct('argalux50')">
                 <div class="produit-image">
                     <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" 
@@ -492,7 +478,7 @@
                 </div>
             </div>
 
-            <!-- PRODUIT 4 - MASQUE GHASSOUL -->
+            <!-- PRODUIT 3 - MASQUE GHASSOUL (PRIX 100 DH) -->
             <div class="produit-card" data-category="masque" onclick="showProduct('ghassoul')">
                 <div class="produit-image">
                     <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" 
@@ -500,7 +486,7 @@
                 </div>
                 <div class="produit-info">
                     <h3 class="produit-titre">Masque au Ghassoul & Fleur d'Oranger</h3>
-                    <div class="produit-prix">120 DH</div>
+                    <div class="produit-prix">100 DH</div>
                     <p>Purification & Sérénité pour visage et corps</p>
                     <button class="btn-voir">Voir les détails</button>
                 </div>
@@ -542,7 +528,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Données des produits - 4 PRODUITS
+        // Données des produits - 3 PRODUITS (230ml SUPPRIMÉ)
         const products = {
             'gommage': {
                 title: 'Gommage Figue de Barbarie – Éclat & Jeunesse (Corps et Visage)',
@@ -564,28 +550,6 @@
                     'Contenance : Pot généreux (format standard gommage)',
                     'Ingrédient phare : Figue de Barbarie (Prickly Pear)',
                     'Type de peau : Tous types de peaux, particulièrement recommandé pour les peaux ternes ou matures'
-                ]
-            },
-            'argalux230': {
-                title: 'Huile d\'Argan Pure Argalux – L\'Or Liquide du Maroc (230ml)',
-                price: '350 DH',
-                image: 'https://github.com/user-attachments/assets/7ec2803a-60d4-4f6a-8bdf-53e044d30511',
-                description: `Offrez à votre peau et à vos cheveux le soin ultime avec l'Huile d'Argan Pure Argalux. Extraite à froid à partir d'amandons non torréfiés, cette huile certifiée Bio conserve l'intégralité de ses propriétés nutritives pour une action régénératrice incomparable.`,
-                pourquoi: [
-                    'Soin Visage & Corps : Riche en acides gras essentiels et en vitamine E, elle hydrate intensément, améliore l\'élasticité de la peau et lutte contre le vieillissement cutané.',
-                    'Réparateur Capillaire : Redonne brillance et force aux cheveux secs et cassants tout en apaisant le cuir chevelu.',
-                    'Fortifiant Ongles : Idéale pour nourrir les cuticules et renforcer les ongles fragilisés.',
-                    'Multi-usage : S\'utilise aussi bien pure qu\'en mélange dans vos soins quotidiens.'
-                ],
-                conseils: `Pour le visage : Appliquez quelques gouttes le soir sur une peau propre pour un réveil avec un teint radieux.
-                Pour les cheveux : Utilisez en bain d'huile 30 minutes avant le shampooing ou en soin de finition sur les pointes.
-                Pour le corps : Appliquez après la douche sur peau encore légèrement humide pour une absorption maximale.`,
-                secret: '100% Bio & Pure : Garantie sans additifs, sans colorants et sans conservateurs. Non torréfiée pour préserver toutes les vertus cosmétiques.',
-                caracteristiques: [
-                    'Contenance : 230 ml (Format Prestige)',
-                    'Certification : Bio certifiée',
-                    'Extraction : Pressage à froid des amandons crus',
-                    'Odeur : Légère, pénétration rapide'
                 ]
             },
             'argalux50': {
@@ -610,7 +574,7 @@
             },
             'ghassoul': {
                 title: 'Masque au Ghassoul & Fleur d\'Oranger – Purification & Sérénité',
-                price: '120 DH',
+                price: '100 DH',
                 image: 'https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3',
                 description: `Offrez à votre peau un rituel de spa ancestral avec notre Masque au Ghassoul Argalux. Ce soin iconique du rituel du hammam marocain, enrichi aux délicates notes de fleur d'oranger, purifie intensément tout en offrant une expérience sensorielle apaisante.`,
                 pourquoi: [
