@@ -447,7 +447,7 @@
             <button class="category-btn" onclick="filterProducts('visage')">Soins Visage</button>
         </div>
 
-        <!-- PRODUITS GRID - SEULEMENT 2 PRODUITS -->
+        <!-- PRODUITS GRID - 3 PRODUITS -->
         <div class="produits-grid">
             <!-- PRODUIT 1 - GOMMAGE -->
             <div class="produit-card" data-category="corps" onclick="showProduct('gommage')">
@@ -463,16 +463,30 @@
                 </div>
             </div>
 
-            <!-- PRODUIT 2 - HUILE D'ARGAN ARGALUX -->
-            <div class="produit-card" data-category="visage" onclick="showProduct('argalux')">
+            <!-- PRODUIT 2 - HUILE D'ARGAN ARGALUX 230ml -->
+            <div class="produit-card" data-category="visage" onclick="showProduct('argalux230')">
                 <div class="produit-image">
                     <img src="https://github.com/user-attachments/assets/7ec2803a-60d4-4f6a-8bdf-53e044d30511" 
-                         alt="Huile d'Argan Pure Argalux" width="1024" height="1024">
+                         alt="Huile d'Argan Pure Argalux 230ml" width="1024" height="1024">
                 </div>
                 <div class="produit-info">
-                    <h3 class="produit-titre">Huile d'Argan Pure Argalux – L'Or Liquide</h3>
+                    <h3 class="produit-titre">Huile d'Argan Pure Argalux 230ml</h3>
                     <div class="produit-prix">350 DH</div>
-                    <p>Huile Bio 230ml pour visage, corps et cheveux</p>
+                    <p>Format prestige pour corps et cheveux</p>
+                    <button class="btn-voir">Voir les détails</button>
+                </div>
+            </div>
+
+            <!-- PRODUIT 3 - HUILE D'ARGAN ARGALUX 50ml -->
+            <div class="produit-card" data-category="visage" onclick="showProduct('argalux50')">
+                <div class="produit-image">
+                    <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" 
+                         alt="Huile d'Argan Pure Argalux 50ml" width="832" height="832">
+                </div>
+                <div class="produit-info">
+                    <h3 class="produit-titre">Huile d'Argan Pure Argalux 50ml</h3>
+                    <div class="produit-prix">80 DH</div>
+                    <p>Format voyage avec étui et pompe</p>
                     <button class="btn-voir">Voir les détails</button>
                 </div>
             </div>
@@ -513,7 +527,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Données des produits - SEULEMENT 2 PRODUITS
+        // Données des produits - 3 PRODUITS
         const products = {
             'gommage': {
                 title: 'Gommage Figue de Barbarie – Éclat & Jeunesse (Corps et Visage)',
@@ -537,7 +551,7 @@
                     'Type de peau : Tous types de peaux, particulièrement recommandé pour les peaux ternes ou matures'
                 ]
             },
-            'argalux': {
+            'argalux230': {
                 title: 'Huile d\'Argan Pure Argalux – L\'Or Liquide du Maroc (230ml)',
                 price: '350 DH',
                 image: 'https://github.com/user-attachments/assets/7ec2803a-60d4-4f6a-8bdf-53e044d30511',
@@ -553,10 +567,30 @@
                 Pour le corps : Appliquez après la douche sur peau encore légèrement humide pour une absorption maximale.`,
                 secret: '100% Bio & Pure : Garantie sans additifs, sans colorants et sans conservateurs. Non torréfiée pour préserver toutes les vertus cosmétiques.',
                 caracteristiques: [
-                    'Contenance : 230 ml (format économique)',
+                    'Contenance : 230 ml (Format Prestige)',
                     'Certification : Bio certifiée',
                     'Extraction : Pressage à froid des amandons crus',
                     'Odeur : Légère, pénétration rapide'
+                ]
+            },
+            'argalux50': {
+                title: 'Huile d\'Argan Pure Argalux – L\'Essence de la Beauté Marocaine (50ml)',
+                price: '80 DH',
+                image: 'https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb',
+                description: `Sublimez votre routine beauté avec l'Huile d'Argan Pure Argalux, un soin d'exception 100% Bio et naturel. Extraite à froid à partir d'amandons non torréfiés, cette huile préserve toute sa richesse en Vitamine E et en antioxydants pour offrir à votre peau, vos cheveux et vos ongles une régénération profonde.`,
+                pourquoi: [
+                    'Visage : Hydrate intensément, lisse les rides et redonne de l\'éclat au teint.',
+                    'Corps : Nourrit les peaux sèches et améliore l\'élasticité cutanée.',
+                    'Cheveux : Répare les pointes fourchues et apporte une brillance miroir sans graisser.',
+                    'Ongles : Fortifie les ongles cassants et nourrit les cuticules.'
+                ],
+                conseils: `Appliquez quelques gouttes sur une peau propre ou sur les longueurs de vos cheveux. Massez délicatement pour faire pénétrer. Pour un résultat optimal, utilisez quotidiennement, de préférence le soir.`,
+                secret: 'Deux formats pour tous vos besoins : Le Format Voyage & Précision (50ml) avec son étui et pompe doseuse est parfait pour un soin ciblé du visage ou pour vous accompagner dans tous vos déplacements.',
+                caracteristiques: [
+                    'Contenance : 50 ml (Format Voyage & Précision)',
+                    'Certification : 100% Bio et Naturelle',
+                    'Extraction : Pressage à froid, non torréfiée',
+                    'Accessoire : Étui et pompe doseuse inclus'
                 ]
             }
         };
@@ -581,24 +615,24 @@
                         </div>
                         
                         <div class="detail-caracteristiques">
-                            <h3>Les Bienfaits Exceptionnels :</h3>
+                            <h3>Les Bienfaits Clés :</h3>
                             <ul>
                                 ${product.pourquoi.map(item => `<li>${item}</li>`).join('')}
                             </ul>
                         </div>
                         
                         <div class="conseil-utilisation">
-                            <h3>Conseils d'utilisation :</h3>
+                            <h3>Conseils d'Utilisation :</h3>
                             <p>${product.conseils.replace(/\n/g, '<br>')}</p>
                         </div>
                         
                         <div class="secret-beaute">
-                            <h3>Pourquoi choisir nos produits ?</h3>
+                            <h3>Engagement Qualité Argalux :</h3>
                             <p>${product.secret}</p>
                         </div>
                         
                         <div class="detail-caracteristiques">
-                            <h3>Caractéristiques techniques :</h3>
+                            <h3>Caractéristiques :</h3>
                             <ul>
                                 ${product.caracteristiques.map(item => `<li>${item}</li>`).join('')}
                             </ul>
