@@ -985,7 +985,7 @@
         }
 
         /* PROCESSUS DE PRODUCTION - MODAL */
-        .process-modal {
+        .process-modal, .history-modal {
             display: none;
             position: fixed;
             top: 0;
@@ -1000,7 +1000,7 @@
             animation: modalFadeIn 0.3s ease;
         }
 
-        .process-modal-content {
+        .process-modal-content, .history-modal-content {
             background: white;
             max-width: 1200px;
             margin: 2rem auto;
@@ -1011,20 +1011,20 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.4);
         }
 
-        .process-header {
+        .process-header, .history-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 3rem 3rem 2rem;
             text-align: center;
         }
 
-        .process-header h2 {
+        .process-header h2, .history-header h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             font-weight: 800;
         }
 
-        .process-header p {
+        .process-header p, .history-header p {
             font-size: 1.1rem;
             opacity: 0.9;
             max-width: 800px;
@@ -1036,6 +1036,47 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             padding: 3rem;
+        }
+
+        .history-content {
+            padding: 3rem;
+        }
+
+        .history-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .history-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .history-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .history-text {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .history-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .history-text strong {
+            color: var(--primary);
+            font-weight: 600;
         }
 
         .process-step {
@@ -1161,7 +1202,7 @@
             transform: translateY(-3px);
         }
 
-        .process-link {
+        .process-link, .history-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -1175,7 +1216,7 @@
             transition: var(--transition);
         }
 
-        .process-link:hover {
+        .process-link:hover, .history-link:hover {
             background: rgba(255, 179, 0, 0.2);
             transform: translateY(-3px);
         }
@@ -1279,6 +1320,10 @@
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 padding: 2rem;
             }
+            
+            .history-content {
+                padding: 2rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1364,15 +1409,15 @@
                 margin: 1rem;
             }
             
-            .process-modal-content {
+            .process-modal-content, .history-modal-content {
                 margin: 1rem;
             }
             
-            .process-header {
+            .process-header, .history-header {
                 padding: 2rem 1.5rem 1.5rem;
             }
             
-            .process-header h2 {
+            .process-header h2, .history-header h2 {
                 font-size: 2rem;
             }
             
@@ -1596,10 +1641,11 @@
                 </div>
             </div>
             <div>
-                <h3>Contact</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Marrakech, Maroc</p>
-                <p><i class="fas fa-phone"></i> +212 6 XX XX XX XX</p>
-                <p><i class="fas fa-envelope"></i> contact@argan-store.com</p>
+                <h3>Notre Histoire</h3>
+                <p>Découvrez l'histoire passionnante<br>de notre coopérative</p>
+                <a href="#" class="history-link" onclick="showHistory()">
+                    <i class="fas fa-book"></i> Lire notre histoire
+                </a>
             </div>
             <div>
                 <h3>Processus de Production</h3>
@@ -1669,6 +1715,34 @@
             </div>
             <div class="process-steps" id="processSteps">
                 <!-- Les étapes seront ajoutées par JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL NOTRE HISTOIRE -->
+    <div id="historyModal" class="history-modal">
+        <div class="history-modal-content">
+            <span class="close-modal" onclick="closeHistoryModal()">&times;</span>
+            <div class="history-header">
+                <h2><i class="fas fa-history"></i> Notre Histoire</h2>
+                <p>Découvrez l'histoire passionnante de la création de notre coopérative</p>
+            </div>
+            <div class="history-content">
+                <div class="history-image">
+                    <img src="https://github.com/user-attachments/assets/1c315e5d-64da-480a-afdb-ceccba0f900e" 
+                         alt="Coopérative féminine de Taitmatine">
+                </div>
+                <div class="history-text">
+                    <p><strong>Historique de création de la coopérative</strong></p>
+                    
+                    <p>Avant que l'Association Ibno al Baytar n'appuie la création de la coopérative en 2002, les femmes de Tiout se retrouvaient principalement au sein d'un foyer féminin de tissage. La production artisanale d'huile d'argan était alors une activité traditionnelle secondaire, pratiquée individuellement à domicile.</p>
+                    
+                    <p>A l'époque, deux coopératives féminines d'argan existaient à Essaouira et l'Association Ibno al Baytar finança aux femmes de Tiout une visite d'échange dans ces deux coopératives.</p>
+                    
+                    <p>Cette visite les inspira et c'est ainsi que <strong>18 femmes fondèrent la Coopérative agricole féminine de Taitmatine</strong>. Soutenues par l'Association Ibno al Baytar et puis par un Projet financé par la Principauté de Monaco, la coopérative reçut différents appuis, en particulier de nombreuses formations.</p>
+                    
+                    <p>Aujourd'hui, notre coopérative continue de perpétuer ce savoir-faire ancestral tout en valorisant le travail des femmes berbères et en préservant l'écosystème unique de l'arganeraie marocaine.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -2037,6 +2111,17 @@
             document.body.style.overflow = 'auto';
         }
 
+        // FONCTIONS DE NOTRE HISTOIRE
+        function showHistory() {
+            document.getElementById('historyModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeHistoryModal() {
+            document.getElementById('historyModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
         // FONCTIONS DE PANIER
         let cart = [];
         let cartTotal = 0;
@@ -2181,6 +2266,7 @@
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('productModal');
             const processModal = document.getElementById('processModal');
+            const historyModal = document.getElementById('historyModal');
             const cartSidebar = document.querySelector('.cart-sidebar');
             
             if (event.target === modal) {
@@ -2188,6 +2274,9 @@
             }
             if (event.target === processModal) {
                 closeProcessModal();
+            }
+            if (event.target === historyModal) {
+                closeHistoryModal();
             }
             if (!cartSidebar.contains(event.target) && !event.target.closest('.cart-icon')) {
                 cartSidebar.classList.remove('active');
