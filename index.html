@@ -399,6 +399,134 @@
             left: 100%;
         }
 
+        /* SECTION NOTRE OBJECTIF - NOUVELLE SECTION */
+        #notre-objectif {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(245, 232, 208, 0.3) 0%, rgba(255, 255, 255, 0.6) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #notre-objectif::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .objectif-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .objectif-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            transform: perspective(1000px) rotateY(-5deg);
+        }
+
+        .objectif-image:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+            box-shadow: 0 25px 50px rgba(139, 115, 85, 0.2);
+        }
+
+        .objectif-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .objectif-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .objectif-content {
+            padding: 2rem;
+        }
+
+        .objectif-title {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .objectif-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .objectif-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .objectif-highlight {
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.1) 0%, rgba(255, 179, 0, 0.1) 100%);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent);
+            margin-top: 2rem;
+        }
+
+        .objectif-highlight h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .objectif-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .objectif-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
+        }
+
+        .objectif-list li:last-child {
+            border-bottom: none;
+        }
+
+        .objectif-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
         /* FEATURES BANNER (maintenant caché car remplacé par la barre d'annonce) */
         #features-banner {
             display: none;
@@ -1305,6 +1433,21 @@
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
+            .objectif-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .objectif-image {
+                max-width: 600px;
+                margin: 0 auto;
+                transform: none;
+            }
+            
+            .objectif-image:hover {
+                transform: scale(1.02);
+            }
+            
             .produit-detail-container {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1393,6 +1536,18 @@
             
             #hero p {
                 font-size: 1.1rem;
+            }
+            
+            #notre-objectif {
+                padding: 4rem 1rem;
+            }
+            
+            .objectif-title {
+                font-size: 2rem;
+            }
+            
+            .objectif-text {
+                font-size: 1rem;
             }
             
             .produits-grid {
@@ -1523,6 +1678,43 @@
                 Découvrir nos produits
                 <i class="fas fa-arrow-down"></i>
             </button>
+        </div>
+    </section>
+
+    <!-- SECTION NOTRE OBJECTIF - NOUVELLE SECTION -->
+    <section id="notre-objectif">
+        <div class="objectif-container">
+            <div class="objectif-image">
+                <img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76" 
+                     alt="Notre mission - Coopérative féminine d'Argan">
+            </div>
+            
+            <div class="objectif-content">
+                <h2 class="objectif-title">Notre Objectif</h2>
+                
+                <p class="objectif-text">
+                    <strong>Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales</strong> en renforçant leur autonomie financière à travers la production d'huiles culinaires et cosmétiques de très haute qualité.
+                </p>
+                
+                <p class="objectif-text">
+                    Nous favorisons l'augmentation des revenus, l'alphabétisation et l'intégration des femmes dans un cadre de travail collectif et structuré.
+                </p>
+                
+                <p class="objectif-text">
+                    À travers notre engagement, nous contribuons à la préservation de l'arganier et à la valorisation durable des produits du terroir marocain.
+                </p>
+                
+                <div class="objectif-highlight">
+                    <h3><i class="fas fa-heart"></i> Notre Impact Social</h3>
+                    <ul class="objectif-list">
+                        <li><strong>Autonomisation économique</strong> des femmes berbères</li>
+                        <li><strong>Préservation des savoir-faire</strong> ancestraux</li>
+                        <li><strong>Développement durable</strong> des communautés rurales</li>
+                        <li><strong>Protection de l'écosystème</strong> de l'arganeraie</li>
+                        <li><strong>Commerce équitable</strong> et éthique</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1774,7 +1966,49 @@
             
             // Initialiser le processus de production
             initProductionProcess();
+            
+            // Animation de la section Notre Objectif
+            animateObjectifSection();
         });
+
+        // ANIMATION DE LA SECTION NOTRE OBJECTIF
+        function animateObjectifSection() {
+            const objectifSection = document.getElementById('notre-objectif');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const image = entry.target.querySelector('.objectif-image');
+                        const content = entry.target.querySelector('.objectif-content');
+                        if (image) {
+                            image.style.opacity = '1';
+                            image.style.transform = 'perspective(1000px) rotateY(0deg)';
+                        }
+                        if (content) {
+                            content.style.opacity = '1';
+                            content.style.transform = 'translateY(0)';
+                        }
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            if (objectifSection) {
+                observer.observe(objectifSection);
+                
+                // Initial state
+                const image = objectifSection.querySelector('.objectif-image');
+                const content = objectifSection.querySelector('.objectif-content');
+                if (image) {
+                    image.style.opacity = '0';
+                    image.style.transform = 'perspective(1000px) rotateY(-20deg)';
+                    image.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                }
+                if (content) {
+                    content.style.opacity = '0';
+                    content.style.transform = 'translateY(30px)';
+                    content.style.transition = 'opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s';
+                }
+            }
+        }
 
         // DONNÉES DU PROCESSUS DE PRODUCTION
         const productionProcess = [
