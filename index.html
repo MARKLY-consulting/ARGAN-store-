@@ -3,191 +3,541 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Argan Store - Produits Naturels d'Argan</title>
+    <title>Argan Store | Produits Naturels Marocains</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* RESET & BASE STYLES */
+        /* VARIABLES & RESET */
+        :root {
+            --primary: #8B7355;
+            --primary-dark: #6d5a42;
+            --primary-light: #a58a6a;
+            --secondary: #f5e8d0;
+            --accent: #ffb300;
+            --text: #333333;
+            --text-light: #666666;
+            --light: #ffffff;
+            --dark: #222222;
+            --shadow: 0 10px 30px rgba(139, 115, 85, 0.1);
+            --radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f9f9f9;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: linear-gradient(135deg, #f9f9f9 0%, #f5f0e8 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(139, 115, 85, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 179, 0, 0.05) 0%, transparent 20%);
+            z-index: -1;
+        }
+
+        /* LOADING ANIMATION */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+
+        .loader::before,
+        .loader::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+        }
+
+        .loader::after {
+            border-top-color: var(--accent);
+            animation-delay: 0.3s;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* HEADER & NAVIGATION */
         header {
-            background: #8B7355;
-            color: white;
-            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
+        }
+
+        header.scrolled {
+            padding: 0.8rem 2rem;
+            box-shadow: var(--shadow);
         }
 
         .logo {
             font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
         }
 
-        nav a {
-            color: white;
+        .logo i {
+            color: var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text);
             text-decoration: none;
-            margin-left: 2rem;
+            font-weight: 500;
             padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background 0.3s;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
         }
 
-        nav a:hover {
-            background: rgba(255,255,255,0.1);
+        .nav-link:hover {
+            color: var(--primary);
+            background: var(--secondary);
         }
 
-        /* HERO SECTION AVEC VOTRE IMAGE */
+        .nav-link.active {
+            color: var(--light);
+            background: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.3rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            animation: bounce 0.5s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* HERO SECTION */
         #hero {
-            background: linear-gradient(rgba(139, 115, 85, 0.7), rgba(139, 115, 85, 0.7)), 
+            background: linear-gradient(rgba(139, 115, 85, 0.85), rgba(139, 115, 85, 0.9)), 
                         url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: white;
             text-align: center;
-            padding: 5rem 2rem;
-            margin-bottom: 3rem;
-            min-height: 60vh;
+            padding: 12rem 2rem 8rem;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255,255,255,0.1) 50%, 
+                transparent 100%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeUp 1s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         #hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-weight: 800;
+            line-height: 1.2;
         }
 
         #hero p {
-            font-size: 1.4rem;
-            max-width: 700px;
-            margin: 0 auto;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-            background: rgba(139, 115, 85, 0.7);
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            display: inline-block;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
         }
 
-        /* PRODUITS GRID */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 10px 20px rgba(139, 115, 85, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 115, 85, 0.4);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
+        /* PRODUITS SECTION */
         #produits {
-            padding: 3rem 2rem;
-            max-width: 1200px;
+            padding: 6rem 2rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
-            color: #8B7355;
-            font-size: 2.2rem;
+            margin-bottom: 4rem;
             position: relative;
-            padding-bottom: 1rem;
         }
 
-        .section-title:after {
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: #8B7355;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
         }
 
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CATEGORIES */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: white;
+            border: 2px solid var(--secondary);
+            color: var(--text);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.2);
+        }
+
+        /* PRODUITS GRID */
         .produits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
             margin-bottom: 4rem;
         }
 
         .produit-card {
             background: white;
-            border-radius: 10px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             cursor: pointer;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardAppear 0.6s ease forwards;
+        }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .produit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.15);
+        }
+
+        .produit-card:nth-child(1) { animation-delay: 0.1s; }
+        .produit-card:nth-child(2) { animation-delay: 0.2s; }
+        .produit-card:nth-child(3) { animation-delay: 0.3s; }
+        .produit-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            animation: badgePulse 2s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .produit-image {
             width: 100%;
             height: 250px;
             overflow: hidden;
+            position: relative;
         }
 
         .produit-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .produit-card:hover .produit-image img {
-            transform: scale(1.05);
+            transform: scale(1.15);
         }
 
         .produit-info {
-            padding: 1.5rem;
+            padding: 1.8rem;
         }
 
         .produit-titre {
             font-size: 1.3rem;
-            color: #2c3e50;
+            color: var(--dark);
             margin-bottom: 0.5rem;
             line-height: 1.4;
+            font-weight: 600;
         }
 
         .produit-prix {
-            font-size: 1.5rem;
-            color: #8B7355;
-            font-weight: bold;
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .produit-prix span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
         }
 
         .btn-voir {
-            background: #8B7355;
-            color: white;
-            border: none;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
             padding: 0.8rem 1.5rem;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
             width: 100%;
             font-size: 1rem;
-            transition: background 0.3s;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .btn-voir:hover {
-            background: #6d5a42;
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
         }
 
-        /* PRODUIT DETAIL MODAL */
+        /* MODAL */
         .modal {
             display: none;
             position: fixed;
@@ -196,29 +546,43 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
             z-index: 2000;
             overflow-y: auto;
             padding: 2rem;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                backdrop-filter: blur(0);
+            }
+            to {
+                opacity: 1;
+                backdrop-filter: blur(5px);
+            }
         }
 
         .modal-content {
             background: white;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 2rem auto;
-            border-radius: 15px;
+            border-radius: var(--radius);
             overflow: hidden;
             position: relative;
-            animation: modalFade 0.3s;
+            animation: modalSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
         }
 
-        @keyframes modalFade {
+        @keyframes modalSlideIn {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(50px) scale(0.9);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
 
@@ -226,36 +590,48 @@
             position: absolute;
             right: 20px;
             top: 20px;
-            font-size: 2rem;
-            color: #8B7355;
+            font-size: 1.8rem;
+            color: var(--primary);
             background: white;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+            color: var(--accent);
         }
 
         .produit-detail-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            padding: 2rem;
+            padding: 3rem;
         }
 
         .detail-image {
-            border-radius: 10px;
+            border-radius: var(--radius);
             overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
         .detail-image img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .detail-image:hover img {
+            transform: scale(1.05);
         }
 
         .detail-info {
@@ -263,28 +639,50 @@
         }
 
         .detail-titre {
-            color: #8B7355;
-            font-size: 2rem;
+            color: var(--primary);
+            font-size: 2.2rem;
             margin-bottom: 1rem;
             line-height: 1.3;
+            font-weight: 700;
         }
 
         .detail-prix {
-            font-size: 2rem;
-            color: #2c3e50;
-            font-weight: bold;
+            font-size: 2.5rem;
+            color: var(--dark);
+            font-weight: 700;
             margin: 1.5rem 0;
-            padding: 0.5rem 0;
-            border-top: 2px solid #f0f0f0;
-            border-bottom: 2px solid #f0f0f0;
+            padding: 1rem 0;
+            border-top: 2px solid var(--secondary);
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .detail-prix .old-price {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: line-through;
         }
 
         .detail-description {
-            background: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
+            background: var(--secondary);
+            padding: 1.8rem;
+            border-radius: var(--radius);
             margin: 2rem 0;
             line-height: 1.8;
+            position: relative;
+        }
+
+        .detail-description::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--primary-light);
+            font-family: Georgia, serif;
+            opacity: 0.3;
         }
 
         .detail-caracteristiques {
@@ -292,272 +690,640 @@
         }
 
         .detail-caracteristiques h3 {
-            color: #8B7355;
-            margin-bottom: 1rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .detail-caracteristiques ul {
             list-style-type: none;
-            padding-left: 0;
         }
 
         .detail-caracteristiques li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 2rem;
+            transition: var(--transition);
+        }
+
+        .detail-caracteristiques li:hover {
+            padding-left: 2.5rem;
+            background: rgba(139, 115, 85, 0.03);
         }
 
         .detail-caracteristiques li:before {
             content: "✓";
-            color: #8B7355;
+            color: var(--primary);
             position: absolute;
             left: 0;
             font-weight: bold;
         }
 
         .btn-ajouter {
-            background: #8B7355;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             border: none;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             font-size: 1.1rem;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: background 0.3s;
-            margin-top: 1rem;
-            width: 100%;
             justify-content: center;
+            gap: 1rem;
+            transition: var(--transition);
+            margin-top: 2rem;
+            width: 100%;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(139, 115, 85, 0.2);
         }
 
         .btn-ajouter:hover {
-            background: #6d5a42;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 115, 85, 0.3);
+        }
+
+        .btn-ajouter.added {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
         }
 
         .conseil-utilisation {
-            background: #fff8e1;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #ffb300;
+            background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+            padding: 1.8rem;
+            border-radius: var(--radius);
+            border-left: 5px solid var(--accent);
             margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conseil-utilisation::before {
+            content: '💡';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 3rem;
+            opacity: 0.1;
         }
 
         .secret-beaute {
-            background: #e8f5e9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #4caf50;
+            background: linear-gradient(135deg, #e8f5e9 0%, #d4edda 100%);
+            padding: 1.8rem;
+            border-radius: var(--radius);
+            border-left: 5px solid #4CAF50;
             margin: 2rem 0;
             font-style: italic;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .secret-beaute::before {
+            content: '✨';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 3rem;
+            opacity: 0.1;
         }
 
         .etapes-rituel {
-            background: #e3f2fd;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #2196f3;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 1.8rem;
+            border-radius: var(--radius);
+            border-left: 5px solid #2196f3;
             margin: 2rem 0;
+        }
+
+        /* CART SIDEBAR */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100vh;
+            background: white;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: var(--transition);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: var(--radius);
+            background: var(--secondary);
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .cart-item:hover {
+            transform: translateX(5px);
+        }
+
+        .cart-footer {
+            border-top: 2px solid var(--secondary);
+            padding-top: 1.5rem;
         }
 
         /* FOOTER */
         footer {
-            background: #333;
+            background: linear-gradient(135deg, var(--dark) 0%, #333 100%);
             color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
             text-align: center;
-            padding: 2rem;
+            padding-top: 2rem;
             margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
         }
 
         /* RESPONSIVE */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 1rem;
-            }
-
-            nav {
-                margin-top: 1rem;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.5rem;
-            }
-
-            nav a {
-                margin: 0.2rem;
-                padding: 0.3rem 0.8rem;
-                font-size: 0.9rem;
-            }
-
-            #hero {
-                padding: 3rem 1rem;
-                min-height: 50vh;
-            }
-
-            #hero h1 {
-                font-size: 2.2rem;
-            }
-
-            #hero p {
-                font-size: 1.1rem;
-                padding: 0.8rem 1.2rem;
-            }
-
+        @media (max-width: 1024px) {
             .produit-detail-container {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                padding: 2rem;
+            }
+            
+            .detail-image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
                 padding: 1rem;
             }
-
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            #hero {
+                padding: 8rem 1rem 4rem;
+            }
+            
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            #hero p {
+                font-size: 1.1rem;
+            }
+            
+            .produits-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
             .modal-content {
                 margin: 1rem;
             }
-
-            .produits-grid {
-                grid-template-columns: 1fr;
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
             }
         }
 
-        /* CATEGORIES */
-        .categories {
+        /* FLOATING BUTTONS */
+        .floating-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+            z-index: 100;
         }
 
-        .category-btn {
-            background: white;
-            border: 2px solid #8B7355;
-            color: #8B7355;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-
-        .category-btn.active,
-        .category-btn:hover {
-            background: #8B7355;
+        .floating-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            background: var(--primary-dark);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+        }
+
+        /* SCROLL PROGRESS */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* TOAST NOTIFICATION */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1002;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            border-left: 5px solid #4CAF50;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
+    <!-- LOADING -->
+    <div class="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- SCROLL PROGRESS -->
+    <div class="scroll-progress"></div>
+
     <!-- HEADER -->
     <header>
-        <div class="logo">ARGAN STORE</div>
+        <div class="logo">
+            <i class="fas fa-spa"></i>
+            ARGAN STORE
+        </div>
+        
         <nav>
-            <a href="#hero">Accueil</a>
-            <a href="#produits">Produits</a>
-            <a href="#collections">Collections</a>
-            <a href="#contact">Contact</a>
+            <a href="#hero" class="nav-link active">Accueil</a>
+            <a href="#produits" class="nav-link">Produits</a>
+            <a href="#collections" class="nav-link">Collections</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">0</span>
+            </div>
         </nav>
+        
+        <div class="mobile-menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
     </header>
 
-    <!-- HERO SECTION AVEC VOTRE IMAGE -->
+    <!-- HERO -->
     <section id="hero">
-        <h1>Produits 100% Argan Naturel</h1>
-        <p>Découvrez notre gamme de soins biologiques à base d'huile d'argan marocaine</p>
+        <div class="hero-content">
+            <h1>Produits 100% Argan Naturel</h1>
+            <p>Découvrez notre gamme exclusive de soins biologiques<br>à base d'huile d'argan marocaine</p>
+            <button class="btn-primary" onclick="scrollToProducts()">
+                Découvrir nos produits
+                <i class="fas fa-arrow-down"></i>
+            </button>
+        </div>
     </section>
 
-    <!-- PRODUITS SECTION -->
+    <!-- FEATURES -->
+    <section style="padding: 0 2rem; max-width: 1200px; margin: -3rem auto 4rem;">
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-leaf"></i>
+                <h3>100% Naturel</h3>
+                <p>Produits biologiques certifiés</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shipping-fast"></i>
+                <h3>Livraison Rapide</h3>
+                <p>Partout au Maroc</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-award"></i>
+                <h3>Qualité Premium</h3>
+                <p>Fabriqué avec soin</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-headset"></i>
+                <h3>Support 24/7</h3>
+                <p>Nous sommes là pour vous</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUITS -->
     <section id="produits">
-        <h2 class="section-title">Nos Produits Phares</h2>
+        <div class="section-title">
+            <h2>Nos Produits Phares</h2>
+            <p>Découvrez notre sélection de soins naturels pour votre beauté</p>
+        </div>
         
         <!-- CATEGORIES -->
         <div class="categories">
-            <button class="category-btn active" onclick="filterProducts('all')">Tous les produits</button>
-            <button class="category-btn" onclick="filterProducts('corps')">Soins Corps</button>
-            <button class="category-btn" onclick="filterProducts('visage')">Soins Visage</button>
-            <button class="category-btn" onclick="filterProducts('masque')">Masques</button>
-            <button class="category-btn" onclick="filterProducts('cheveux')">Soins Cheveux</button>
+            <button class="category-btn active" onclick="filterProducts('all')">
+                <i class="fas fa-star"></i> Tous les produits
+            </button>
+            <button class="category-btn" onclick="filterProducts('corps')">
+                <i class="fas fa-spa"></i> Soins Corps
+            </button>
+            <button class="category-btn" onclick="filterProducts('visage')">
+                <i class="fas fa-smile"></i> Soins Visage
+            </button>
+            <button class="category-btn" onclick="filterProducts('masque')">
+                <i class="fas fa-mask"></i> Masques
+            </button>
+            <button class="category-btn" onclick="filterProducts('cheveux')">
+                <i class="fas fa-air-freshener"></i> Soins Cheveux
+            </button>
         </div>
 
-        <!-- PRODUITS GRID - 4 PRODUITS -->
+        <!-- PRODUITS GRID -->
         <div class="produits-grid">
-            <!-- PRODUIT 1 - GOMMAGE -->
-            <div class="produit-card" data-category="corps" onclick="showProduct('gommage')">
+            <!-- GOMMAGE -->
+            <div class="produit-card" data-category="corps">
+                <div class="badge">Bestseller</div>
                 <div class="produit-image">
                     <img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32" 
-                         alt="Gommage Figue de Barbarie" width="895" height="895">
+                         alt="Gommage Figue de Barbarie">
                 </div>
                 <div class="produit-info">
-                    <h3 class="produit-titre">Gommage Figue de Barbarie – Éclat & Jeunesse</h3>
-                    <div class="produit-prix">150 DH</div>
+                    <h3 class="produit-titre">Gommage Figue de Barbarie</h3>
+                    <div class="produit-prix">150 DH <span>Éclat & Jeunesse</span></div>
                     <p>Exfoliant corps et visage à la figue de barbarie</p>
-                    <button class="btn-voir">Voir les détails</button>
+                    <button class="btn-voir" onclick="showProduct('gommage')">
+                        <i class="fas fa-eye"></i> Voir les détails
+                    </button>
                 </div>
             </div>
 
-            <!-- PRODUIT 2 - HUILE D'ARGAN ARGALUX 50ml -->
-            <div class="produit-card" data-category="visage" onclick="showProduct('argalux50')">
+            <!-- HUILE ARGAN -->
+            <div class="produit-card" data-category="visage">
+                <div class="badge">Nouveau</div>
                 <div class="produit-image">
                     <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" 
-                         alt="Huile d'Argan Pure Argalux 50ml" width="832" height="832">
+                         alt="Huile d'Argan Pure Argalux">
                 </div>
                 <div class="produit-info">
-                    <h3 class="produit-titre">Huile d'Argan Pure Argalux 50ml</h3>
-                    <div class="produit-prix">80 DH</div>
-                    <p>Format voyage avec étui et pompe</p>
-                    <button class="btn-voir">Voir les détails</button>
+                    <h3 class="produit-titre">Huile d'Argan Pure</h3>
+                    <div class="produit-prix">80 DH <span>Format Voyage</span></div>
+                    <p>Huile Bio 50ml avec étui et pompe doseuse</p>
+                    <button class="btn-voir" onclick="showProduct('argalux50')">
+                        <i class="fas fa-eye"></i> Voir les détails
+                    </button>
                 </div>
             </div>
 
-            <!-- PRODUIT 3 - MASQUE GHASSOUL -->
-            <div class="produit-card" data-category="masque" onclick="showProduct('ghassoul')">
+            <!-- MASQUE GHASSOUL -->
+            <div class="produit-card" data-category="masque">
                 <div class="produit-image">
                     <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" 
-                         alt="Masque au Ghassoul & Fleur d'Oranger" width="895" height="895">
+                         alt="Masque au Ghassoul">
                 </div>
                 <div class="produit-info">
-                    <h3 class="produit-titre">Masque au Ghassoul & Fleur d'Oranger</h3>
-                    <div class="produit-prix">100 DH</div>
-                    <p>Purification & Sérénité pour visage et corps</p>
-                    <button class="btn-voir">Voir les détails</button>
+                    <h3 class="produit-titre">Masque Ghassoul</h3>
+                    <div class="produit-prix">100 DH <span>Purification & Sérénité</span></div>
+                    <p>Masque purifiant à la fleur d'oranger</p>
+                    <button class="btn-voir" onclick="showProduct('ghassoul')">
+                        <i class="fas fa-eye"></i> Voir les détails
+                    </button>
                 </div>
             </div>
 
-            <!-- PRODUIT 4 - PACK ANTI-CHUTE -->
-            <div class="produit-card" data-category="cheveux" onclick="showProduct('antichute')">
+            <!-- PACK ANTI-CHUTE -->
+            <div class="produit-card" data-category="cheveux">
+                <div class="badge">Promo</div>
                 <div class="produit-image">
                     <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" 
-                         alt="Pack Rituel Anti-Chute Argalux" width="1003" height="948">
+                         alt="Pack Anti-Chute">
                 </div>
                 <div class="produit-info">
-                    <h3 class="produit-titre">Pack Rituel Anti-Chute Argalux</h3>
-                    <div class="produit-prix">300 DH</div>
-                    <p>Gamme complète Force & Vitalité Capillaire</p>
-                    <button class="btn-voir">Voir les détails</button>
+                    <h3 class="produit-titre">Pack Anti-Chute</h3>
+                    <div class="produit-prix">300 DH <span>Force & Vitalité</span></div>
+                    <p>Gamme complète 4 produits pour cheveux</p>
+                    <button class="btn-voir" onclick="showProduct('antichute')">
+                        <i class="fas fa-eye"></i> Voir les détails
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- COLLECTIONS SECTION -->
-    <section id="collections" style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title">Nos Collections</h2>
-        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <p>Découvrez nos collections spécialement conçues pour répondre à tous vos besoins beauté</p>
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">ARGAN STORE</div>
+                <p>Votre destination pour des soins naturels<br>à base d'huile d'argan marocaine.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Marrakech, Maroc</p>
+                <p><i class="fas fa-phone"></i> +212 6 XX XX XX XX</p>
+                <p><i class="fas fa-envelope"></i> contact@argan-store.com</p>
+            </div>
+            <div>
+                <h3>Horaires</h3>
+                <p>Lun - Ven: 9h - 18h</p>
+                <p>Samedi: 10h - 16h</p>
+                <p>Dimanche: Fermé</p>
+            </div>
         </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title">Contactez-nous</h2>
-        <div style="text-align: center;">
-            <p>Email: contact@argan-store.com</p>
-            <p>Téléphone: +212 6 XX XX XX XX</p>
-            <p>Marrakech, Maroc</p>
+        <div class="copyright">
+            <p>&copy; 2024 Argan Store. Tous droits réservés. | Produits 100% naturels fabriqués au Maroc</p>
         </div>
-    </section>
+    </footer>
 
-    <!-- MODAL POUR PRODUIT DETAIL -->
+    <!-- FLOATING BUTTONS -->
+    <div class="floating-buttons">
+        <div class="floating-btn whatsapp-btn" onclick="openWhatsApp()">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="floating-btn" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </div>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Votre Panier</h3>
+            <button class="close-modal" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Les produits du panier seront ajoutés ici -->
+        </div>
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                <strong>Total:</strong>
+                <strong id="cartTotal">0 DH</strong>
+            </div>
+            <button class="btn-ajouter" style="margin-top: 0;">Commander</button>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <!-- MODAL -->
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -565,19 +1331,38 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2024 Argan Store. Tous droits réservés.</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">Produits 100% naturels fabriqués au Maroc</p>
-    </footer>
-
-    <!-- JAVASCRIPT -->
     <script>
-        // Données des produits - 4 PRODUITS
+        // INITIALISATION
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cacher le loading après 1.5s
+            setTimeout(() => {
+                document.querySelector('.loading').classList.add('hidden');
+                // Animation des cartes
+                animateCards();
+            }, 1500);
+
+            // Navigation active
+            updateActiveNav();
+            
+            // Scroll progress
+            window.addEventListener('scroll', updateScrollProgress);
+            
+            // Animation au scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Header scroll effect
+            window.addEventListener('scroll', updateHeader);
+            
+            // Initialiser le panier depuis localStorage
+            loadCartFromStorage();
+        });
+
+        // DONNÉES DES PRODUITS
         const products = {
             'gommage': {
-                title: 'Gommage Figue de Barbarie – Éclat & Jeunesse (Corps et Visage)',
+                title: 'Gommage Figue de Barbarie – Éclat & Jeunesse',
                 price: '150 DH',
+                originalPrice: '180 DH',
                 image: 'https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32',
                 description: `Redécouvrez la douceur d'une peau régénérée avec notre Gommage à la Figue de Barbarie. Véritable trésor cosmétique venu du Maroc, ce soin exfoliant double action allie l'efficacité d'un gommage profond aux vertus exceptionnelles de l'huile de pépins de figue de barbarie.`,
                 pourquoi: [
@@ -595,10 +1380,11 @@
                     'Contenance : Pot généreux (format standard gommage)',
                     'Ingrédient phare : Figue de Barbarie (Prickly Pear)',
                     'Type de peau : Tous types de peaux, particulièrement recommandé pour les peaux ternes ou matures'
-                ]
+                ],
+                category: 'corps'
             },
             'argalux50': {
-                title: 'Huile d\'Argan Pure Argalux – L\'Essence de la Beauté Marocaine (50ml)',
+                title: 'Huile d\'Argan Pure Argalux – L\'Essence de la Beauté Marocaine',
                 price: '80 DH',
                 image: 'https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb',
                 description: `Sublimez votre routine beauté avec l'Huile d'Argan Pure Argalux, un soin d'exception 100% Bio et naturel. Extraite à froid à partir d'amandons non torréfiés, cette huile préserve toute sa richesse en Vitamine E et en antioxydants pour offrir à votre peau, vos cheveux et vos ongles une régénération profonde.`,
@@ -615,7 +1401,8 @@
                     'Certification : 100% Bio et Naturelle',
                     'Extraction : Pressage à froid, non torréfiée',
                     'Accessoire : Étui et pompe doseuse inclus'
-                ]
+                ],
+                category: 'visage'
             },
             'ghassoul': {
                 title: 'Masque au Ghassoul & Fleur d\'Oranger – Purification & Sérénité',
@@ -638,11 +1425,13 @@
                     'Ingrédient phare : Ghassoul argile marocaine',
                     'Parfum : Fleur d\'oranger naturelle',
                     'Texture : Prête à l\'emploi, onctueuse'
-                ]
+                ],
+                category: 'masque'
             },
             'antichute': {
                 title: 'Pack Rituel Anti-Chute Argalux – Force & Vitalité Capillaire',
                 price: '300 DH',
+                originalPrice: '450 DH',
                 image: 'https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f',
                 description: `Redonnez vie à votre chevelure avec la Gamme Anti-Chute Argalux. Conçue pour freiner la chute des cheveux et stimuler leur croissance, cette routine complète associe les bienfaits ancestraux de l'argan à des actifs fortifiants modernes pour des cheveux plus denses, plus forts et éclatants de santé.`,
                 pourquoi: [
@@ -667,11 +1456,75 @@
                     'Le Masque Réparateur : Un soin profond qui nourrit intensément, facilite le démêlage et redonne de la souplesse.',
                     'L\'Huile Capillaire Anti-Chute : Concentré d\'huiles précieuses pour stimuler la microcirculation.',
                     'Le Sérum Finition & Croissance : Texture légère pour brillance et protection au quotidien.'
-                ]
+                ],
+                category: 'cheveux'
             }
         };
 
-        // Fonctions pour le modal
+        // VARIABLES GLOBALES
+        let cart = [];
+        let cartTotal = 0;
+
+        // FONCTIONS D'ANIMATION
+        function animateCards() {
+            const cards = document.querySelectorAll('.produit-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.feature, .section-title');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        function updateHeader() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        function updateScrollProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+        }
+
+        // FONCTIONS D'INTERFACE
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+        }
+
+        function toggleCart() {
+            document.querySelector('.cart-sidebar').classList.toggle('active');
+        }
+
+        function scrollToProducts() {
+            document.querySelector('#produits').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openWhatsApp() {
+            window.open('https://wa.me/212600000000?text=Bonjour%20Argan%20Store,%20je%20suis%20intéressé%20par%20vos%20produits', '_blank');
+        }
+
+        // FONCTIONS DE PRODUITS
         function showProduct(productId) {
             const product = products[productId];
             if (!product) return;
@@ -680,12 +1533,17 @@
             if (product.etapes) {
                 etapesHTML = `
                     <div class="etapes-rituel">
-                        <h3>Les 4 Étapes de Votre Rituel :</h3>
+                        <h3><i class="fas fa-list-ol"></i> Les 4 Étapes de Votre Rituel :</h3>
                         <ul>
                             ${product.etapes.map(item => `<li>${item}</li>`).join('')}
                         </ul>
                     </div>
                 `;
+            }
+
+            let originalPriceHTML = '';
+            if (product.originalPrice) {
+                originalPriceHTML = `<span class="old-price">${product.originalPrice}</span>`;
             }
 
             const modalContent = document.getElementById('modalContent');
@@ -696,7 +1554,10 @@
                     </div>
                     <div class="detail-info">
                         <h1 class="detail-titre">${product.title}</h1>
-                        <div class="detail-prix">${product.price}</div>
+                        <div class="detail-prix">
+                            ${originalPriceHTML}
+                            ${product.price}
+                        </div>
                         
                         <div class="detail-description">
                             <p>${product.description}</p>
@@ -705,31 +1566,31 @@
                         ${etapesHTML}
                         
                         <div class="detail-caracteristiques">
-                            <h3>Pourquoi adopter ${productId === 'antichute' ? 'cette gamme' : 'ce soin'} ?</h3>
+                            <h3><i class="fas fa-heart"></i> Pourquoi adopter ${productId === 'antichute' ? 'cette gamme' : 'ce soin'} ?</h3>
                             <ul>
                                 ${product.pourquoi.map(item => `<li>${item}</li>`).join('')}
                             </ul>
                         </div>
                         
                         <div class="conseil-utilisation">
-                            <h3>Conseils d'utilisation :</h3>
+                            <h3><i class="fas fa-lightbulb"></i> Conseils d'utilisation :</h3>
                             <p>${product.conseils.replace(/\n/g, '<br>')}</p>
                         </div>
                         
                         <div class="secret-beaute">
-                            <h3>${productId === 'antichute' ? 'L\'offre exclusive' : 'Pourquoi le choisir ?'} :</h3>
+                            <h3><i class="fas fa-gem"></i> ${productId === 'antichute' ? 'L\'offre exclusive' : 'Pourquoi le choisir ?'} :</h3>
                             <p>${product.secret}</p>
                         </div>
                         
                         <div class="detail-caracteristiques">
-                            <h3>Caractéristiques :</h3>
+                            <h3><i class="fas fa-info-circle"></i> Caractéristiques :</h3>
                             <ul>
                                 ${product.caracteristiques.map(item => `<li>${item}</li>`).join('')}
                             </ul>
                         </div>
                         
-                        <button class="btn-ajouter" onclick="addToCart('${productId}')">
-                            <span>Ajouter au panier - ${product.price}</span>
+                        <button class="btn-ajouter" onclick="addToCart('${productId}')" id="addToCartBtn">
+                            <i class="fas fa-cart-plus"></i> Ajouter au panier - ${product.price}
                         </button>
                     </div>
                 </div>
@@ -744,67 +1605,163 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Fermer modal en cliquant en dehors
-        window.onclick = function(event) {
-            const modal = document.getElementById('productModal');
-            if (event.target == modal) {
-                closeModal();
+        // FONCTIONS DE PANIER
+        function addToCart(productId) {
+            const product = products[productId];
+            cart.push(product);
+            
+            // Mettre à jour l'affichage
+            updateCartDisplay();
+            saveCartToStorage();
+            
+            // Animation du bouton
+            const btn = document.getElementById('addToCartBtn');
+            if (btn) {
+                btn.classList.add('added');
+                btn.innerHTML = '<i class="fas fa-check"></i> Ajouté au panier';
+                setTimeout(() => {
+                    btn.classList.remove('added');
+                    btn.innerHTML = `<i class="fas fa-cart-plus"></i> Ajouter au panier - ${product.price}`;
+                }, 2000);
+            }
+            
+            // Toast notification
+            showToast(`${product.title} ajouté au panier !`, 'success');
+        }
+
+        function updateCartDisplay() {
+            const cartCount = document.querySelector('.cart-count');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotalElement = document.getElementById('cartTotal');
+            
+            // Mettre à jour le count
+            cartCount.textContent = cart.length;
+            
+            // Mettre à jour les items
+            cartItems.innerHTML = '';
+            cartTotal = 0;
+            
+            cart.forEach((item, index) => {
+                const price = parseInt(item.price);
+                cartTotal += price;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div style="flex: 1;">
+                        <strong>${item.title.split('–')[0]}</strong>
+                        <p>${item.price}</p>
+                    </div>
+                    <button onclick="removeFromCart(${index})" style="background:none;border:none;color:#ff4444;cursor:pointer;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            
+            // Mettre à jour le total
+            cartTotalElement.textContent = `${cartTotal} DH`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+            saveCartToStorage();
+            showToast('Produit retiré du panier', 'success');
+        }
+
+        function saveCartToStorage() {
+            localStorage.setItem('arganStoreCart', JSON.stringify(cart));
+        }
+
+        function loadCartFromStorage() {
+            const savedCart = localStorage.getItem('arganStoreCart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCartDisplay();
             }
         }
 
-        // Filtrer les produits par catégorie
+        // FONCTIONS UTILITAIRES
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type}`;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
         function filterProducts(category) {
             const produits = document.querySelectorAll('.produit-card');
             const buttons = document.querySelectorAll('.category-btn');
             
             // Mettre à jour les boutons actifs
-            buttons.forEach(btn => {
-                if (btn.textContent.includes(category === 'all' ? 'Tous' : 
-                    category === 'visage' ? 'Visage' : 
-                    category === 'corps' ? 'Corps' : 
-                    category === 'masque' ? 'Masques' : 'Cheveux')) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
             
             // Filtrer les produits
             produits.forEach(produit => {
                 if (category === 'all' || produit.dataset.category === category) {
                     produit.style.display = 'block';
+                    setTimeout(() => {
+                        produit.style.opacity = '1';
+                        produit.style.transform = 'translateY(0)';
+                    }, 100);
                 } else {
-                    produit.style.display = 'none';
+                    produit.style.opacity = '0';
+                    produit.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        produit.style.display = 'none';
+                    }, 300);
                 }
             });
         }
 
-        // Panier simple
-        let cart = [];
-
-        function addToCart(productId) {
-            const product = products[productId];
-            cart.push(product);
-            alert(`${product.title} a été ajouté au panier !`);
-            closeModal();
-        }
-
-        // Navigation fluide
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId.startsWith('#')) {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
                 }
             });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // ÉVÉNEMENTS
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('productModal');
+            const cartSidebar = document.querySelector('.cart-sidebar');
+            if (event.target === modal) {
+                closeModal();
+            }
+            if (!cartSidebar.contains(event.target) && !event.target.closest('.cart-icon')) {
+                cartSidebar.classList.remove('active');
+            }
         });
+
+        // Initial animations
+        setTimeout(() => {
+            document.querySelectorAll('.feature, .section-title').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+        }, 100);
     </script>
 </body>
 </html>
