@@ -12,7 +12,7 @@
             --brand-dark: #5D4D3A;
             --brand-light: #C5B097;
             --bg: #FDFCFB;
-            --glass: rgba(255, 255, 255, 0.8);
+            --glass: rgba(255, 255, 255, 0.85);
             --text: #2D2926;
             --accent: #D4AF37;
             --radius-lg: 24px;
@@ -38,7 +38,7 @@
             backdrop-filter: blur(15px);
             border-radius: 50px;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 0 30px;
+            padding: 0 40px;
             z-index: 1000;
             border: 1px solid rgba(255,255,255,0.3);
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -46,29 +46,27 @@
         }
 
         header.scrolled { width: 100%; top: 0; border-radius: 0; }
-
         .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--brand); letter-spacing: 1px; }
 
         nav { display: flex; gap: 30px; align-items: center; }
         .nav-link { text-decoration: none; color: var(--text); font-size: 0.9rem; font-weight: 600; opacity: 0.7; transition: 0.3s; }
         .nav-link:hover { opacity: 1; color: var(--brand); }
 
-        /* --- TICKER EXTRAORDINAIRE (FLOTTANT) --- */
+        /* --- TICKER FLOTTANT --- */
         .ticker-wrapper {
             position: absolute;
-            bottom: 40px;
+            bottom: 0;
             width: 100%;
             z-index: 10;
         }
 
         .reassurance-ticker {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255,255,255,0.2);
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding: 15px 0;
+            padding: 20px 0;
             overflow: hidden;
             display: flex;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .ticker-content {
@@ -80,24 +78,23 @@
         .ticker-item {
             display: flex; align-items: center;
             color: white;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             padding: 0 60px;
-            font-weight: 400;
         }
 
-        .ticker-item i { color: var(--accent); margin-right: 15px; font-size: 0.5rem; }
+        .ticker-item i { color: var(--accent); margin-right: 15px; font-size: 0.4rem; }
 
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* --- HERO LUXE --- */
+        /* --- HERO --- */
         #hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af');
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af');
             background-size: cover;
             background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -105,31 +102,21 @@
             position: relative;
         }
 
-        #hero h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 5rem; line-height: 1.1; 
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s ease;
-        }
-
-        #hero p { font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px; opacity: 0.9; }
+        #hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 6rem); line-height: 1; margin-bottom: 20px; }
+        #hero p { font-size: 1rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 40px; opacity: 0.9; }
 
         .btn-luxe {
-            padding: 18px 45px;
+            padding: 18px 50px;
             background: white; color: var(--brand);
             border: none; border-radius: 50px;
             font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
             cursor: pointer; transition: var(--transition);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
+        .btn-luxe:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 
-        .btn-luxe:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-
-        /* --- PRODUITS : GRID MODERNE --- */
-        #produits { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
-
-        .section-header { margin-bottom: 60px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--brand); }
+        /* --- PRODUITS --- */
+        #produits { padding: 120px 5%; max-width: 1400px; margin: 0 auto; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--brand); margin-bottom: 60px; }
 
         .produit-card {
             background: white;
@@ -138,49 +125,67 @@
             transition: var(--transition);
             border: 1px solid #F0EFED;
             position: relative;
-            margin-bottom: 30px;
         }
-
-        .produit-card:hover { border-color: var(--brand-light); transform: translateY(-10px); }
+        .produit-card:hover { transform: translateY(-10px); border-color: var(--brand-light); }
 
         .img-container {
-            width: 100%; height: 350px;
-            border-radius: calc(var(--radius-lg) - 5px);
-            overflow: hidden;
-            margin-bottom: 20px;
+            width: 100%; height: 380px;
+            border-radius: 18px;
+            overflow: hidden; margin-bottom: 20px;
         }
-
         .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 1s; }
         .produit-card:hover img { transform: scale(1.1); }
 
-        .produit-info h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; }
-        .price-tag { color: var(--brand); font-size: 1.3rem; font-weight: 800; }
-
-        .badge-luxe {
-            position: absolute; top: 35px; left: 35px;
-            background: var(--brand); color: white;
-            padding: 5px 15px; border-radius: 20px;
-            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+        /* --- FOOTER (CORDONNEES) --- */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 80px 5% 40px;
+            margin-top: 100px;
         }
 
-        /* --- CART SIDEBAR --- */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 25px; color: var(--brand-light); }
+        .footer-col p, .footer-col a { color: #aaa; text-decoration: none; margin-bottom: 15px; display: block; font-size: 0.9rem; transition: 0.3s; }
+        .footer-col a:hover { color: #fff; }
+        .footer-col i { width: 25px; color: var(--brand-light); }
+
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { 
+            width: 40px; height: 40px; border-radius: 50%; 
+            background: rgba(255,255,255,0.05); 
+            display: flex; align-items: center; justify-content: center;
+        }
+        .social-links a:hover { background: var(--brand); color: white; }
+
+        .copyright {
+            text-align: center;
+            padding-top: 50px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #666; font-size: 0.8rem;
+        }
+
+        /* --- CART --- */
         .cart-sidebar {
             position: fixed; top: 0; right: -100%;
             width: 400px; height: 100vh;
             background: white; z-index: 2000;
+            padding: 40px; transition: var(--transition);
             box-shadow: -20px 0 60px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            padding: 40px;
         }
         .cart-sidebar.active { right: 0; }
 
-        /* --- UTILS --- */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
         @media (max-width: 768px) {
-            #hero h1 { font-size: 3rem; }
             .cart-sidebar { width: 100%; }
-            header { padding: 0 15px; }
+            header { padding: 0 20px; }
             nav { display: none; }
         }
     </style>
@@ -191,30 +196,30 @@
         <div class="logo">ARGAN STORE</div>
         <nav>
             <a href="#hero" class="nav-link">Collections</a>
-            <a href="#produits" class="nav-link">Boutique</a>
-            <a href="#" class="nav-link" onclick="toggleCart()">Panier (<span class="cart-count">0</span>)</a>
+            <a href="#produits" class="nav-link">Produits</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </nav>
-        <div class="cart-icon" onclick="toggleCart()" style="cursor:pointer">
-            <i class="fas fa-shopping-bag"></i>
+        <div onclick="toggleCart()" style="cursor:pointer; font-weight:700">
+            <i class="fas fa-shopping-bag"></i> (<span class="cart-count">0</span>)
         </div>
     </header>
 
     <section id="hero">
-        <p>Héritage Marocain</p>
-        <h1>Pureté<br>Organique</h1>
+        <p>Héritage Artisanal</p>
+        <h1>Pureté<br>Sauvage</h1>
         <button class="btn-luxe" onclick="scrollToProducts()">Découvrir</button>
 
         <div class="ticker-wrapper">
             <div class="reassurance-ticker">
                 <div class="ticker-content">
-                    <div class="ticker-item"><i class="fas fa-circle"></i> 100% Naturel – Biologique</div>
-                    <div class="ticker-item"><i class="fas fa-circle"></i> Livraison Rapide – Partout au Maroc</div>
+                    <div class="ticker-item"><i class="fas fa-circle"></i> 100% Naturel – Bio Certifié</div>
+                    <div class="ticker-item"><i class="fas fa-circle"></i> Livraison Express – Partout au Maroc</div>
                     <div class="ticker-item"><i class="fas fa-circle"></i> Qualité Premium – Fait Main</div>
-                    <div class="ticker-item"><i class="fas fa-circle"></i> Support Expert 24/7</div>
-                    <div class="ticker-item"><i class="fas fa-circle"></i> 100% Naturel – Biologique</div>
-                    <div class="ticker-item"><i class="fas fa-circle"></i> Livraison Rapide – Partout au Maroc</div>
+                    <div class="ticker-item"><i class="fas fa-circle"></i> Support Client 24/7</div>
+                    <div class="ticker-item"><i class="fas fa-circle"></i> 100% Naturel – Bio Certifié</div>
+                    <div class="ticker-item"><i class="fas fa-circle"></i> Livraison Express – Partout au Maroc</div>
                     <div class="ticker-item"><i class="fas fa-circle"></i> Qualité Premium – Fait Main</div>
-                    <div class="ticker-item"><i class="fas fa-circle"></i> Support Expert 24/7</div>
+                    <div class="ticker-item"><i class="fas fa-circle"></i> Support Client 24/7</div>
                 </div>
             </div>
         </div>
@@ -222,78 +227,98 @@
 
     <section id="produits">
         <div class="section-header">
-            <h2>Éditions Limitées</h2>
+            <h2>La Collection</h2>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 40px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px;">
             <div class="produit-card" onclick="addToCart('gommage')">
-                <span class="badge-luxe">Eclat</span>
                 <div class="img-container">
                     <img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32" alt="Gommage">
                 </div>
-                <div class="produit-info">
-                    <h3>Gommage Figue de Barbarie</h3>
-                    <p class="price-tag">150 DH</p>
-                </div>
+                <h3>Gommage Figue de Barbarie</h3>
+                <p style="color:var(--brand); font-weight:800">150 DH</p>
             </div>
 
-            <div class="produit-card" onclick="addToCart('argalux')">
-                <span class="badge-luxe">Essentiel</span>
+            <div class="produit-card" onclick="addToCart('argan')">
                 <div class="img-container">
                     <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile">
                 </div>
-                <div class="produit-info">
-                    <h3>Huile d'Argan Pure</h3>
-                    <p class="price-tag">80 DH</p>
-                </div>
+                <h3>Huile d'Argan Pure</h3>
+                <p style="color:var(--brand); font-weight:800">80 DH</p>
             </div>
 
             <div class="produit-card" onclick="addToCart('pack')">
-                <span class="badge-luxe">Rituel</span>
                 <div class="img-container">
                     <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack">
                 </div>
-                <div class="produit-info">
-                    <h3>Pack Anti-Chute Vitalité</h3>
-                    <p class="price-tag">300 DH</p>
-                </div>
+                <h3>Pack Rituel Anti-Chute</h3>
+                <p style="color:var(--brand); font-weight:800">300 DH</p>
             </div>
         </div>
     </section>
 
-    <div class="cart-sidebar" id="cart">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:50px;">
-            <h2 style="font-family:'Playfair Display'">Votre Sélection</h2>
-            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; font-size:1.5rem"></i>
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>ARGAN STORE</h3>
+                <p>Spécialiste des soins naturels marocains. Nous sélectionnons le meilleur de l'argan pour votre rituel quotidien.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Marrakech, Gueliz, Maroc</p>
+                <p><i class="fas fa-phone"></i> +212 6 36 22 19 00</p>
+                <p><i class="fas fa-envelope"></i> contact@argan-store.com</p>
+            </div>
+            <div class="footer-col">
+                <h3>Horaires</h3>
+                <p>Lundi - Vendredi : 09:00 - 18:00</p>
+                <p>Samedi : 10:00 - 16:00</p>
+                <p>Dimanche : Fermé</p>
+            </div>
         </div>
-        <div id="cartItems" style="flex:1"></div>
-        <div style="margin-top:auto">
-            <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-size:1.2rem; font-weight:700">
+        <div class="copyright">
+            &copy; 2026 ARGAN STORE. Tous droits réservés.
+        </div>
+    </footer>
+
+    <div class="cart-sidebar" id="cart">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
+            <h2 style="font-family:'Playfair Display'">Votre Panier</h2>
+            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer"></i>
+        </div>
+        <div id="cartItems"></div>
+        <div style="margin-top:auto; padding-top:20px; border-top:1px solid #eee">
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-weight:700">
                 <span>Total</span>
                 <span id="cartTotal">0 DH</span>
             </div>
-            <button class="btn-luxe" style="width:100%; background:var(--brand); color:white">Finaliser la commande</button>
+            <button class="btn-luxe" style="width:100%; background:var(--brand); color:white">Commander</button>
         </div>
     </div>
 
     <script>
         let cart = [];
-        const itemsData = {
+        const items = {
             'gommage': { name: 'Gommage Figue', price: 150 },
-            'argalux': { name: 'Huile Argan Pure', price: 80 },
+            'argan': { name: 'Huile Argan Pure', price: 80 },
             'pack': { name: 'Pack Anti-Chute', price: 300 }
         };
 
         window.onscroll = () => {
-            const header = document.getElementById('mainHeader');
-            if (window.scrollY > 100) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
+            const h = document.getElementById('mainHeader');
+            if(window.scrollY > 100) h.classList.add('scrolled');
+            else h.classList.remove('scrolled');
         };
 
         function toggleCart() { document.getElementById('cart').classList.toggle('active'); }
 
         function addToCart(id) {
-            cart.push(itemsData[id]);
+            cart.push(items[id]);
             updateCart();
             toggleCart();
         }
@@ -302,7 +327,7 @@
             document.querySelector('.cart-count').textContent = cart.length;
             const container = document.getElementById('cartItems');
             container.innerHTML = cart.map((item, i) => `
-                <div style="display:flex; justify-content:space-between; padding:15px 0; border-bottom:1px solid #eee">
+                <div style="display:flex; justify-content:space-between; padding:15px 0; border-bottom:1px solid #f9f9f9">
                     <span>${item.name}</span>
                     <strong>${item.price} DH</strong>
                 </div>
