@@ -443,12 +443,11 @@
         <!-- CATEGORIES -->
         <div class="categories">
             <button class="category-btn active" onclick="filterProducts('all')">Tous les produits</button>
-            <button class="category-btn" onclick="filterProducts('visage')">Soins Visage</button>
             <button class="category-btn" onclick="filterProducts('corps')">Soins Corps</button>
-            <button class="category-btn" onclick="filterProducts('cheveux')">Soins Cheveux</button>
+            <button class="category-btn" onclick="filterProducts('visage')">Soins Visage</button>
         </div>
 
-        <!-- PRODUITS GRID -->
+        <!-- PRODUITS GRID - SEULEMENT 2 PRODUITS -->
         <div class="produits-grid">
             <!-- PRODUIT 1 - GOMMAGE -->
             <div class="produit-card" data-category="corps" onclick="showProduct('gommage')">
@@ -474,34 +473,6 @@
                     <h3 class="produit-titre">Huile d'Argan Pure Argalux – L'Or Liquide</h3>
                     <div class="produit-prix">350 DH</div>
                     <p>Huile Bio 230ml pour visage, corps et cheveux</p>
-                    <button class="btn-voir">Voir les détails</button>
-                </div>
-            </div>
-
-            <!-- PRODUIT 3 - SHAMPOOING -->
-            <div class="produit-card" data-category="cheveux" onclick="showProduct('shampooing')">
-                <div class="produit-image">
-                    <img src="https://images.unsplash.com/photo-1556228578-9c360e2d0b4a?auto=format&fit=crop&w=600" 
-                         alt="Shampooing Argan">
-                </div>
-                <div class="produit-info">
-                    <h3 class="produit-titre">Shampooing Réparateur à l'Argan</h3>
-                    <div class="produit-prix">120 DH</div>
-                    <p>Nourrit et répare les cheveux abîmés</p>
-                    <button class="btn-voir">Voir les détails</button>
-                </div>
-            </div>
-
-            <!-- PRODUIT 4 - SAVON NOIR -->
-            <div class="produit-card" data-category="corps" onclick="showProduct('savon')">
-                <div class="produit-image">
-                    <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ff6?auto=format&fit=crop&w=600" 
-                         alt="Savon Noir Argan">
-                </div>
-                <div class="produit-info">
-                    <h3 class="produit-titre">Savon Noir à l'Argan</h3>
-                    <div class="produit-prix">80 DH</div>
-                    <p>Purifiant et nourrissant pour le corps</p>
                     <button class="btn-voir">Voir les détails</button>
                 </div>
             </div>
@@ -542,7 +513,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Données des produits
+        // Données des produits - SEULEMENT 2 PRODUITS
         const products = {
             'gommage': {
                 title: 'Gommage Figue de Barbarie – Éclat & Jeunesse (Corps et Visage)',
@@ -587,44 +558,6 @@
                     'Extraction : Pressage à froid des amandons crus',
                     'Odeur : Légère, pénétration rapide'
                 ]
-            },
-            'shampooing': {
-                title: 'Shampooing Réparateur à l\'Argan',
-                price: '120 DH',
-                image: 'https://images.unsplash.com/photo-1556228578-9c360e2d0b4a?auto=format&fit=crop&w=800',
-                description: 'Shampooing nourrissant et réparateur à l\'huile d\'argan pure.',
-                pourquoi: [
-                    'Nourrit en profondeur',
-                    'Répare les pointes fourchues',
-                    'Redonne brillance et souplesse',
-                    'Sans sulfates ni parabènes'
-                ],
-                conseils: 'Appliquez sur cheveux mouillés. Massez le cuir chevelu puis rincez abondamment.',
-                secret: 'La force réparatrice de l\'argan pour des cheveux revitalisés.',
-                caracteristiques: [
-                    'Contenance : 250ml',
-                    'Type : Cheveux secs et abîmés',
-                    'Parfum : Naturel'
-                ]
-            },
-            'savon': {
-                title: 'Savon Noir à l\'Argan',
-                price: '80 DH',
-                image: 'https://images.unsplash.com/photo-1563241527-3004b7be0ff6?auto=format&fit=crop&w=800',
-                description: 'Savon traditionnel marocain enrichi à l\'huile d\'argan.',
-                pourquoi: [
-                    'Nettoie en profondeur',
-                    'Exfolie délicatement',
-                    'Nourrit la peau',
-                    'Élimine les impuretés'
-                ],
-                conseils: 'Utilisez avec un gant de kessa pour un gommage optimal. Rincez à l\'eau tiède.',
-                secret: 'Le secret de beauté des hammams marocains.',
-                caracteristiques: [
-                    'Poids : 150g',
-                    'Usage : Corps',
-                    'Texture : Crémeuse'
-                ]
             }
         };
 
@@ -660,7 +593,7 @@
                         </div>
                         
                         <div class="secret-beaute">
-                            <h3>Pourquoi choisir Argalux ?</h3>
+                            <h3>Pourquoi choisir nos produits ?</h3>
                             <p>${product.secret}</p>
                         </div>
                         
@@ -703,8 +636,7 @@
             // Mettre à jour les boutons actifs
             buttons.forEach(btn => {
                 if (btn.textContent.includes(category === 'all' ? 'Tous' : 
-                    category === 'visage' ? 'Visage' :
-                    category === 'corps' ? 'Corps' : 'Cheveux')) {
+                    category === 'visage' ? 'Visage' : 'Corps')) {
                     btn.classList.add('active');
                 } else {
                     btn.classList.remove('active');
