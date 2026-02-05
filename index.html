@@ -5,416 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Argan Store - Produits Naturels d'Argan</title>
     <style>
-        /* RESET & BASE STYLES */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f9f9f9;
-        }
-
-        /* HEADER & NAVIGATION */
-        header {
-            background: #8B7355;
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-
-        nav a:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* HERO SECTION */
-        #hero {
-            background: linear-gradient(rgba(139, 115, 85, 0.9), rgba(139, 115, 85, 0.8)), 
-                        url('https://images.unsplash.com/photo-1595434091141-57283ee0a65b?auto=format&fit=crop&w=1200');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 5rem 2rem;
-            margin-bottom: 3rem;
-        }
-
-        #hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        #hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* PRODUITS GRID */
-        #produits {
-            padding: 3rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #8B7355;
-            font-size: 2.2rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: #8B7355;
-        }
-
-        .produits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .produit-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .produit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .produit-image {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .produit-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .produit-card:hover .produit-image img {
-            transform: scale(1.05);
-        }
-
-        .produit-info {
-            padding: 1.5rem;
-        }
-
-        .produit-titre {
-            font-size: 1.3rem;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .produit-prix {
-            font-size: 1.5rem;
-            color: #8B7355;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .btn-voir {
-            background: #8B7355;
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
-            transition: background 0.3s;
-        }
-
-        .btn-voir:hover {
-            background: #6d5a42;
-        }
-
-        /* PRODUIT DETAIL MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 2rem;
-        }
-
-        .modal-content {
-            background: white;
-            max-width: 1000px;
-            margin: 2rem auto;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            animation: modalFade 0.3s;
-        }
-
-        @keyframes modalFade {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .close-modal {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 2rem;
-            color: #8B7355;
-            background: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .produit-detail-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            padding: 2rem;
-        }
-
-        .detail-image {
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .detail-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .detail-info {
-            padding: 1rem;
-        }
-
-        .detail-titre {
-            color: #8B7355;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .detail-prix {
-            font-size: 2rem;
-            color: #2c3e50;
-            font-weight: bold;
-            margin: 1.5rem 0;
-            padding: 0.5rem 0;
-            border-top: 2px solid #f0f0f0;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .detail-description {
-            background: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            line-height: 1.8;
-        }
-
-        .detail-caracteristiques {
-            margin: 2rem 0;
-        }
-
-        .detail-caracteristiques h3 {
-            color: #8B7355;
-            margin-bottom: 1rem;
-        }
-
-        .detail-caracteristiques ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .detail-caracteristiques li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .detail-caracteristiques li:before {
-            content: "✓";
-            color: #8B7355;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .btn-ajouter {
-            background: #8B7355;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: background 0.3s;
-            margin-top: 1rem;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .btn-ajouter:hover {
-            background: #6d5a42;
-        }
-
-        .conseil-utilisation {
-            background: #fff8e1;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #ffb300;
-            margin: 2rem 0;
-        }
-
-        .secret-beaute {
-            background: #e8f5e9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #4caf50;
-            margin: 2rem 0;
-            font-style: italic;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        /* RESPONSIVE */
+        /* VOTRE CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; } 
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; } 
+        header { background: #8B7355; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; } 
+        .logo { font-size: 1.8rem; font-weight: bold; } 
+        nav a { color: white; text-decoration: none; margin-left: 2rem; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.3s; }
+        nav a:hover { background: rgba(255,255,255,0.1); }
+        #hero { background: linear-gradient(rgba(139, 115, 85, 0.9), rgba(139, 115, 85, 0.8)), url('https://images.unsplash.com/photo-1595434091141-57283ee0a65b'); background-size: cover; background-position: center; color: white; text-align: center; padding: 5rem 2rem; margin-bottom: 3rem; } 
+        #hero h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        #hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
+        #produits { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; } 
+        #produits h2 { text-align: center; margin-bottom: 3rem; color: #8B7355; font-size: 2.2rem; position: relative; padding-bottom: 1rem; }
+        #produits h2:after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: #8B7355; }
+        .produits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem; } 
+        .produit-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+        .produit-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .produit-image { width: 100%; height: 250px; overflow: hidden; }
+        .produit-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .produit-card:hover .produit-image img { transform: scale(1.05); }
+        .produit-info { padding: 1.5rem; }
+        .produit-titre { font-size: 1.3rem; color: #2c3e50; margin-bottom: 0.5rem; line-height: 1.4; }
+        .produit-prix { font-size: 1.5rem; color: #8B7355; font-weight: bold; margin-bottom: 1rem; }
+        .btn-voir { background: #8B7355; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1rem; transition: background 0.3s; }
+        .btn-voir:hover { background: #6d5a42; }
+        footer { background: #333; color: white; text-align: center; padding: 2rem; margin-top: 3rem; }
+        
+        /* Modal styles */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; overflow-y: auto; padding: 2rem; }
+        .modal-content { background: white; max-width: 1000px; margin: 2rem auto; border-radius: 15px; overflow: hidden; position: relative; animation: modalFade 0.3s; }
+        @keyframes modalFade { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+        .close-modal { position: absolute; right: 20px; top: 20px; font-size: 2rem; color: #8B7355; background: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .produit-detail-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 2rem; }
+        @media (max-width: 768px) { .produit-detail-container { grid-template-columns: 1fr; gap: 2rem; padding: 1rem; } }
+        .detail-image { border-radius: 10px; overflow: hidden; }
+        .detail-image img { width: 100%; height: auto; display: block; }
+        .detail-info { padding: 1rem; }
+        .detail-titre { color: #8B7355; font-size: 2rem; margin-bottom: 1rem; line-height: 1.3; }
+        .detail-prix { font-size: 2rem; color: #2c3e50; font-weight: bold; margin: 1.5rem 0; padding: 0.5rem 0; border-top: 2px solid #f0f0f0; border-bottom: 2px solid #f0f0f0; }
+        .detail-description { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; line-height: 1.8; }
+        .detail-caracteristiques { margin: 2rem 0; }
+        .detail-caracteristiques h3 { color: #8B7355; margin-bottom: 1rem; }
+        .detail-caracteristiques ul { list-style-type: none; padding-left: 0; }
+        .detail-caracteristiques li { padding: 0.5rem 0; border-bottom: 1px solid #eee; position: relative; padding-left: 1.5rem; }
+        .detail-caracteristiques li:before { content: "✓"; color: #8B7355; position: absolute; left: 0; font-weight: bold; }
+        .btn-ajouter { background: #8B7355; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; border-radius: 5px; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; transition: background 0.3s; margin-top: 1rem; width: 100%; justify-content: center; }
+        .btn-ajouter:hover { background: #6d5a42; }
+        .conseil-utilisation { background: #fff8e1; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #ffb300; margin: 2rem 0; }
+        .secret-beaute { background: #e8f5e9; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4caf50; margin: 2rem 0; font-style: italic; }
+        .categories { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .category-btn { background: white; border: 2px solid #8B7355; color: #8B7355; padding: 0.5rem 1.5rem; border-radius: 25px; cursor: pointer; transition: all 0.3s; font-weight: 500; }
+        .category-btn.active, .category-btn:hover { background: #8B7355; color: white; }
+        
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 1rem;
-            }
-
-            nav {
-                margin-top: 1rem;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.5rem;
-            }
-
-            nav a {
-                margin: 0.2rem;
-                padding: 0.3rem 0.8rem;
-                font-size: 0.9rem;
-            }
-
-            #hero h1 {
-                font-size: 2rem;
-            }
-
-            .produit-detail-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                padding: 1rem;
-            }
-
-            .modal-content {
-                margin: 1rem;
-            }
-
-            .produits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* CATEGORIES */
-        .categories {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .category-btn {
-            background: white;
-            border: 2px solid #8B7355;
-            color: #8B7355;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-
-        .category-btn.active,
-        .category-btn:hover {
-            background: #8B7355;
-            color: white;
+            header { flex-direction: column; padding: 1rem; }
+            nav { margin-top: 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            nav a { margin: 0.2rem; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
+            #hero h1 { font-size: 2rem; }
+            .produits-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -438,9 +86,8 @@
 
     <!-- PRODUITS SECTION -->
     <section id="produits">
-        <h2 class="section-title">Nos Produits Phares</h2>
+        <h2>Nos Produits Phares</h2>
         
-        <!-- CATEGORIES -->
         <div class="categories">
             <button class="category-btn active" onclick="filterProducts('all')">Tous les produits</button>
             <button class="category-btn" onclick="filterProducts('visage')">Soins Visage</button>
@@ -448,9 +95,8 @@
             <button class="category-btn" onclick="filterProducts('cheveux')">Soins Cheveux</button>
         </div>
 
-        <!-- PRODUITS GRID -->
         <div class="produits-grid">
-            <!-- PRODUIT 1 -->
+            <!-- PRODUIT 1 - GOMMAGE -->
             <div class="produit-card" data-category="corps" onclick="showProduct('gommage')">
                 <div class="produit-image">
                     <img src="https://github.com/user-attachments/assets/c67bdaa5-cb70-421b-9aff-46dd7f8b2693" 
@@ -464,7 +110,7 @@
                 </div>
             </div>
 
-            <!-- PRODUIT 2 - Exemple pour ajouter plus -->
+            <!-- PRODUIT 2 - HUILE D'ARGAN -->
             <div class="produit-card" data-category="visage" onclick="showProduct('huile')">
                 <div class="produit-image">
                     <img src="https://images.unsplash.com/photo-1595434091141-57283ee0a65b?auto=format&fit=crop&w=600" 
@@ -478,7 +124,7 @@
                 </div>
             </div>
 
-            <!-- PRODUIT 3 -->
+            <!-- PRODUIT 3 - SHAMPOOING -->
             <div class="produit-card" data-category="cheveux" onclick="showProduct('shampooing')">
                 <div class="produit-image">
                     <img src="https://images.unsplash.com/photo-1556228578-9c360e2d0b4a?auto=format&fit=crop&w=600" 
@@ -492,7 +138,7 @@
                 </div>
             </div>
 
-            <!-- PRODUIT 4 -->
+            <!-- PRODUIT 4 - SAVON NOIR -->
             <div class="produit-card" data-category="corps" onclick="showProduct('savon')">
                 <div class="produit-image">
                     <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ff6?auto=format&fit=crop&w=600" 
@@ -510,7 +156,10 @@
 
     <!-- COLLECTIONS SECTION -->
     <section id="collections" style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title">Nos Collections</h2>
+        <h2 style="text-align: center; margin-bottom: 3rem; color: #8B7355; font-size: 2.2rem; position: relative; padding-bottom: 1rem;">
+            Nos Collections
+            <span style="content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: #8B7355;"></span>
+        </h2>
         <div style="text-align: center; max-width: 800px; margin: 0 auto;">
             <p>Découvrez nos collections spécialement conçues pour répondre à tous vos besoins beauté</p>
         </div>
@@ -518,7 +167,10 @@
 
     <!-- CONTACT SECTION -->
     <section id="contact" style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title">Contactez-nous</h2>
+        <h2 style="text-align: center; margin-bottom: 3rem; color: #8B7355; font-size: 2.2rem; position: relative; padding-bottom: 1rem;">
+            Contactez-nous
+            <span style="content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: #8B7355;"></span>
+        </h2>
         <div style="text-align: center;">
             <p>Email: contact@argan-store.com</p>
             <p>Téléphone: +212 6 XX XX XX XX</p>
@@ -540,7 +192,6 @@
         <p style="margin-top: 1rem; font-size: 0.9rem;">Produits 100% naturels fabriqués au Maroc</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
     <script>
         // Données des produits
         const products = {
