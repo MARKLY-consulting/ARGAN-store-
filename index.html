@@ -453,7 +453,6 @@
             <!-- PRODUIT 1 - GOMMAGE -->
             <div class="produit-card" data-category="corps" onclick="showProduct('gommage')">
                 <div class="produit-image">
-                    <!-- VOTRE IMAGE DU GOMMAGE -->
                     <img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32" 
                          alt="Gommage Figue de Barbarie" width="895" height="895">
                 </div>
@@ -465,16 +464,16 @@
                 </div>
             </div>
 
-            <!-- PRODUIT 2 - HUILE D'ARGAN -->
-            <div class="produit-card" data-category="visage" onclick="showProduct('huile')">
+            <!-- PRODUIT 2 - HUILE D'ARGAN ARGALUX -->
+            <div class="produit-card" data-category="visage" onclick="showProduct('argalux')">
                 <div class="produit-image">
-                    <img src="https://images.unsplash.com/photo-1595434091141-57283ee0a65b?auto=format&fit=crop&w=600" 
-                         alt="Huile d'Argan Pure">
+                    <img src="https://github.com/user-attachments/assets/7ec2803a-60d4-4f6a-8bdf-53e044d30511" 
+                         alt="Huile d'Argan Pure Argalux" width="1024" height="1024">
                 </div>
                 <div class="produit-info">
-                    <h3 class="produit-titre">Huile d'Argan Pure Bio 100ml</h3>
-                    <div class="produit-prix">200 DH</div>
-                    <p>Huile 100% pure pour visage, corps et cheveux</p>
+                    <h3 class="produit-titre">Huile d'Argan Pure Argalux – L'Or Liquide</h3>
+                    <div class="produit-prix">350 DH</div>
+                    <p>Huile Bio 230ml pour visage, corps et cheveux</p>
                     <button class="btn-voir">Voir les détails</button>
                 </div>
             </div>
@@ -548,7 +547,6 @@
             'gommage': {
                 title: 'Gommage Figue de Barbarie – Éclat & Jeunesse (Corps et Visage)',
                 price: '150 DH',
-                // VOTRE IMAGE DU GOMMAGE
                 image: 'https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32',
                 description: `Redécouvrez la douceur d'une peau régénérée avec notre Gommage à la Figue de Barbarie. Véritable trésor cosmétique venu du Maroc, ce soin exfoliant double action allie l'efficacité d'un gommage profond aux vertus exceptionnelles de l'huile de pépins de figue de barbarie.`,
                 pourquoi: [
@@ -568,23 +566,26 @@
                     'Type de peau : Tous types de peaux, particulièrement recommandé pour les peaux ternes ou matures'
                 ]
             },
-            'huile': {
-                title: 'Huile d\'Argan Pure Bio 100ml',
-                price: '200 DH',
-                image: 'https://images.unsplash.com/photo-1595434091141-57283ee0a65b?auto=format&fit=crop&w=800',
-                description: 'Huile d\'argan 100% pure, pressée à froid. Idéale pour le visage, les cheveux et le corps.',
+            'argalux': {
+                title: 'Huile d\'Argan Pure Argalux – L\'Or Liquide du Maroc (230ml)',
+                price: '350 DH',
+                image: 'https://github.com/user-attachments/assets/7ec2803a-60d4-4f6a-8bdf-53e044d30511',
+                description: `Offrez à votre peau et à vos cheveux le soin ultime avec l'Huile d'Argan Pure Argalux. Extraite à froid à partir d'amandons non torréfiés, cette huile certifiée Bio conserve l'intégralité de ses propriétés nutritives pour une action régénératrice incomparable.`,
                 pourquoi: [
-                    '100% Pure et Naturelle',
-                    'Pressée à froid pour préserver les nutriments',
-                    'Multi-usage : visage, corps, cheveux',
-                    'Riche en vitamine E et antioxydants'
+                    'Soin Visage & Corps : Riche en acides gras essentiels et en vitamine E, elle hydrate intensément, améliore l\'élasticité de la peau et lutte contre le vieillissement cutané.',
+                    'Réparateur Capillaire : Redonne brillance et force aux cheveux secs et cassants tout en apaisant le cuir chevelu.',
+                    'Fortifiant Ongles : Idéale pour nourrir les cuticules et renforcer les ongles fragilisés.',
+                    'Multi-usage : S\'utilise aussi bien pure qu\'en mélange dans vos soins quotidiens.'
                 ],
-                conseils: 'Appliquez quelques gouttes sur peau ou cheveux humides. Massez délicatement jusqu\'à absorption complète.',
-                secret: 'L\'or liquide du Maroc, un soin millénaire pour une beauté intemporelle.',
+                conseils: `Pour le visage : Appliquez quelques gouttes le soir sur une peau propre pour un réveil avec un teint radieux.
+                Pour les cheveux : Utilisez en bain d'huile 30 minutes avant le shampooing ou en soin de finition sur les pointes.
+                Pour le corps : Appliquez après la douche sur peau encore légèrement humide pour une absorption maximale.`,
+                secret: '100% Bio & Pure : Garantie sans additifs, sans colorants et sans conservateurs. Non torréfiée pour préserver toutes les vertus cosmétiques.',
                 caracteristiques: [
-                    'Contenance : 100ml',
-                    'Certification : Bio',
-                    'Origine : Maroc'
+                    'Contenance : 230 ml (format économique)',
+                    'Certification : Bio certifiée',
+                    'Extraction : Pressage à froid des amandons crus',
+                    'Odeur : Légère, pénétration rapide'
                 ]
             },
             'shampooing': {
@@ -647,7 +648,7 @@
                         </div>
                         
                         <div class="detail-caracteristiques">
-                            <h3>Pourquoi vous allez l'adorer :</h3>
+                            <h3>Les Bienfaits Exceptionnels :</h3>
                             <ul>
                                 ${product.pourquoi.map(item => `<li>${item}</li>`).join('')}
                             </ul>
@@ -659,7 +660,7 @@
                         </div>
                         
                         <div class="secret-beaute">
-                            <h3>Le secret beauté :</h3>
+                            <h3>Pourquoi choisir Argalux ?</h3>
                             <p>${product.secret}</p>
                         </div>
                         
