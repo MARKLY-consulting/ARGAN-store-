@@ -445,9 +445,10 @@
             <button class="category-btn active" onclick="filterProducts('all')">Tous les produits</button>
             <button class="category-btn" onclick="filterProducts('corps')">Soins Corps</button>
             <button class="category-btn" onclick="filterProducts('visage')">Soins Visage</button>
+            <button class="category-btn" onclick="filterProducts('masque')">Masques & Soins</button>
         </div>
 
-        <!-- PRODUITS GRID - 3 PRODUITS -->
+        <!-- PRODUITS GRID - 4 PRODUITS -->
         <div class="produits-grid">
             <!-- PRODUIT 1 - GOMMAGE -->
             <div class="produit-card" data-category="corps" onclick="showProduct('gommage')">
@@ -490,6 +491,20 @@
                     <button class="btn-voir">Voir les détails</button>
                 </div>
             </div>
+
+            <!-- PRODUIT 4 - MASQUE GHASSOUL -->
+            <div class="produit-card" data-category="masque" onclick="showProduct('ghassoul')">
+                <div class="produit-image">
+                    <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" 
+                         alt="Masque au Ghassoul & Fleur d'Oranger" width="895" height="895">
+                </div>
+                <div class="produit-info">
+                    <h3 class="produit-titre">Masque au Ghassoul & Fleur d'Oranger</h3>
+                    <div class="produit-prix">120 DH</div>
+                    <p>Purification & Sérénité pour visage et corps</p>
+                    <button class="btn-voir">Voir les détails</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -527,7 +542,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Données des produits - 3 PRODUITS
+        // Données des produits - 4 PRODUITS
         const products = {
             'gommage': {
                 title: 'Gommage Figue de Barbarie – Éclat & Jeunesse (Corps et Visage)',
@@ -592,6 +607,29 @@
                     'Extraction : Pressage à froid, non torréfiée',
                     'Accessoire : Étui et pompe doseuse inclus'
                 ]
+            },
+            'ghassoul': {
+                title: 'Masque au Ghassoul & Fleur d\'Oranger – Purification & Sérénité',
+                price: '120 DH',
+                image: 'https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3',
+                description: `Offrez à votre peau un rituel de spa ancestral avec notre Masque au Ghassoul Argalux. Ce soin iconique du rituel du hammam marocain, enrichi aux délicates notes de fleur d'oranger, purifie intensément tout en offrant une expérience sensorielle apaisante.`,
+                pourquoi: [
+                    'Purification Profonde : L\'argile minérale du Ghassoul absorbe l\'excès de sébum, élimine les impuretés et désincruste les pores sans irriter la peau.',
+                    'Éclat du Teint : Riche en minéraux, il revitalise l\'épiderme et redonne de la clarté aux teints ternes.',
+                    'Action Apaisante : L\'eau de fleur d\'oranger calme les irritations et laisse la peau douce, souple et délicatement parfumée.',
+                    'Soin Multi-zones : Parfait pour le visage (peaux mixtes à grasses) et le corps, il peut également être utilisé en masque capillaire pour purifier le cuir chevelu.'
+                ],
+                conseils: `Appliquez une couche généreuse sur le visage ou le corps (évitez le contour des yeux).
+                Laissez poser 5 à 10 minutes (ne laissez pas l'argile sécher complètement pour préserver l'hydratation).
+                Rincez abondamment à l'eau tiède en effectuant de légers mouvements circulaires.
+                Appliquez ensuite quelques gouttes de votre Huile d'Argan Argalux pour sceller l'hydratation.`,
+                secret: 'Ingrédients Naturels : Une formule respectueuse de votre peau. Texture Onctueuse : Prêt à l\'emploi, il s\'étale facilement pour un moment de détente immédiat. Parfum Envoûtant : Une fragrance florale qui relaxe l\'esprit autant que la peau.',
+                caracteristiques: [
+                    'Type : Masque purifiant corps et visage',
+                    'Ingrédient phare : Ghassoul argile marocaine',
+                    'Parfum : Fleur d\'oranger naturelle',
+                    'Texture : Prête à l\'emploi, onctueuse'
+                ]
             }
         };
 
@@ -615,7 +653,7 @@
                         </div>
                         
                         <div class="detail-caracteristiques">
-                            <h3>Les Bienfaits Clés :</h3>
+                            <h3>Les Bienfaits de ce Soin :</h3>
                             <ul>
                                 ${product.pourquoi.map(item => `<li>${item}</li>`).join('')}
                             </ul>
@@ -627,7 +665,7 @@
                         </div>
                         
                         <div class="secret-beaute">
-                            <h3>Engagement Qualité Argalux :</h3>
+                            <h3>Pourquoi le choisir ?</h3>
                             <p>${product.secret}</p>
                         </div>
                         
@@ -670,7 +708,8 @@
             // Mettre à jour les boutons actifs
             buttons.forEach(btn => {
                 if (btn.textContent.includes(category === 'all' ? 'Tous' : 
-                    category === 'visage' ? 'Visage' : 'Corps')) {
+                    category === 'visage' ? 'Visage' : 
+                    category === 'corps' ? 'Corps' : 'Masques')) {
                     btn.classList.add('active');
                 } else {
                     btn.classList.remove('active');
