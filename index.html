@@ -19,6 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Poppins', sans-serif; background: #FAF9F6; color: var(--text); padding-top: 80px; overflow-x: hidden; }
         
+        /* ANNOUNCEMENT */
         .announcement-bar { position: fixed; top: 0; width: 100%; height: 35px; background: #1A1A1A; color: white; z-index: 9999; display: flex; align-items: center; overflow: hidden; font-size: 0.7rem; border-bottom: 1px solid var(--accent); }
         .announcement-track { display: flex; animation: scroll 15s linear infinite; white-space: nowrap; }
         .announcement-item { padding: 0 30px; text-transform: uppercase; letter-spacing: 1px; }
@@ -27,80 +28,57 @@
         header { position: fixed; top: 35px; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; height: 60px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .logo-head img { height: 35px; }
 
-        #hero { height: 35vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; border-bottom-right-radius: 60px; }
+        #hero { height: 30vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; border-bottom-right-radius: 60px; }
         #hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; }
 
+        /* PRODUITS GRID */
         #produits { padding: 2rem 5%; }
         .produits-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
         @media (min-width: 768px) { .produits-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); } }
-
-        .produit-card { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative; border: 1px solid #f0f0f0; cursor: pointer; }
+        .produit-card { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; cursor: pointer; }
         .produit-image { height: 280px; width: 100%; }
         .produit-image img { width: 100%; height: 100%; object-fit: cover; }
         .produit-info { padding: 1.2rem; text-align: center; }
-        
-        .badge-promo { position: absolute; top: 15px; left: 15px; background: var(--danger); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; z-index: 5; animation: pulseRed 1.5s infinite; }
-        @keyframes pulseRed { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
-
-        .old-price { color: var(--danger); text-decoration: line-through; font-size: 0.9rem; margin-right: 8px; }
         .new-price { color: var(--accent); font-weight: 700; font-size: 1.4rem; }
 
         /* MODALS */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10001; padding: 10px; }
-        .modal-content { background: white; width: 100%; max-width: 900px; margin: 10px auto; border-radius: var(--radius); overflow-y: auto; padding: 2.5rem 1.5rem; position: relative; max-height: 95vh; }
-        .close-btn { position: absolute; right: 15px; top: 15px; font-size: 1.8rem; color: var(--text); cursor: pointer; z-index: 10; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10001; overflow-y: auto; }
+        .modal-content { background: white; width: 92%; max-width: 900px; margin: 20px auto; border-radius: var(--radius); padding: 2rem 1.5rem; position: relative; }
+        .close-btn { position: sticky; top: 0; float: right; font-size: 2rem; color: var(--primary); cursor: pointer; z-index: 10002; background: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         
-        .modal-h2 { font-family: 'Playfair Display', serif; color: var(--primary-dark); margin-bottom: 1.5rem; text-align: center; font-size: 1.8rem; }
-        .modal-text { font-size: 0.9rem; line-height: 1.7; color: #444; margin-bottom: 1.5rem; }
-        .modal-list { list-style: none; margin-bottom: 1.5rem; }
-        .modal-list li { padding: 8px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.85rem; display: flex; align-items: flex-start; }
-        .modal-list li::before { content: '✓'; color: var(--accent); font-weight: bold; margin-right: 10px; }
+        .modal-h2 { font-family: 'Playfair Display', serif; color: var(--primary-dark); margin: 1rem 0; text-align: center; font-size: 1.6rem; }
+        .modal-text { font-size: 0.9rem; line-height: 1.6; color: #444; margin-bottom: 1rem; }
 
-        .step-box { background: #fdfaf5; border-radius: 15px; padding: 15px; margin-bottom: 20px; border: 1px solid #f0e6d8; }
-        .step-img { width: 100%; border-radius: 10px; margin-top: 10px; }
+        /* PROCESSUS ETAPES STYLE */
+        .step-container { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .step-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: var(--accent); font-weight: 600; }
+        .step-img-wrapper { width: 100%; border-radius: 15px; overflow: hidden; margin: 10px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+        .step-img-wrapper img { width: 100%; height: auto; display: block; }
 
         /* FOOTER */
-        footer { background: #1A1A1A; color: white; padding: 4rem 10% 2rem; text-align: center; }
-        .footer-logo img { height: 70px; margin-bottom: 2rem; }
-        .footer-nav a { display: block; color: #BBB; text-decoration: none; margin-bottom: 1rem; font-size: 0.9rem; cursor: pointer; }
-        .contact-box { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; }
+        footer { background: #1A1A1A; color: white; padding: 3rem 10% 2rem; text-align: center; }
+        .footer-logo img { height: 60px; margin-bottom: 2rem; }
+        .footer-nav a { display: block; color: #BBB; text-decoration: none; margin-bottom: 1.2rem; font-size: 0.9rem; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div class="announcement-bar">
-        <div class="announcement-track">
-            <div class="announcement-item">Organix : 100% Naturel & Bio</div>
-            <div class="announcement-item">Livraison Partout au Maroc</div>
-            <div class="announcement-item">Tradition & Qualité</div>
-        </div>
-    </div>
-
     <header>
         <div class="logo-head"><img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12"></div>
-        <div class="cart-icon"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
+        <div class="cart-icon" onclick="alert('Panier bientôt disponible')"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
     </header>
 
-    <section id="hero"><h1>Pureté d'Argan</h1></section>
+    <section id="hero"><h1>Organix Argan</h1></section>
 
     <section id="produits">
         <div class="produits-grid">
             <div class="produit-card" onclick="showProduct('antichute')">
-                <div class="badge-promo">PROMO</div>
                 <div class="produit-image"><img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f"></div>
-                <div class="produit-info"><h3>Pack Anti-Chute</h3><div class="produit-prix"><span class="old-price">350 DH</span><span class="new-price">300 DH</span></div></div>
+                <div class="produit-info"><h3>Pack Anti-Chute</h3><div class="new-price">300 DH</div></div>
             </div>
             <div class="produit-card" onclick="showProduct('gommage')">
                 <div class="produit-image"><img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32"></div>
                 <div class="produit-info"><h3>Gommage Figue Barbarie</h3><div class="new-price">150 DH</div></div>
-            </div>
-            <div class="produit-card" onclick="showProduct('argalux50')">
-                <div class="produit-image"><img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb"></div>
-                <div class="produit-info"><h3>Huile d'Argan Pure</h3><div class="new-price">80 DH</div></div>
-            </div>
-            <div class="produit-card" onclick="showProduct('ghassoul')">
-                <div class="produit-image"><img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3"></div>
-                <div class="produit-info"><h3>Masque Ghassoul</h3><div class="new-price">100 DH</div></div>
             </div>
         </div>
     </section>
@@ -108,91 +86,92 @@
     <footer>
         <div class="footer-logo"><img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12"></div>
         <div class="footer-nav">
-            <a onclick="window.scrollTo({top:0, behavior:'smooth'})">Accueil</a>
             <a onclick="showInfo('objectif')">Notre Objectif</a>
             <a onclick="showInfo('histoire')">Notre Histoire</a>
             <a onclick="showInfo('processus')">Processus de Production</a>
         </div>
-        <div class="contact-box">
-            <p><i class="fas fa-phone-alt" style="color:var(--accent);"></i> 06 36 22 19 00</p>
-            <p><i class="fas fa-envelope" style="color:var(--accent);"></i> contact@organix.ma</p>
-        </div>
+        <div style="color:#666; font-size:0.7rem;">&copy; 2026 Organix. 06 36 22 19 00</div>
     </footer>
 
-    <div id="productModal" class="modal"><div class="modal-content"><span class="close-btn" onclick="closeModal('productModal')">&times;</span><div id="productBody"></div></div></div>
-    <div id="infoModal" class="modal"><div class="modal-content"><span class="close-btn" onclick="closeModal('infoModal')">&times;</span><div id="infoBody"></div></div></div>
+    <div id="mainModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
 
     <script>
         const infoData = {
             'objectif': {
                 content: `
                 <h2 class="modal-h2">Notre Objectif</h2>
-                <p class="modal-text">Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales en renforçant leur autonomie financière à travers la production d'huiles culinaires et cosmétiques de très haute qualité.</p>
-                <img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76" style="width:100%; border-radius:15px; margin-bottom:1.5rem;">
-                <h3 style="color:var(--accent); margin-bottom:1rem;">Impact Social :</h3>
-                <ul class="modal-list">
-                    <li>Autonomisation économique des femmes berbères</li>
-                    <li>Préservation des savoir-faire ancestraux</li>
-                    <li>Développement durable des communautés rurales</li>
-                    <li>Protection de l'écosystème de l'arganeraie</li>
-                    <li>Commerce équitable et éthique</li>
-                    <li>Augmentation des revenus familiaux</li>
-                    <li>Alphabétisation et formation continue</li>
-                    <li>Intégration professionnelle des femmes</li>
+                <p class="modal-text">Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales...</p>
+                <div class="step-img-wrapper"><img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76"></div>
+                <ul style="list-style:none; font-size:0.85rem; line-height:2;">
+                    <li>✓ Autonomisation économique</li>
+                    <li>✓ Préservation des savoir-faire</li>
+                    <li>✓ Intégration professionnelle</li>
                 </ul>`
             },
             'histoire': {
-                content: `
-                <h2 class="modal-h2">Notre Histoire</h2>
-                <p class="modal-text">Avant que l'Association Ibno al Baytar n'appuie la création de la coopérative en 2002, les femmes de Tiout se retrouvaient principalement au sein d'un foyer féminin de tissage. La production artisanale d'huile d'argan était alors une activité traditionnelle secondaire.<br><br>
-                Une visite d'échange à Essaouira inspira <strong>18 femmes qui fondèrent la Coopérative agricole féminine de Taitmatine</strong>. Soutenues par la Principauté de Monaco, elles reçurent de nombreuses formations.<br><br>
-                Aujourd'hui, notre coopérative perpétue ce savoir-faire ancestral en valorisant le travail des femmes berbères.</p>
-                <h3 style="color:var(--accent); margin-bottom:1rem;">Points Clés :</h3>
-                <ul class="modal-list">
-                    <li>Création en 2002 - Fondation par 18 femmes</li>
-                    <li>Coopérative Taitmatine - Notre identité</li>
-                    <li>Soutien Association Ibno al Baytar</li>
-                    <li>Projet Principauté de Monaco</li>
-                    <li>Empowerment des femmes berbères</li>
-                    <li>Engagement écologique durable</li>
-                </ul>`
+                content: `<h2 class="modal-h2">Notre Histoire</h2><p class="modal-text">Avant que l'Association Ibno al Baytar n'appuie la création de la coopérative en 2002...</p>`
             },
             'processus': {
                 content: `
                 <h2 class="modal-h2">Processus de Production</h2>
-                <p class="modal-text">Découvrez les 7 étapes artisanales de fabrication de notre huile d'argan, un savoir-faire ancestral préservé.</p>
+                <p class="modal-text">Découvrez les 7 étapes artisanales de fabrication de notre huile d'argan :</p>
                 
-                <div class="step-box"><strong>Étape 1 - Récolte</strong><p class="modal-text">Récolte des fruits à maturité dans les arganeraies.</p><img src="https://github.com/user-attachments/assets/026d526f-4549-4ee5-9efe-9eed98bb5aab" class="step-img"></div>
-                <div class="step-box"><strong>Étape 2 - Dépulpage</strong><p class="modal-text">Séparation de la pulpe et séchage naturel au soleil.</p><img src="https://github.com/user-attachments/assets/08ed7431-0a11-4fa0-b804-61041e0c246f" class="step-img"></div>
-                <div class="step-box"><strong>Étape 3 - Concassage</strong><p class="modal-text">Ouverture manuelle précise de la noix.</p><img src="https://github.com/user-attachments/assets/a9266aaf-0ace-4531-bc24-5198fc69e844" class="step-img"></div>
-                <div class="step-box"><strong>Étape 4 - Extraction</strong><p class="modal-text">Pressage à froid pour préserver les nutriments.</p><img src="https://github.com/user-attachments/assets/479a8a97-e1f9-45d8-b6d0-ae15353d8b65" class="step-img"></div>
-                <div class="step-box"><strong>Étape 5 - Décantation</strong><p class="modal-text">Repos de 15-20 jours pour purifier l'huile.</p><img src="https://github.com/user-attachments/assets/8d145d37-bb80-40b9-82a2-eb73c5b1608f" class="step-img"></div>
-                <div class="step-box"><strong>Étape 6 - Filtrage</strong><p class="modal-text">Filtration fine pour une clarté absolue.</p><img src="https://github.com/user-attachments/assets/9193708f-989d-442b-8e12-64ecad41b669" class="step-img"></div>
-                <div class="step-box"><strong>Étape 7 - Mise en Bouteille</strong><p class="modal-text">Contrôle qualité avant expédition.</p><img src="https://github.com/user-attachments/assets/b60ab570-d1cc-4ba8-bada-d0e86c3a758b" class="step-img"></div>
-                
-                <h3 style="color:var(--accent); margin-bottom:1rem;">Nos Engagements :</h3>
-                <ul class="modal-list">
-                    <li>100% Artisanal & Pressage à froid</li>
-                    <li>Qualité Premium & Traçabilité</li>
-                    <li>Commerce équitable & Écologique</li>
-                </ul>`
+                <div class="step-container">
+                    <div class="step-header"><span>Étape 1</span> - Récolte des fruits</div>
+                    <p class="modal-text">Récolte des fruits à maturité dans les arganeraies.</p>
+                    <div class="step-img-wrapper"><img src="https://github.com/user-attachments/assets/026d526f-4549-4ee5-9efe-9eed98bb5aab"></div>
+                </div>
+
+                <div class="step-container">
+                    <div class="step-header"><span>Étape 2</span> - Dépulpage & Séchage</div>
+                    <p class="modal-text">Séparation de la pulpe sèche suivie d'un séchage naturel au soleil.</p>
+                    <div class="step-img-wrapper"><img src="https://github.com/user-attachments/assets/08ed7431-0a11-4fa0-b804-61041e0c246f"></div>
+                </div>
+
+                <div class="step-container">
+                    <div class="step-header"><span>Étape 3</span> - Concassage Manuel</div>
+                    <p class="modal-text">Ouverture précise de la noix sans endommager les amandons.</p>
+                    <div class="step-img-wrapper"><img src="https://github.com/user-attachments/assets/a9266aaf-0ace-4531-bc24-5198fc69e844"></div>
+                </div>
+
+                <div class="step-container">
+                    <div class="step-header"><span>Étape 4</span> - Extraction à Froid</div>
+                    <p class="modal-text">Pressage des amandons à froid pour préserver les nutriments.</p>
+                    <div class="step-img-wrapper"><img src="https://github.com/user-attachments/assets/479a8a97-e1f9-45d8-b6d0-ae15353d8b65"></div>
+                </div>
+
+                <div class="step-container">
+                    <div class="step-header"><span>Étape 5</span> - Décantation</div>
+                    <p class="modal-text">Repos de 15-20 jours pour purifier l'huile.</p>
+                    <div class="step-img-wrapper"><img src="https://github.com/user-attachments/assets/8d145d37-bb80-40b9-82a2-eb73c5b1608f"></div>
+                </div>
+
+                <div class="step-container">
+                    <div class="step-header"><span>Étape 6</span> - Filtrage</div>
+                    <p class="modal-text">Filtration à travers des tissus fins pour une huile pure.</p>
+                    <div class="step-img-wrapper"><img src="https://github.com/user-attachments/assets/9193708f-989d-442b-8e12-64ecad41b669"></div>
+                </div>
+
+                <div class="step-container">
+                    <div class="step-header"><span>Étape 7</span> - Mise en Bouteille</div>
+                    <p class="modal-text">Conditionnement et contrôle qualité avant expédition.</p>
+                    <div class="step-img-wrapper"><img src="https://github.com/user-attachments/assets/b60ab570-d1cc-4ba8-bada-d0e86c3a758b"></div>
+                </div>`
             }
         };
 
-        const products = {
-            'antichute': { title: 'Gamme Anti-Chute', price: '300 DH', oldPrice: '350 DH', img: 'https://github.com/user-attachments/assets/8335cb94-a1ed-4011-95a8-4de02f2a1820', tech: 'Argan pur fortifiant.', utilite: 'Freine la chute, réparation profonde.' },
-            'gommage': { title: 'Gommage Figue Barbarie', price: '150 DH', img: 'https://github.com/user-attachments/assets/cc099969-dd11-483d-a6da-6a64782ed974', tech: 'Vitamine E et stérols.', utilite: 'Rénovation cellulaire.' },
-            'argalux50': { title: "Huile d'Argan Pure", price: '80 DH', img: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f', tech: 'Extraite à froid.', utilite: 'Régénération intense.' },
-            'ghassoul': { title: 'Masque Ghassoul', price: '100 DH', img: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f', tech: 'Argile minérale.', utilite: 'Purification profonde.' }
-        };
-
-        function showProduct(id) {
-            const p = products[id];
-            document.getElementById('productBody').innerHTML = `<img src="${p.img}" style="width:100%; border-radius:15px; margin-bottom:1rem;"><h2 class="modal-h2">${p.title}</h2><div style="text-align:center; margin-bottom:1.5rem;"><span style="color:var(--accent); font-size:1.8rem; font-weight:700;">${p.price}</span></div><p class="modal-text"><strong>Caractéristiques :</strong> ${p.tech}</p><p class="modal-text"><strong>Utilité :</strong> ${p.utilite}</p><a href="https://wa.me/212636221900?text=Je commande : ${p.title}" style="background:#25D366; color:white; text-decoration:none; display:flex; justify-content:center; padding:1rem; border-radius:50px; font-weight:600;"><i class="fab fa-whatsapp" style="margin-right:10px;"></i> Commander</a>`;
-            document.getElementById('productModal').style.display = 'block';
+        function showInfo(id) { 
+            document.getElementById('modalBody').innerHTML = infoData[id].content; 
+            document.getElementById('mainModal').style.display = 'block'; 
+            document.body.style.overflow = 'hidden'; 
         }
-        function showInfo(id) { document.getElementById('infoBody').innerHTML = infoData[id].content; document.getElementById('infoModal').style.display = 'block'; }
-        function closeModal(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = 'auto'; }
+        function closeModal() { document.getElementById('mainModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        window.onclick = function(e) { if(e.target.className === 'modal') closeModal(); }
     </script>
 </body>
 </html>
