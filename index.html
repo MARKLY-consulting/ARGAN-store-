@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Argan Store | Produits Naturels Marocains</title>
+    <meta name="description" content="Argan Store - Produits 100% naturels à base d'huile d'argan bio. Soins artisanaux fabriqués au Maroc.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* VARIABLES & RESET */
@@ -41,7 +42,7 @@
             background: linear-gradient(135deg, #f9f9f9 0%, #f5f0e8 100%);
             overflow-x: hidden;
             position: relative;
-            padding-top: 40px; /* Pour la barre d'annonce */
+            padding-top: 40px;
         }
 
         body::before {
@@ -57,7 +58,7 @@
             z-index: -1;
         }
 
-        /* ANNOUNCEMENT BAR (BARRE D'ANNONCE DÉFILANTE) */
+        /* ANNOUNCEMENT BAR */
         .announcement-bar {
             position: fixed;
             top: 0;
@@ -88,39 +89,20 @@
             font-weight: 500;
             letter-spacing: 0.3px;
             text-transform: uppercase;
-            position: relative;
         }
 
-        .announcement-icon {
-            margin-right: 10px;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .announcement-separator {
-            margin: 0 30px;
-            color: rgba(255, 255, 255, 0.3);
-            font-weight: 300;
-        }
+        .announcement-icon { margin-right: 10px; font-size: 1.1rem; opacity: 0.9; }
+        .announcement-separator { margin: 0 30px; color: rgba(255, 255, 255, 0.3); }
 
         @keyframes scrollAnnouncement {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        /* Pause animation on hover */
-        .announcement-bar:hover .announcement-track {
-            animation-play-state: paused;
-        }
-
-        /* LOADING ANIMATION */
+        /* LOADING */
         .loading {
             position: fixed;
-            top: 40px; /* Ajusté pour la barre d'annonce */
+            top: 40px;
             left: 0;
             width: 100%;
             height: 100%;
@@ -132,38 +114,26 @@
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
-        .loading.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
+        .loading.hidden { opacity: 0; visibility: hidden; }
 
         .loader {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             position: relative;
         }
 
-        .loader::before,
-        .loader::after {
+        .loader::before, .loader::after {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             border-radius: 50%;
             border: 4px solid transparent;
             border-top-color: var(--primary);
             animation: spin 1s linear infinite;
         }
 
-        .loader::after {
-            border-top-color: var(--accent);
-            animation-delay: 0.3s;
-        }
+        .loader::after { border-top-color: var(--accent); animation-delay: 0.3s; }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         /* HEADER & NAVIGATION */
         header {
@@ -174,7 +144,7 @@
             justify-content: space-between;
             align-items: center;
             position: fixed;
-            top: 40px; /* Ajusté pour la barre d'annonce */
+            top: 40px;
             left: 0;
             width: 100%;
             z-index: 1000;
@@ -183,10 +153,7 @@
             border-bottom: 1px solid rgba(139, 115, 85, 0.1);
         }
 
-        header.scrolled {
-            padding: 0.8rem 2rem;
-            box-shadow: var(--shadow);
-        }
+        header.scrolled { padding: 0.8rem 2rem; box-shadow: var(--shadow); }
 
         .logo {
             font-size: 1.8rem;
@@ -195,24 +162,13 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: var(--transition);
         }
 
-        .logo i {
-            color: var(--accent);
-            animation: pulse 2s infinite;
-        }
+        .logo i { color: var(--accent); animation: pulse 2s infinite; }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
 
-        nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+        nav { display: flex; gap: 2rem; align-items: center; }
 
         .nav-link {
             color: var(--text);
@@ -224,31 +180,7 @@
             position: relative;
         }
 
-        .nav-link:hover {
-            color: var(--primary);
-            background: var(--secondary);
-        }
-
-        .nav-link.active {
-            color: var(--light);
-            background: var(--primary);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::after {
-            width: 80%;
-        }
+        .nav-link:hover, .nav-link.active { color: var(--primary); background: var(--secondary); }
 
         .cart-icon {
             position: relative;
@@ -258,39 +190,19 @@
             transition: var(--transition);
         }
 
-        .cart-icon:hover {
-            transform: scale(1.1);
-        }
-
         .cart-count {
             position: absolute;
-            top: -8px;
-            right: -8px;
+            top: -8px; right: -8px;
             background: var(--accent);
             color: white;
             font-size: 0.7rem;
-            width: 18px;
-            height: 18px;
+            width: 18px; height: 18px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             font-weight: bold;
-            animation: bounce 0.5s;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-            transition: var(--transition);
-        }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; }
 
         /* HERO SECTION */
         #hero {
@@ -307,59 +219,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            position: relative;
-            overflow: hidden;
-            margin-top: -40px; /* Compenser le padding-top du body */
+            margin-top: -40px;
         }
 
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255,255,255,0.1) 50%, 
-                transparent 100%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .hero-content {
-            max-width: 800px;
-            animation: fadeUp 1s ease-out;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        #hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-        }
+        #hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; font-weight: 800; line-height: 1.2; }
+        #hero p { font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -375,1361 +239,350 @@
             align-items: center;
             gap: 0.8rem;
             box-shadow: 0 10px 20px rgba(139, 115, 85, 0.3);
-            position: relative;
-            overflow: hidden;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(139, 115, 85, 0.4);
-        }
-
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .btn-primary:hover::after {
-            left: 100%;
-        }
-
-        /* FEATURES BANNER (maintenant caché car remplacé par la barre d'annonce) */
-        #features-banner {
-            display: none;
-        }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(139, 115, 85, 0.4); }
 
         /* PRODUITS SECTION */
-        #produits {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        #produits { padding: 6rem 2rem; max-width: 1400px; margin: 0 auto; }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; position: relative; display: inline-block; }
         .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
+            content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+            width: 80px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent));
         }
 
-        .section-title p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* CATEGORIES */
-        .categories {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
+        .categories { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
         .category-btn {
-            background: white;
-            border: 2px solid var(--secondary);
-            color: var(--text);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            background: white; border: 2px solid var(--secondary); padding: 0.8rem 2rem;
+            border-radius: 50px; cursor: pointer; transition: var(--transition); font-weight: 500;
         }
+        .category-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
-        .category-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .category-btn.active {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.2);
-        }
-
-        /* PRODUITS GRID */
-        .produits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 4rem;
-        }
+        .produits-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2.5rem; }
 
         .produit-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: cardAppear 0.6s ease forwards;
+            background: white; border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow); transition: var(--transition); position: relative;
         }
 
-        @keyframes cardAppear {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .produit-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(139, 115, 85, 0.15); }
+
+        /* MICRO-INTERACTIONS PRODUITS */
+        .produit-image { width: 100%; height: 250px; overflow: hidden; position: relative; }
+        .produit-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
+        .produit-card:hover .produit-image img { transform: scale(1.1); filter: brightness(0.9); }
+
+        .produit-image::after {
+            content: 'Aperçu Rapide';
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -20%);
+            background: rgba(255,255,255,0.9); color: var(--primary); padding: 0.8rem 1.5rem;
+            border-radius: 50px; font-weight: 600; opacity: 0; transition: var(--transition);
         }
+        .produit-card:hover .produit-image::after { opacity: 1; transform: translate(-50%, -50%); }
 
-        .produit-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.15);
-        }
-
-        .produit-card:nth-child(1) { animation-delay: 0.1s; }
-        .produit-card:nth-child(2) { animation-delay: 0.2s; }
-        .produit-card:nth-child(3) { animation-delay: 0.3s; }
-        .produit-card:nth-child(4) { animation-delay: 0.4s; }
-
-        /* BADGES */
         .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            position: absolute; top: 15px; right: 15px; color: white;
+            padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; z-index: 2;
         }
-
-        .badge.bestseller {
-            background: linear-gradient(135deg, var(--accent) 0%, #ff9800 100%);
-            animation: badgePulse 2s infinite;
-        }
-
-        .badge.nouveau {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-        }
-
-        /* BADGE PROMO EN ROUGE - NOUVEAU STYLE */
-        .badge.promo {
-            background: linear-gradient(135deg, var(--danger) 0%, var(--danger-dark) 100%);
-            color: white;
-            animation: pulseRed 2s infinite;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-        }
+        .badge.bestseller { background: linear-gradient(135deg, var(--accent) 0%, #ff9800 100%); }
+        .badge.nouveau { background: #4CAF50; }
+        .badge.promo { background: var(--danger); animation: pulseRed 2s infinite; }
 
         @keyframes pulseRed {
-            0%, 100% { 
-                transform: scale(1); 
-                box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
-            }
-            50% { 
-                transform: scale(1.05); 
-                box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
-            }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
         }
 
-        @keyframes badgePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .produit-image {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .produit-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .produit-card:hover .produit-image img {
-            transform: scale(1.15);
-        }
-
-        .produit-info {
-            padding: 1.8rem;
-        }
-
-        .produit-titre {
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-            font-weight: 600;
-        }
-
-        /* STYLE DES PRIX NORMAUX */
-        .produit-prix {
-            font-size: 1.8rem;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .produit-prix span {
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 400;
-        }
-
-        /* STYLE DES PRIX EN PROMO */
-        .produit-prix.promo {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .produit-prix.promo .old-price {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            text-decoration: line-through;
-            font-weight: 500;
-        }
-
-        .produit-prix.promo .new-price {
-            font-size: 2rem;
-            color: var(--danger);
-            font-weight: 700;
-        }
-
-        .produit-prix.promo .economy {
-            font-size: 0.9rem;
-            color: var(--danger);
-            background: rgba(231, 76, 60, 0.1);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
+        .produit-info { padding: 1.8rem; }
+        .produit-prix { font-size: 1.8rem; color: var(--primary); font-weight: 700; margin-bottom: 1rem; }
+        .produit-prix.promo .old-price { font-size: 1.2rem; text-decoration: line-through; color: var(--text-light); }
+        .produit-prix.promo .new-price { color: var(--danger); margin-left: 0.5rem; }
 
         .btn-voir {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
-            font-weight: 600;
+            background: transparent; border: 2px solid var(--primary); color: var(--primary);
+            padding: 0.8rem 1.5rem; border-radius: 50px; cursor: pointer; width: 100%; font-weight: 600;
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
         }
+        .btn-voir:hover { background: var(--primary); color: white; }
 
-        .btn-voir:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
+        /* STATS BAR */
+        .stats-bar {
+            background: var(--primary); color: white; padding: 4rem 2rem;
+            display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; gap: 2rem;
+            margin-top: 4rem;
         }
+        .stat-item h3 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .stat-item p { text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; opacity: 0.9; }
+
+        /* TESTIMONIALS */
+        #testimonials { padding: 6rem 2rem; background: #fff; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .testimonial-card { background: var(--secondary); padding: 2rem; border-radius: var(--radius); }
+        .stars { color: var(--accent); margin-bottom: 1rem; }
+        .testimonial-text { font-style: italic; margin-bottom: 1rem; }
+        .testimonial-author { font-weight: 700; color: var(--primary); }
 
         /* MODAL */
         .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 2rem;
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                backdrop-filter: blur(0);
-            }
-            to {
-                opacity: 1;
-                backdrop-filter: blur(5px);
-            }
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 2000; overflow-y: auto; padding: 2rem;
         }
 
         .modal-content {
-            background: white;
-            max-width: 1100px;
-            margin: 2rem auto;
-            border-radius: var(--radius);
-            overflow: hidden;
-            position: relative;
-            animation: modalSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            background: white; max-width: 1100px; margin: 2rem auto; border-radius: var(--radius);
+            overflow: hidden; position: relative; animation: modalSlideIn 0.5s ease;
         }
 
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
+        @keyframes modalSlideIn { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         .close-modal {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 1.8rem;
-            color: var(--primary);
-            background: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: var(--transition);
-        }
-
-        .close-modal:hover {
-            transform: rotate(90deg);
-            color: var(--accent);
-        }
-
-        .produit-detail-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            padding: 3rem;
-        }
-
-        .detail-image {
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .detail-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .detail-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .detail-info {
-            padding: 1rem;
-        }
-
-        .detail-titre {
-            color: var(--primary);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-            font-weight: 700;
-        }
-
-        .detail-prix {
-            font-size: 2.5rem;
-            color: var(--dark);
-            font-weight: 700;
-            margin: 1.5rem 0;
-            padding: 1rem 0;
-            border-top: 2px solid var(--secondary);
-            border-bottom: 2px solid var(--secondary);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .detail-prix .old-price {
-            font-size: 1.8rem;
-            color: var(--text-light);
-            text-decoration: line-through;
-        }
-
-        .detail-description {
-            background: var(--secondary);
-            padding: 1.8rem;
-            border-radius: var(--radius);
-            margin: 2rem 0;
-            line-height: 1.8;
-            position: relative;
-        }
-
-        .detail-description::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 5rem;
-            color: var(--primary-light);
-            font-family: Georgia, serif;
-            opacity: 0.3;
-        }
-
-        .detail-caracteristiques {
-            margin: 2rem 0;
-        }
-
-        .detail-caracteristiques h3 {
-            color: var(--primary);
-            margin-bottom: 1.2rem;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .detail-caracteristiques ul {
-            list-style-type: none;
-        }
-
-        .detail-caracteristiques li {
-            padding: 0.7rem 0;
-            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
-            position: relative;
-            padding-left: 2rem;
-            transition: var(--transition);
-        }
-
-        .detail-caracteristiques li:hover {
-            padding-left: 2.5rem;
-            background: rgba(139, 115, 85, 0.03);
-        }
-
-        .detail-caracteristiques li:before {
-            content: "✓";
-            color: var(--primary);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .btn-ajouter {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            border: none;
-            padding: 1.2rem 2.5rem;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            transition: var(--transition);
-            margin-top: 2rem;
-            width: 100%;
-            font-weight: 600;
-            box-shadow: 0 10px 20px rgba(139, 115, 85, 0.2);
-        }
-
-        .btn-ajouter:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(139, 115, 85, 0.3);
-        }
-
-        .btn-ajouter.added {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-        }
-
-        .conseil-utilisation {
-            background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
-            padding: 1.8rem;
-            border-radius: var(--radius);
-            border-left: 5px solid var(--accent);
-            margin: 2rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .conseil-utilisation::before {
-            content: '💡';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 3rem;
-            opacity: 0.1;
-        }
-
-        .secret-beaute {
-            background: linear-gradient(135deg, #e8f5e9 0%, #d4edda 100%);
-            padding: 1.8rem;
-            border-radius: var(--radius);
-            border-left: 5px solid #4CAF50;
-            margin: 2rem 0;
-            font-style: italic;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .secret-beaute::before {
-            content: '✨';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 3rem;
-            opacity: 0.1;
-        }
-
-        .etapes-rituel {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            padding: 1.8rem;
-            border-radius: var(--radius);
-            border-left: 5px solid #2196f3;
-            margin: 2rem 0;
-        }
-
-        /* MODAL FOOTER CONTENT */
-        .footer-modal-content {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 3rem;
-            background: white;
-            border-radius: var(--radius);
-            position: relative;
-            animation: modalSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-        }
-
-        .footer-modal-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        .footer-modal-header h2 {
-            color: var(--primary);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .footer-modal-header p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer-modal-body {
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: var(--text);
-        }
-
-        .footer-modal-section {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: rgba(245, 232, 208, 0.2);
-            border-radius: var(--radius);
-            border-left: 4px solid var(--primary);
-        }
-
-        .footer-modal-section h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-modal-list {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .footer-modal-list li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
-        }
-
-        .footer-modal-list li:last-child {
-            border-bottom: none;
-        }
-
-        .footer-modal-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* STYLES POUR LES IMAGES DU PROCESSUS */
-        .processus-images {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .processus-etape {
-            flex: 1;
-            min-width: 250px;
-            max-width: 300px;
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .processus-etape:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .processus-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            border: 3px solid var(--secondary);
-        }
-
-        .etape-numero {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            line-height: 35px;
-            font-weight: bold;
-            margin-bottom: 0.8rem;
+            position: absolute; right: 20px; top: 20px; font-size: 1.8rem; cursor: pointer;
+            z-index: 10; width: 45px; height: 45px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         /* CART SIDEBAR */
         .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 380px;
-            height: 100vh;
-            background: white;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-            z-index: 1001;
-            transition: var(--transition);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
+            position: fixed; top: 0; right: -400px; width: 380px; height: 100vh;
+            background: white; box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 1001;
+            transition: var(--transition); padding: 2rem; display: flex; flex-direction: column;
         }
-
-        .cart-sidebar.active {
-            right: 0;
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            margin-bottom: 2rem;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            border-radius: var(--radius);
-            background: var(--secondary);
-            margin-bottom: 1rem;
-            transition: var(--transition);
-        }
-
-        .cart-item:hover {
-            transform: translateX(5px);
-        }
-
-        .cart-footer {
-            border-top: 2px solid var(--secondary);
-            padding-top: 1.5rem;
-        }
+        .cart-sidebar.active { right: 0; }
 
         /* FOOTER */
-        footer {
-            background: linear-gradient(135deg, var(--dark) 0%, #333 100%);
-            color: white;
-            padding: 6rem 2rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-        }
-
+        footer { background: var(--dark); color: white; padding: 6rem 2rem 2rem; position: relative; }
         .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 4rem;
+            max-width: 1400px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem;
         }
-
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-description {
-            color: rgba(255,255,255,0.8);
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: white;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(255,255,255,0.1);
-            font-weight: 600;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .footer-link {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 0.5rem 0;
-        }
-
-        .footer-link:hover {
-            color: var(--accent);
-            transform: translateX(10px);
-        }
-
-        .footer-link i {
-            width: 20px;
-            text-align: center;
-        }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .contact-item i {
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 3rem;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.6);
-        }
+        .footer-logo { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .footer-links { display: flex; flex-direction: column; gap: 1rem; }
+        .footer-link { color: rgba(255,255,255,0.8); text-decoration: none; transition: 0.3s; }
+        .footer-link:hover { color: var(--accent); transform: translateX(10px); }
 
         /* FLOATING BUTTONS */
-        .floating-buttons {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            z-index: 100;
-        }
+        .floating-buttons { position: fixed; bottom: 2rem; right: 2rem; display: flex; flex-direction: column; gap: 1rem; z-index: 100; }
+        .floating-btn { width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .whatsapp-btn { background: #25D366; }
 
-        .floating-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
-        }
+        .scroll-progress { position: fixed; top: 40px; left: 0; width: 0%; height: 3px; background: var(--accent); z-index: 1001; }
 
-        .floating-btn:hover {
-            transform: scale(1.1);
-            background: var(--primary-dark);
-        }
-
-        .whatsapp-btn {
-            background: #25D366;
-        }
-
-        /* SCROLL PROGRESS */
-        .scroll-progress {
-            position: fixed;
-            top: 40px; /* Ajusté pour la barre d'annonce */
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            z-index: 1001;
-            transition: width 0.1s ease;
-        }
-
-        /* TOAST NOTIFICATION */
         .toast {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            z-index: 1002;
-            opacity: 0;
-            transition: var(--transition);
+            position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: white; padding: 1rem 2rem; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 1002; transition: 0.4s; opacity: 0;
         }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
-        .toast.success {
-            border-left: 5px solid #4CAF50;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            .produit-detail-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                padding: 2rem;
-            }
-            
-            .detail-image {
-                max-width: 500px;
-                margin: 0 auto;
-            }
-            
-            .footer-modal-content {
-                padding: 2rem;
-                margin: 1rem;
-            }
-            
-            .processus-images {
-                gap: 1rem;
-            }
-            
-            .processus-etape {
-                min-width: 200px;
-            }
-        }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         @media (max-width: 768px) {
-            body {
-                padding-top: 35px; /* Réduit pour mobile */
-            }
-            
-            .announcement-bar {
-                height: 35px;
-                font-size: 0.75rem;
-            }
-            
-            .announcement-item {
-                padding: 0 20px;
-            }
-            
-            .announcement-icon {
-                font-size: 0.9rem;
-                margin-right: 8px;
-            }
-            
-            .announcement-separator {
-                margin: 0 15px;
-            }
-            
-            header {
-                top: 35px; /* Ajusté pour mobile */
-                padding: 1rem;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 35px; /* Ajusté pour mobile */
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: var(--transition);
-                z-index: 999;
-            }
-            
-            nav.active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            
-            #hero {
-                padding: 8rem 1rem 4rem;
-                margin-top: -35px; /* Ajusté pour mobile */
-            }
-            
-            #hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            #hero p {
-                font-size: 1.1rem;
-            }
-            
-            .produits-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .produit-prix.promo {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .modal-content {
-                margin: 1rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .cart-sidebar {
-                width: 100%;
-                right: -100%;
-            }
-            
-            .processus-images {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .processus-etape {
-                width: 100%;
-                max-width: 100%;
-            }
+            #hero h1 { font-size: 2.2rem; }
+            nav { position: fixed; top: 35px; left: 0; width: 100%; background: white; flex-direction: column; padding: 2rem; transform: translateY(-100%); opacity: 0; }
+            nav.active { transform: translateY(0); opacity: 1; }
+            .mobile-menu-btn { display: block; }
+            .cart-sidebar { width: 100%; }
         }
+
+        /* Styles spécifiques aux détails produits dans le modal */
+        .produit-detail-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 3rem; }
+        .detail-image img { width: 100%; border-radius: var(--radius); }
+        .detail-prix { font-size: 2.5rem; font-weight: 700; margin: 1.5rem 0; border-top: 2px solid var(--secondary); border-bottom: 2px solid var(--secondary); padding: 1rem 0; }
+        .detail-description { background: var(--secondary); padding: 1.5rem; border-radius: var(--radius); margin-bottom: 1.5rem; }
+        .btn-ajouter { background: var(--primary); color: white; border: none; padding: 1.2rem; border-radius: 50px; width: 100%; font-weight: 600; cursor: pointer; }
     </style>
 </head>
 <body>
-    <!-- ANNOUNCEMENT BAR (BARRE D'ANNONCE DÉFILANTE) -->
+
     <div class="announcement-bar">
         <div class="announcement-track">
-            <!-- Première répétition -->
-            <div class="announcement-item">
-                <span class="announcement-icon">🌿</span>
-                100% Naturel - Produits biologiques certifiés
-            </div>
+            <div class="announcement-item"><span class="announcement-icon">🌿</span> 100% Naturel - Produits biologiques certifiés</div>
             <span class="announcement-separator">•</span>
-            
-            <div class="announcement-item">
-                <span class="announcement-icon">🚚</span>
-                Livraison Rapide - Partout au Maroc
-            </div>
+            <div class="announcement-item"><span class="announcement-icon">🚚</span> Livraison Rapide - Partout au Maroc</div>
             <span class="announcement-separator">•</span>
-            
-            <div class="announcement-item">
-                <span class="announcement-icon">⭐</span>
-                Qualité Premium - Fabriqué avec soin
-            </div>
+            <div class="announcement-item"><span class="announcement-icon">⭐</span> Qualité Premium - Fabriqué avec soin</div>
             <span class="announcement-separator">•</span>
-            
-            <div class="announcement-item">
-                <span class="announcement-icon">🕐</span>
-                Support 24/7 - Nous sommes là pour vous
-            </div>
+            <div class="announcement-item"><span class="announcement-icon">🌿</span> 100% Naturel - Produits biologiques certifiés</div>
             <span class="announcement-separator">•</span>
-            
-            <!-- Deuxième répétition (pour le défilement continu) -->
-            <div class="announcement-item">
-                <span class="announcement-icon">🌿</span>
-                100% Naturel - Produits biologiques certifiés
-            </div>
-            <span class="announcement-separator">•</span>
-            
-            <div class="announcement-item">
-                <span class="announcement-icon">🚚</span>
-                Livraison Rapide - Partout au Maroc
-            </div>
-            <span class="announcement-separator">•</span>
-            
-            <div class="announcement-item">
-                <span class="announcement-icon">⭐</span>
-                Qualité Premium - Fabriqué avec soin
-            </div>
-            <span class="announcement-separator">•</span>
-            
-            <div class="announcement-item">
-                <span class="announcement-icon">🕐</span>
-                Support 24/7 - Nous sommes là pour vous
-            </div>
+            <div class="announcement-item"><span class="announcement-icon">🚚</span> Livraison Rapide - Partout au Maroc</div>
         </div>
     </div>
 
-    <!-- LOADING -->
     <div class="loading">
         <div class="loader"></div>
     </div>
 
-    <!-- SCROLL PROGRESS -->
     <div class="scroll-progress"></div>
 
-    <!-- HEADER -->
     <header>
         <div class="logo">
-            <i class="fas fa-spa"></i>
-            ARGAN STORE
+            <i class="fas fa-spa"></i> ARGAN STORE
         </div>
-        
         <nav>
             <a href="#hero" class="nav-link active">Accueil</a>
             <a href="#produits" class="nav-link">Produits</a>
+            <a href="#testimonials" class="nav-link">Avis</a>
             <a href="#contact" class="nav-link">Contact</a>
             <div class="cart-icon" onclick="toggleCart()">
                 <i class="fas fa-shopping-bag"></i>
                 <span class="cart-count">0</span>
             </div>
         </nav>
-        
         <div class="mobile-menu-btn" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
     </header>
 
-    <!-- HERO -->
     <section id="hero">
         <div class="hero-content">
             <h1>Produits 100% Argan Naturel</h1>
             <p>Découvrez notre gamme exclusive de soins biologiques<br>à base d'huile d'argan marocaine</p>
             <button class="btn-primary" onclick="scrollToProducts()">
-                Découvrir nos produits
-                <i class="fas fa-arrow-down"></i>
+                Découvrir nos produits <i class="fas fa-arrow-down"></i>
             </button>
         </div>
     </section>
 
-    <!-- PRODUITS -->
     <section id="produits">
         <div class="section-title">
             <h2>Nos Produits Phares</h2>
             <p>Découvrez notre sélection de soins naturels pour votre beauté</p>
         </div>
         
-        <!-- CATEGORIES -->
         <div class="categories">
-            <button class="category-btn active" onclick="filterProducts('all')">
-                <i class="fas fa-star"></i> Tous les produits
-            </button>
-            <button class="category-btn" onclick="filterProducts('corps')">
-                <i class="fas fa-spa"></i> Soins Corps
-            </button>
-            <button class="category-btn" onclick="filterProducts('visage')">
-                <i class="fas fa-smile"></i> Soins Visage
-            </button>
-            <button class="category-btn" onclick="filterProducts('masque')">
-                <i class="fas fa-mask"></i> Masques
-            </button>
-            <button class="category-btn" onclick="filterProducts('cheveux')">
-                <i class="fas fa-air-freshener"></i> Soins Cheveux
-            </button>
+            <button class="category-btn active" onclick="filterProducts('all')">Tous les produits</button>
+            <button class="category-btn" onclick="filterProducts('corps')">Soins Corps</button>
+            <button class="category-btn" onclick="filterProducts('visage')">Soins Visage</button>
+            <button class="category-btn" onclick="filterProducts('masque')">Masques</button>
+            <button class="category-btn" onclick="filterProducts('cheveux')">Soins Cheveux</button>
         </div>
 
-        <!-- PRODUITS GRID -->
         <div class="produits-grid">
-            <!-- PRODUIT 1 - GOMMAGE (AVEC LA NOUVELLE IMAGE) -->
             <div class="produit-card" data-category="corps">
                 <div class="badge bestseller">Bestseller</div>
                 <div class="produit-image">
-                    <img src="https://github.com/user-attachments/assets/854d74bf-f9eb-48e1-82c3-863381655517" 
-                         alt="Gommage Figue de Barbarie">
+                    <img src="https://github.com/user-attachments/assets/854d74bf-f9eb-48e1-82c3-863381655517" alt="Gommage">
                 </div>
                 <div class="produit-info">
                     <h3 class="produit-titre">Gommage Figue de Barbarie</h3>
-                    <div class="produit-prix">150 DH <span>Éclat & Jeunesse</span></div>
+                    <div class="produit-prix">150 DH</div>
                     <p>Exfoliant corps et visage à la figue de barbarie</p>
-                    <button class="btn-voir" onclick="showProduct('gommage')">
-                        <i class="fas fa-eye"></i> Voir les détails
-                    </button>
+                    <button class="btn-voir" onclick="showProduct('gommage')">Détails</button>
                 </div>
             </div>
 
-            <!-- PRODUIT 2 - HUILE ARGAN -->
             <div class="produit-card" data-category="visage">
                 <div class="badge nouveau">Nouveau</div>
                 <div class="produit-image">
-                    <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" 
-                         alt="Huile d'Argan Pure Argalux">
+                    <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile d'Argan">
                 </div>
                 <div class="produit-info">
                     <h3 class="produit-titre">Huile d'Argan Pure</h3>
-                    <div class="produit-prix">80 DH <span>Format Voyage</span></div>
+                    <div class="produit-prix">80 DH</div>
                     <p>Huile Bio 50ml avec étui et pompe doseuse</p>
-                    <button class="btn-voir" onclick="showProduct('argalux50')">
-                        <i class="fas fa-eye"></i> Voir les détails
-                    </button>
+                    <button class="btn-voir" onclick="showProduct('argalux50')">Détails</button>
                 </div>
             </div>
 
-            <!-- PRODUIT 3 - MASQUE GHASSOUL -->
             <div class="produit-card" data-category="masque">
                 <div class="produit-image">
-                    <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" 
-                         alt="Masque au Ghassoul">
+                    <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" alt="Ghassoul">
                 </div>
                 <div class="produit-info">
                     <h3 class="produit-titre">Masque Ghassoul</h3>
-                    <div class="produit-prix">100 DH <span>Purification & Sérénité</span></div>
+                    <div class="produit-prix">100 DH</div>
                     <p>Masque purifiant à la fleur d'oranger</p>
-                    <button class="btn-voir" onclick="showProduct('ghassoul')">
-                        <i class="fas fa-eye"></i> Voir les détails
-                    </button>
+                    <button class="btn-voir" onclick="showProduct('ghassoul')">Détails</button>
                 </div>
             </div>
 
-            <!-- PRODUIT 4 - PACK ANTI-CHUTE AVEC PROMO -->
             <div class="produit-card" data-category="cheveux">
                 <div class="badge promo">PROMO</div>
                 <div class="produit-image">
-                    <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" 
-                         alt="Pack Anti-Chute">
+                    <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti-Chute">
                 </div>
                 <div class="produit-info">
                     <h3 class="produit-titre">Pack Anti-Chute</h3>
                     <div class="produit-prix promo">
                         <span class="old-price">350 DH</span>
                         <span class="new-price">300 DH</span>
-                        <span class="economy">-50 DH</span>
                     </div>
-                    <p><strong>Force & Vitalité</strong> - Gamme complète 4 produits pour cheveux</p>
-                    <button class="btn-voir" onclick="showProduct('antichute')">
-                        <i class="fas fa-eye"></i> Voir les détails
-                    </button>
+                    <p>Gamme complète 4 produits pour cheveux</p>
+                    <button class="btn-voir" onclick="showProduct('antichute')">Détails</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <div class="stats-bar">
+        <div class="stat-item"><h3>+5000</h3><p>Clientes Heureuses</p></div>
+        <div class="stat-item"><h3>18</h3><p>Femmes Artisanes</p></div>
+        <div class="stat-item"><h3>100%</h3><p>Bio & Naturel</p></div>
+        <div class="stat-item"><h3>24h</h3><p>Délai de Livraison</p></div>
+    </div>
+
+    <section id="testimonials">
+        <div class="section-title">
+            <h2>Avis de nos clientes</h2>
+            <p>La satisfaction de nos clientes est notre plus grande fierté.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testimonial-text">"L'huile d'argan est d'une pureté incroyable. Ma peau est transformée."</p>
+                <p class="testimonial-author">- Sarah B. (Casablanca)</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="testimonial-text">"Le pack anti-chute a sauvé mes cheveux. Je recommande !"</p>
+                <p class="testimonial-author">- Kenza L. (Marrakech)</p>
+            </div>
+        </div>
+    </section>
+
     <footer id="contact">
         <div class="footer-content">
             <div>
-                <div class="footer-logo">
-                    <i class="fas fa-spa"></i>
-                    ARGAN STORE
-                </div>
-                <p class="footer-description">
-                    Votre destination pour des soins naturels à base d'huile d'argan marocaine. Produits 100% biologiques, fabriqués avec soin par notre coopérative féminine.
-                </p>
+                <div class="footer-logo"><i class="fas fa-spa"></i> ARGAN STORE</div>
+                <p>Votre destination pour des soins naturels. Produits 100% biologiques fabriqués par notre coopérative féminine.</p>
             </div>
-            
-            <div class="footer-section">
-                <h3>Notre Mission</h3>
-                <div class="footer-links">
-                    <a href="#" class="footer-link" onclick="showFooterContent('objectif')">
-                        <i class="fas fa-hands-helping"></i>
-                        Notre Objectif
-                    </a>
-                    <a href="#" class="footer-link" onclick="showFooterContent('histoire')">
-                        <i class="fas fa-history"></i>
-                        Notre Histoire
-                    </a>
-                    <a href="#" class="footer-link" onclick="showFooterContent('processus')">
-                        <i class="fas fa-seedling"></i>
-                        Processus de Production
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-section">
+            <div class="footer-links">
                 <h3>Navigation</h3>
-                <div class="footer-links">
-                    <a href="#hero" class="footer-link">
-                        <i class="fas fa-home"></i>
-                        Accueil
-                    </a>
-                    <a href="#produits" class="footer-link">
-                        <i class="fas fa-shopping-bag"></i>
-                        Produits
-                    </a>
-                    <a href="#" class="footer-link" onclick="toggleCart()">
-                        <i class="fas fa-shopping-cart"></i>
-                        Panier
-                    </a>
-                </div>
+                <a href="#hero" class="footer-link">Accueil</a>
+                <a href="#produits" class="footer-link">Produits</a>
+                <a href="#" class="footer-link" onclick="toggleCart()">Panier</a>
             </div>
-            
-            <div class="footer-section">
+            <div>
                 <h3>Contact</h3>
-                <div class="footer-contact">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+212 600 00 00 00</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>contact@arganstore.ma</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Maroc</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Lun-Ven: 9h-18h</span>
-                    </div>
-                </div>
+                <p><i class="fas fa-phone"></i> +212 600 00 00 00</p>
+                <p><i class="fas fa-envelope"></i> contact@arganstore.ma</p>
+                <p><i class="fas fa-map-marker-alt"></i> Maroc</p>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2024 Argan Store. Tous droits réservés. | Produits 100% naturels fabriqués au Maroc</p>
+        <div style="text-align: center; margin-top: 3rem; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+            &copy; 2024 Argan Store. Tous droits réservés.
         </div>
     </footer>
 
-    <!-- FLOATING BUTTONS -->
     <div class="floating-buttons">
-        <div class="floating-btn whatsapp-btn" onclick="openWhatsApp()">
-            <i class="fab fa-whatsapp"></i>
-        </div>
-        <div class="floating-btn" onclick="scrollToTop()">
-            <i class="fas fa-arrow-up"></i>
-        </div>
+        <div class="floating-btn whatsapp-btn" onclick="window.open('https://wa.me/212600000000')"><i class="fab fa-whatsapp"></i></div>
+        <div class="floating-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
     </div>
 
-    <!-- CART SIDEBAR -->
     <div class="cart-sidebar">
-        <div class="cart-header">
-            <h3><i class="fas fa-shopping-bag"></i> Votre Panier</h3>
-            <button class="close-modal" onclick="toggleCart()">&times;</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+            <h3>Mon Panier</h3>
+            <button onclick="toggleCart()" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
         </div>
-        <div class="cart-items" id="cartItems">
-            <!-- Les produits du panier seront ajoutés ici -->
-        </div>
-        <div class="cart-footer">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-                <strong>Total:</strong>
-                <strong id="cartTotal">0 DH</strong>
+        <div id="cartItems" style="flex:1; overflow-y:auto;"></div>
+        <div style="border-top: 2px solid var(--secondary); padding-top:1.5rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:1rem;">
+                <strong>Total:</strong> <strong id="cartTotal">0 DH</strong>
             </div>
-            <button class="btn-ajouter" style="margin-top: 0;">Commander</button>
+            <button class="btn-ajouter">Commander via WhatsApp</button>
         </div>
     </div>
 
-    <!-- TOAST -->
-    <div class="toast" id="toast"></div>
-
-    <!-- MODAL PRODUIT -->
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -1737,639 +590,119 @@
         </div>
     </div>
 
-    <!-- MODAL FOOTER CONTENT -->
-    <div id="footerModal" class="modal">
-        <div class="footer-modal-content">
-            <span class="close-modal" onclick="closeFooterModal()">&times;</span>
-            <div id="footerModalContent"></div>
-        </div>
-    </div>
+    <div class="toast" id="toast"></div>
 
     <script>
-        // INITIALISATION
-        document.addEventListener('DOMContentLoaded', function() {
-            // Cacher le loading après 1.5s
-            setTimeout(() => {
-                document.querySelector('.loading').classList.add('hidden');
-                // Animation des cartes
-                animateCards();
-            }, 1500);
-
-            // Navigation active
-            updateActiveNav();
-            
-            // Scroll progress
-            window.addEventListener('scroll', updateScrollProgress);
-            
-            // Animation au scroll
-            window.addEventListener('scroll', animateOnScroll);
-            
-            // Header scroll effect
-            window.addEventListener('scroll', updateHeader);
-            
-            // Initialiser le panier depuis localStorage
-            loadCartFromStorage();
-        });
-
-        // CONTENU DES MODAUX DU FOOTER
-        const footerContent = {
-            'objectif': {
-                title: 'Notre Objectif',
-                icon: 'fas fa-hands-helping',
-                content: `
-                    <div class="footer-modal-header">
-                        <h2><i class="fas fa-hands-helping"></i> Notre Objectif</h2>
-                        <p>Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales en renforçant leur autonomie financière à travers la production d'huiles culinaires et cosmétiques de très haute qualité.</p>
-                    </div>
-                    <div class="footer-modal-body">
-                        <div class="footer-modal-section">
-                            <h3><i class="fas fa-bullseye"></i> Notre Mission</h3>
-                            <p>Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales en renforçant leur autonomie financière à travers la production d'huiles culinaires et cosmétiques de très haute qualité.</p>
-                            <p>Nous favorisons l'augmentation des revenus, l'alphabétisation et l'intégration des femmes dans un cadre de travail collectif et structuré.</p>
-                            <p>À travers notre engagement, nous contribuons à la préservation de l'arganier et à la valorisation durable des produits du terroir marocain.</p>
-                        </div>
-                        
-                        <div class="footer-modal-section">
-                            <h3><i class="fas fa-heart"></i> Notre Impact Social</h3>
-                            <ul class="footer-modal-list">
-                                <li><strong>Autonomisation économique</strong> des femmes berbères</li>
-                                <li><strong>Préservation des savoir-faire</strong> ancestraux</li>
-                                <li><strong>Développement durable</strong> des communautés rurales</li>
-                                <li><strong>Protection de l'écosystème</strong> de l'arganeraie</li>
-                                <li><strong>Commerce équitable</strong> et éthique</li>
-                                <li><strong>Augmentation des revenus</strong> familiaux</li>
-                                <li><strong>Alphabétisation</strong> et formation continue</li>
-                                <li><strong>Intégration professionnelle</strong> des femmes</li>
-                            </ul>
-                        </div>
-                    </div>
-                `
-            },
-            'histoire': {
-                title: 'Notre Histoire',
-                icon: 'fas fa-history',
-                content: `
-                    <div class="footer-modal-header">
-                        <h2><i class="fas fa-history"></i> Notre Histoire</h2>
-                        <p>Découvrez l'histoire passionnante de la création de notre coopérative</p>
-                    </div>
-                    <div class="footer-modal-body">
-                        <div class="footer-modal-section">
-                            <h3><i class="fas fa-book"></i> Historique de création de la coopérative</h3>
-                            <p>Avant que l'Association Ibno al Baytar n'appuie la création de la coopérative en 2002, les femmes de Tiout se retrouvaient principalement au sein d'un foyer féminin de tissage. La production artisanale d'huile d'argan était alors une activité traditionnelle secondaire, pratiquée individuellement à domicile.</p>
-                            <p>A l'époque, deux coopératives féminines d'argan existaient à Essaouira et l'Association Ibno al Baytar finança aux femmes de Tiout une visite d'échange dans ces deux coopératives.</p>
-                            <p>Cette visite les inspira et c'est ainsi que <strong>18 femmes fondèrent la Coopérative agricole féminine de Taitmatine</strong>. Soutenues par l'Association Ibno al Baytar et puis par un Projet financé par la Principauté de Monaco, la coopérative reçut différents appuis, en particulier de nombreuses formations.</p>
-                            <p>Aujourd'hui, notre coopérative continue de perpétuer ce savoir-faire ancestral tout en valorisant le travail des femmes berbères et en préservant l'écosystème unique de l'arganeraie marocaine.</p>
-                        </div>
-                        
-                        <div class="footer-modal-section">
-                            <h3><i class="fas fa-star"></i> Points Clés</h3>
-                            <ul class="footer-modal-list">
-                                <li><strong>Création en 2002</strong> - Fondation par 18 femmes inspirées</li>
-                                <li><strong>Coopérative féminine de Taitmatine</strong> - Notre nom et notre identité</li>
-                                <li><strong>Soutien de l'Association Ibno al Baytar</strong> - Partenaire fondateur</li>
-                                <li><strong>Projet financé par la Principauté de Monaco</strong> - Soutien international</li>
-                                <li><strong>Formations continues</strong> - Développement des compétences</li>
-                                <li><strong>Savoir-faire ancestral préservé</strong> - Tradition et modernité</li>
-                                <li><strong>Valorisation du travail des femmes berbères</strong> - Empowerment</li>
-                                <li><strong>Préservation de l'écosystème de l'arganeraie</strong> - Engagement écologique</li>
-                            </ul>
-                        </div>
-                    </div>
-                `
-            },
-            'processus': {
-                title: 'Processus de Production',
-                icon: 'fas fa-seedling',
-                content: `
-                    <div class="footer-modal-header">
-                        <h2><i class="fas fa-seedling"></i> Notre Processus de Production</h2>
-                        <p>Découvrez les 7 étapes artisanales de fabrication de notre huile d'argan, un savoir-faire ancestral préservé</p>
-                    </div>
-                    <div class="footer-modal-body">
-                        <div class="footer-modal-section">
-                            <h3><i class="fas fa-list-ol"></i> Les 7 Étapes de Fabrication</h3>
-                            <p>Un processus artisanal en 7 étapes pour une huile d'argan de qualité exceptionnelle, du fruit à la bouteille.</p>
-                            
-                            <div class="processus-images">
-                                <div class="processus-etape">
-                                    <div class="etape-numero">1</div>
-                                    <img src="https://github.com/user-attachments/assets/026d526f-4549-4ee5-9efe-9eed98bb5aab" alt="Étape 1 - Récolte" class="processus-image">
-                                    <h4>Récolte des fruits</h4>
-                                    <p>Les femmes et hommes berbères récoltent les fruits à maturité dans les arganeraies.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">2</div>
-                                    <img src="https://github.com/user-attachments/assets/08ed7431-0a11-4fa0-b804-61041e0c246f" alt="Étape 2 - Dépulpage" class="processus-image">
-                                    <h4>Dépulpage & Séchage</h4>
-                                    <p>Séparation de la pulpe sèche suivie d'un séchage naturel au soleil.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">3</div>
-                                    <img src="https://github.com/user-attachments/assets/a9266aaf-0ace-4531-bc24-5198fc69e844" alt="Étape 3 - Concassage" class="processus-image">
-                                    <h4>Concassage Manuel</h4>
-                                    <p>Ouverture précise de la noix sans endommager les précieux amandons.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">4</div>
-                                    <img src="https://github.com/user-attachments/assets/479a8a97-e1f9-45d8-b6d0-ae15353d8b65" alt="Étape 4 - Extraction" class="processus-image">
-                                    <h4>Extraction à Froid</h4>
-                                    <p>Pressage des amandons à froid pour préserver tous les nutriments.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">5</div>
-                                    <img src="https://github.com/user-attachments/assets/8d145d37-bb80-40b9-82a2-eb73c5b1608f" alt="Étape 5 - Décantation" class="processus-image">
-                                    <h4>Décantation</h4>
-                                    <p>Repos de 15-20 jours pour éliminer les particules en suspension.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">6</div>
-                                    <img src="https://github.com/user-attachments/assets/9193708f-989d-442b-8e12-64ecad41b669" alt="Étape 6 - Filtrage" class="processus-image">
-                                    <h4>Filtrage</h4>
-                                    <p>Filtration à travers des tissus fins pour une huile parfaitement claire.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">7</div>
-                                    <img src="https://github.com/user-attachments/assets/b60ab570-d1cc-4ba8-bada-d0e86c3a758b" alt="Étape 7 - Mise en bouteille" class="processus-image">
-                                    <h4>Mise en Bouteille</h4>
-                                    <p>Conditionnement, étiquetage et contrôle qualité avant expédition.</p>
-                                </div>
-                            </div>
-                            
-                            <ul class="footer-modal-list">
-                                <li><strong>Récolte des fruits d'argan</strong> - Lorsque les fruits arrivent à maturité, ils sont récoltés par les femmes et les hommes berbères dans les arganeraies.</li>
-                                <li><strong>Dépulpage et séchage</strong> - Séparation de la pulpe sèche de la noix d'argan, suivie d'un séchage au soleil.</li>
-                                <li><strong>Concassage manuel</strong> - Étape traditionnelle qui demande de la maîtrise et de la précision pour ouvrir la noix sans endommager les amandons.</li>
-                                <li><strong>Extraction à froid</strong> - Les amandons sont pressés à froid pour préserver toutes les propriétés nutritives de l'huile.</li>
-                                <li><strong>Décantation</strong> - L'huile est laissée au repos pendant 15 à 20 jours pour éliminer les particules en suspension.</li>
-                                <li><strong>Filtrage</strong> - Filtration soigneuse à travers des tissus fins pour obtenir une huile parfaitement claire et pure.</li>
-                                <li><strong>Mise en bouteille</strong> - Conditionnement dans des bouteilles, étiquetage et contrôle qualité avant expédition.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="footer-modal-section">
-                            <h3><i class="fas fa-gem"></i> Caractéristiques de Notre Production</h3>
-                            <ul class="footer-modal-list">
-                                <li><strong>100% Artisanal</strong> - Respect des méthodes traditionnelles</li>
-                                <li><strong>Pressage à froid</strong> - Préservation des nutriments</li>
-                                <li><strong>Qualité Premium</strong> - Normes de qualité strictes</li>
-                                <li><strong>Écologique</strong> - Processus respectueux de l'environnement</li>
-                                <li><strong>Traçabilité</strong> - Contrôle à chaque étape</li>
-                                <li><strong>Commerce équitable</strong> - Rémunération juste des productrices</li>
-                                <li><strong>Certifications</strong> - Produits biologiques certifiés</li>
-                                <li><strong>Emballage durable</strong> - Matériaux écologiques et recyclables</li>
-                            </ul>
-                        </div>
-                    </div>
-                `
-            }
-        };
-
-        // DONNÉES DES PRODUITS
+        // DATA
         const products = {
             'gommage': {
-                title: 'Gommage Figue de Barbarie – Éclat & Jeunesse',
-                price: '150 DH',
+                title: 'Gommage Figue de Barbarie', price: '150 DH',
                 image: 'https://github.com/user-attachments/assets/854d74bf-f9eb-48e1-82c3-863381655517',
-                description: `Redécouvrez la douceur d'une peau régénérée avec notre Gommage à la Figue de Barbarie. Véritable trésor cosmétique venu du Maroc, ce soin exfoliant double action allie l'efficacité d'un gommage profond aux vertus exceptionnelles de l'huile de pépins de figue de barbarie.`,
-                pourquoi: [
-                    'Exfoliation Douce & Efficace : Élimine les impuretés et les cellules mortes pour affiner le grain de peau instantanément.',
-                    'Puissant Anti-Âge : Riche en Vitamine E et en stérols, il aide à lutter contre le vieillissement cutané et raffermit les tissus.',
-                    'Éclat Naturel : Stimule le renouvellement cellulaire pour un teint lumineux et une peau incroyablement lisse.',
-                    'Polyvalent : Formule adaptée aussi bien pour la délicatesse du visage que pour la fermeté du corps.'
-                ],
-                conseils: `Appliquez une noisette de produit sur une peau humide.
-                Massez délicatement par mouvements circulaires (insistez sur les zones rugueuses pour le corps).
-                Rincez abondamment à l'eau tiède.
-                Utilisez 1 à 2 fois par semaine pour un résultat optimal.`,
-                secret: 'Sa texture onctueuse laisse un léger film protecteur non gras qui prépare parfaitement la peau à recevoir son soin hydratant habituel.',
-                caracteristiques: [
-                    'Contenance : Pot généreux (format standard gommage)',
-                    'Ingrédient phare : Figue de Barbarie (Prickly Pear)',
-                    'Type de peau : Tous types de peaux, particulièrement recommandé pour les peaux ternes ou matures',
-                    'Texture : Crème exfoliante fine et douce'
-                ],
-                category: 'corps'
+                description: 'Exfoliant régénérant aux pépins de figue de barbarie. Riche en Vitamine E.',
+                pourquoi: ['Exfoliation douce', 'Anti-âge naturel', 'Éclat du teint'],
+                conseils: 'Utiliser 1 à 2 fois par semaine sur peau humide.'
             },
             'argalux50': {
-                title: 'Huile d\'Argan Pure Argalux – L\'Essence de la Beauté Marocaine',
-                price: '80 DH',
+                title: 'Huile d\'Argan Pure', price: '80 DH',
                 image: 'https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb',
-                description: `Sublimez votre routine beauté avec l'Huile d'Argan Pure Argalux, un soin d'exception 100% Bio et naturel. Extraite à froid à partir d'amandons non torréfiés, cette huile préserve toute sa richesse en Vitamine E et en antioxydants pour offrir à votre peau, vos cheveux et vos ongles une régénération profonde.`,
-                pourquoi: [
-                    'Visage : Hydrate intensément, lisse les rides et redonne de l\'éclat au teint.',
-                    'Corps : Nourrit les peaux sèches et améliore l\'élasticité cutanée.',
-                    'Cheveux : Répare les pointes fourchues et apporte une brillance miroir sans graisser.',
-                    'Ongles : Fortifie les ongles cassants et nourrit les cuticules.'
-                ],
-                conseils: `Appliquez quelques gouttes sur une peau propre ou sur les longueurs de vos cheveux. Massez délicatement pour faire pénétrer. Pour un résultat optimal, utilisez quotidiennement, de préférence le soir.`,
-                secret: 'Deux formats pour tous vos besoins : Le Format Voyage & Précision (50ml) avec son étui et pompe doseuse est parfait pour un soin ciblé du visage ou pour vous accompagner dans tous vos déplacements.',
-                caracteristiques: [
-                    'Contenance : 50 ml (Format Voyage & Précision)',
-                    'Certification : 100% Bio et Naturelle',
-                    'Extraction : Pressage à froid, non torréfiée',
-                    'Accessoire : Étui et pompe doseuse inclus'
-                ],
-                category: 'visage'
+                description: 'Huile pure certifiée Bio, pressée à froid. Hydrate visage, corps et cheveux.',
+                pourquoi: ['Multi-usage', 'Hydratation profonde', 'Réparation cutanée'],
+                conseils: 'Appliquer quelques gouttes le soir sur peau propre.'
             },
             'ghassoul': {
-                title: 'Masque au Ghassoul & Fleur d\'Oranger – Purification & Sérénité',
-                price: '100 DH',
+                title: 'Masque Ghassoul', price: '100 DH',
                 image: 'https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3',
-                description: `Offrez à votre peau un rituel de spa ancestral avec notre Masque au Ghassoul Argalux. Ce soin iconique du rituel du hammam marocain, enrichi aux délicates notes de fleur d'oranger, purifie intensément tout en offrant une expérience sensorielle apaisante.`,
-                pourquoi: [
-                    'Purification Profonde : L\'argile minérale du Ghassoul absorbe l\'excès de sébum, élimine les impuretés et désincruste les pores sans irriter la peau.',
-                    'Éclat du Teint : Riche en minéraux, il revitalise l\'épiderme et redonne de la clarté aux teints ternes.',
-                    'Action Apaisante : L\'eau de fleur d\'oranger calme les irritations et laisse la peau douce, souple et délicatement parfumée.',
-                    'Soin Multi-zones : Parfait pour le visage (peaux mixtes à grasses) et le corps, il peut également être utilisé en masque capillaire pour purifier le cuir chevelu.'
-                ],
-                conseils: `Appliquez une couche généreuse sur le visage ou le corps (évitez le contour des yeux).
-                Laissez poser 5 à 10 minutes (ne laissez pas l'argile sécher complètement pour préserver l'hydratation).
-                Rincez abondamment à l'eau tiède en effectuant de légers mouvements circulaires.
-                Appliquez ensuite quelques gouttes de votre Huile d'Argan Argalux pour sceller l'hydratation.`,
-                secret: 'Ingrédients Naturels : Une formule respectueuse de votre peau. Texture Onctueuse : Prêt à l\'emploi, il s\'étale facilement pour un moment de détente immédiat. Parfum Envoûtant : Une fragrance florale qui relaxe l\'esprit autant que la peau.',
-                caracteristiques: [
-                    'Type : Masque purifiant corps et visage',
-                    'Ingrédient phare : Ghassoul argile marocaine',
-                    'Parfum : Fleur d\'oranger naturelle',
-                    'Texture : Prête à l\'emploi, onctueuse'
-                ],
-                category: 'masque'
+                description: 'Purifie intensément les pores. Enrichi à la fleur d\'oranger.',
+                pourquoi: ['Purifiant', 'Apaisant', '100% Naturel'],
+                conseils: 'Laisser poser 10 min puis rincer.'
             },
             'antichute': {
-                title: 'Pack Rituel Anti-Chute Argalux – Force & Vitalité Capillaire',
-                price: '300 DH',
-                originalPrice: '350 DH',
+                title: 'Pack Anti-Chute', price: '300 DH', originalPrice: '350 DH',
                 image: 'https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f',
-                description: `Redonnez vie à votre chevelure avec la Gamme Anti-Chute Argalux. Conçue pour freiner la chute des cheveux et stimuler leur croissance, cette routine complète associe les bienfaits ancestraux de l'argan à des actifs fortifiants modernes pour des cheveux plus denses, plus forts et éclatants de santé.`,
-                pourquoi: [
-                    'Action Ciblée : Aide à réduire visiblement la perte de cheveux et favorise la repousse.',
-                    'Enrichi en Argan : Nourrit le cuir chevelu et protège les longueurs contre les agressions extérieures.',
-                    'Résultats Visibles : Une chevelure plus volumineuse, plus résistante et une texture soyeuse.',
-                    'Convient à tous : Efficace sur tous les types de cheveux, particulièrement les cheveux ternes, cassants ou en manque de densité.'
-                ],
-                conseils: `Utilisez le shampooing 2 à 3 fois par semaine.
-                Appliquez le masque sur les longueurs et pointes après chaque shampooing, laissez poser 5 minutes, puis rincez.
-                Appliquez l'huile en bain d'huile 1 heure avant le lavage une fois par semaine.
-                Utilisez quelques gouttes de sérum sur cheveux secs ou humides pour sceller l'hydratation.`,
-                secret: 'L\'offre exclusive : Profitez de la puissance combinée de ces 4 produits pour transformer votre routine capillaire en un véritable soin professionnel à domicile.',
-                caracteristiques: [
-                    'Contenu : Shampooing Fortifiant 200ml + Masque Réparateur + Huile Capillaire + Sérum Finition',
-                    'Action : Anti-chute, fortifiant, croissance',
-                    'Type : Gamme complète capillaire',
-                    'Résultat : Cheveux plus denses, forts et éclatants'
-                ],
-                etapes: [
-                    'Le Shampooing Fortifiant (200ml) : Nettoie en douceur tout en renforçant la fibre capillaire dès la racine.',
-                    'Le Masque Réparateur : Un soin profond qui nourrit intensément, facilite le démêlage et redonne de la souplesse.',
-                    'L\'Huile Capillaire Anti-Chute : Concentré d\'huiles précieuses pour stimuler la microcirculation.',
-                    'Le Sérum Finition & Croissance : Texture légère pour brillance et protection au quotidien.'
-                ],
-                category: 'cheveux'
+                description: 'Routine complète pour fortifier les cheveux et stimuler la repousse.',
+                pourquoi: ['Stop la chute', 'Stimule la croissance', 'Plus de volume'],
+                conseils: 'Utiliser le shampooing et le sérum régulièrement.'
             }
         };
 
-        // FONCTIONS D'ANIMATION
-        function animateCards() {
-            const cards = document.querySelectorAll('.produit-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
-        }
-
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.feature, .section-title');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }
-            });
-        }
-
-        function updateHeader() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }
-
-        function updateScrollProgress() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.querySelector('.scroll-progress').style.width = scrolled + '%';
-        }
-
-        // FONCTIONS D'INTERFACE
-        function toggleMenu() {
-            document.querySelector('nav').classList.toggle('active');
-        }
-
-        function toggleCart() {
-            document.querySelector('.cart-sidebar').classList.toggle('active');
-        }
-
-        function scrollToProducts() {
-            document.querySelector('#produits').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function openWhatsApp() {
-            window.open('https://wa.me/212600000000?text=Bonjour%20Argan%20Store,%20je%20suis%20intéressé%20par%20vos%20produits', '_blank');
-        }
-
-        // FONCTIONS MODAUX FOOTER
-        function showFooterContent(contentId) {
-            const content = footerContent[contentId];
-            if (!content) return;
-
-            const modalContent = document.getElementById('footerModalContent');
-            modalContent.innerHTML = content.content;
-
-            document.getElementById('footerModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeFooterModal() {
-            document.getElementById('footerModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // FONCTIONS DE PRODUITS
-        function showProduct(productId) {
-            const product = products[productId];
-            if (!product) return;
-
-            let etapesHTML = '';
-            if (product.etapes) {
-                etapesHTML = `
-                    <div class="etapes-rituel">
-                        <h3><i class="fas fa-list-ol"></i> Les 4 Étapes de Votre Rituel :</h3>
-                        <ul>
-                            ${product.etapes.map(item => `<li>${item}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
-            }
-
-            // AFFICHER LE PRIX AVEC PROMO SI DISPONIBLE
-            let priceHTML = '';
-            if (product.originalPrice) {
-                priceHTML = `
-                    <div class="detail-prix">
-                        <span class="old-price">${product.originalPrice}</span>
-                        <span style="color: var(--danger);">${product.price}</span>
-                        <span style="background: rgba(231, 76, 60, 0.1); color: var(--danger); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600;">
-                            Économisez 50 DH
-                        </span>
-                    </div>
-                    <div style="background: rgba(231, 76, 60, 0.1); padding: 1rem; border-radius: var(--radius); margin: 1rem 0; text-align: center;">
-                        <i class="fas fa-fire" style="color: var(--danger); margin-right: 0.5rem;"></i>
-                        <strong style="color: var(--danger);">OFFRE PROMO LIMITÉE !</strong>
-                    </div>
-                `;
-            } else {
-                priceHTML = `<div class="detail-prix">${product.price}</div>`;
-            }
-
-            const modalContent = document.getElementById('modalContent');
-            modalContent.innerHTML = `
-                <div class="produit-detail-container">
-                    <div class="detail-image">
-                        <img src="${product.image}" alt="${product.title}">
-                    </div>
-                    <div class="detail-info">
-                        <h1 class="detail-titre">${product.title}</h1>
-                        
-                        ${priceHTML}
-                        
-                        <div class="detail-description">
-                            <p>${product.description}</p>
-                        </div>
-                        
-                        ${etapesHTML}
-                        
-                        <div class="detail-caracteristiques">
-                            <h3><i class="fas fa-heart"></i> Pourquoi adopter ${productId === 'antichute' ? 'cette gamme' : 'ce soin'} ?</h3>
-                            <ul>
-                                ${product.pourquoi.map(item => `<li>${item}</li>`).join('')}
-                            </ul>
-                        </div>
-                        
-                        <div class="conseil-utilisation">
-                            <h3><i class="fas fa-lightbulb"></i> Conseils d'utilisation :</h3>
-                            <p>${product.conseils.replace(/\n/g, '<br>')}</p>
-                        </div>
-                        
-                        <div class="secret-beaute">
-                            <h3><i class="fas fa-gem"></i> ${productId === 'antichute' ? 'L\'offre exclusive' : 'Pourquoi le choisir ?'} :</h3>
-                            <p>${product.secret}</p>
-                        </div>
-                        
-                        <div class="detail-caracteristiques">
-                            <h3><i class="fas fa-info-circle"></i> Caractéristiques :</h3>
-                            <ul>
-                                ${product.caracteristiques.map(item => `<li>${item}</li>`).join('')}
-                            </ul>
-                        </div>
-                        
-                        <button class="btn-ajouter" onclick="addToCart('${productId}')" id="addToCartBtn" style="${product.originalPrice ? 'background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);' : ''}">
-                            <i class="fas fa-cart-plus"></i> Ajouter au panier - ${product.price}
-                        </button>
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('productModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('productModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // FONCTIONS DE PANIER
         let cart = [];
-        let cartTotal = 0;
 
-        function addToCart(productId) {
-            const product = products[productId];
-            cart.push(product);
-            
-            // Mettre à jour l'affichage
-            updateCartDisplay();
-            saveCartToStorage();
-            
-            // Animation du bouton
-            const btn = document.getElementById('addToCartBtn');
-            if (btn) {
-                btn.classList.add('added');
-                btn.innerHTML = '<i class="fas fa-check"></i> Ajouté au panier';
-                setTimeout(() => {
-                    btn.classList.remove('added');
-                    btn.innerHTML = `<i class="fas fa-cart-plus"></i> Ajouter au panier - ${product.price}`;
-                }, 2000);
-            }
-            
-            // Toast notification
-            showToast(`${product.title} ajouté au panier !`, 'success');
-        }
-
-        function updateCartDisplay() {
-            const cartCount = document.querySelector('.cart-count');
-            const cartItems = document.getElementById('cartItems');
-            const cartTotalElement = document.getElementById('cartTotal');
-            
-            // Mettre à jour le count
-            cartCount.textContent = cart.length;
-            
-            // Mettre à jour les items
-            cartItems.innerHTML = '';
-            cartTotal = 0;
-            
-            cart.forEach((item, index) => {
-                const price = parseInt(item.price);
-                cartTotal += price;
-                
-                const cartItem = document.createElement('div');
-                cartItem.className = 'cart-item';
-                cartItem.innerHTML = `
-                    <div style="flex: 1;">
-                        <strong>${item.title.split('–')[0]}</strong>
-                        <p>${item.price}</p>
-                    </div>
-                    <button onclick="removeFromCart(${index})" style="background:none;border:none;color:#ff4444;cursor:pointer;">
-                        <i class="fas fa-times"></i>
-                    </button>
-                `;
-                cartItems.appendChild(cartItem);
+        // INIT
+        window.onload = () => {
+            setTimeout(() => document.querySelector('.loading').classList.add('hidden'), 1000);
+            window.addEventListener('scroll', () => {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                document.querySelector('.scroll-progress').style.width = scrolled + '%';
+                if(window.scrollY > 50) document.querySelector('header').classList.add('scrolled');
+                else document.querySelector('header').classList.remove('scrolled');
             });
-            
-            // Mettre à jour le total
-            cartTotalElement.textContent = `${cartTotal} DH`;
-        }
+        };
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartDisplay();
-            saveCartToStorage();
-            showToast('Produit retiré du panier', 'success');
-        }
-
-        function saveCartToStorage() {
-            localStorage.setItem('arganStoreCart', JSON.stringify(cart));
-        }
-
-        function loadCartFromStorage() {
-            const savedCart = localStorage.getItem('arganStoreCart');
-            if (savedCart) {
-                cart = JSON.parse(savedCart);
-                updateCartDisplay();
-            }
-        }
-
-        // FONCTIONS UTILITAIRES
-        function showToast(message, type = 'success') {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.className = `toast ${type}`;
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
+        // FUNCTIONS
+        function toggleMenu() { document.querySelector('nav').classList.toggle('active'); }
+        function toggleCart() { document.querySelector('.cart-sidebar').classList.toggle('active'); }
+        function scrollToProducts() { document.getElementById('produits').scrollIntoView({behavior:'smooth'}); }
 
         function filterProducts(category) {
-            const produits = document.querySelectorAll('.produit-card');
-            const buttons = document.querySelectorAll('.category-btn');
-            
-            // Mettre à jour les boutons actifs
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            
-            // Filtrer les produits
-            produits.forEach(produit => {
-                if (category === 'all' || produit.dataset.category === category) {
-                    produit.style.display = 'block';
-                    setTimeout(() => {
-                        produit.style.opacity = '1';
-                        produit.style.transform = 'translateY(0)';
-                    }, 100);
-                } else {
-                    produit.style.opacity = '0';
-                    produit.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        produit.style.display = 'none';
-                    }, 300);
-                }
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            document.querySelectorAll('.produit-card').forEach(card => {
+                if(category === 'all' || card.dataset.category === category) card.style.display = 'block';
+                else card.style.display = 'none';
             });
         }
 
-        function updateActiveNav() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
+        function showProduct(id) {
+            const p = products[id];
+            document.getElementById('modalContent').innerHTML = `
+                <div class="produit-detail-container">
+                    <div class="detail-image"><img src="${p.image}"></div>
+                    <div class="detail-info">
+                        <h2>${p.title}</h2>
+                        <div class="detail-prix">${p.price}</div>
+                        <div class="detail-description">${p.description}</div>
+                        <ul>${p.pourquoi.map(i => `<li>✓ ${i}</li>`).join('')}</ul>
+                        <p style="margin: 1rem 0;"><strong>Conseils :</strong> ${p.conseils}</p>
+                        <button class="btn-ajouter" onclick="addToCart('${id}')">Ajouter au panier</button>
+                    </div>
+                </div>`;
+            document.getElementById('productModal').style.display = 'block';
         }
 
-        // ÉVÉNEMENTS
-        window.addEventListener('scroll', updateActiveNav);
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('productModal');
-            const footerModal = document.getElementById('footerModal');
-            const cartSidebar = document.querySelector('.cart-sidebar');
-            
-            if (event.target === modal) {
-                closeModal();
-            }
-            if (event.target === footerModal) {
-                closeFooterModal();
-            }
-            if (!cartSidebar.contains(event.target) && !event.target.closest('.cart-icon')) {
-                cartSidebar.classList.remove('active');
-            }
-        });
+        function closeModal() { document.getElementById('productModal').style.display = 'none'; }
 
-        // Initial animations
-        setTimeout(() => {
-            document.querySelectorAll('.feature, .section-title').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            });
-        }, 100);
+        function addToCart(id) {
+            cart.push(products[id]);
+            updateCart();
+            showToast("Produit ajouté !");
+            
+            // Animation icône panier
+            const icon = document.querySelector('.cart-icon');
+            icon.style.transform = 'scale(1.3)';
+            setTimeout(() => icon.style.transform = 'scale(1)', 200);
+        }
+
+        function updateCart() {
+            const container = document.getElementById('cartItems');
+            container.innerHTML = cart.map((item, index) => `
+                <div style="display:flex; justify-content:space-between; margin-bottom:1rem; background:var(--secondary); padding:1rem; border-radius:10px;">
+                    <span>${item.title}</span>
+                    <strong>${item.price}</strong>
+                </div>
+            `).join('');
+            document.querySelector('.cart-count').textContent = cart.length;
+            const total = cart.reduce((acc, curr) => acc + parseInt(curr.price), 0);
+            document.getElementById('cartTotal').textContent = total + " DH";
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        window.onclick = (e) => { if(e.target.className === 'modal') closeModal(); };
     </script>
 </body>
 </html>
