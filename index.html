@@ -236,6 +236,7 @@
             transition: 0.3s;
             text-decoration: none;
             color: inherit;
+            position: relative;
         }
         
         .scroll-product-image {
@@ -265,11 +266,11 @@
             font-size: 1.2rem;
         }
         
-        .top-badge {
+        .top-badge-red {
             position: absolute;
             top: 15px;
             left: 15px;
-            background: var(--accent);
+            background: var(--danger);
             color: white;
             padding: 0.4rem 1rem;
             border-radius: 50px;
@@ -595,7 +596,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#hero">Accueil</a></li>
                 <li><a href="#promo">Promotions</a></li>
-                <li><a href="#best-sellers">Meilleures ventes</a></li>
+                <li><a href="#best-sellers">Top Ventes</a></li>
                 <li><a href="#all-products">Tous les produits</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -625,23 +626,12 @@
         </div>
     </section>
     
-    <!-- SECTION MEILLEURES VENTES AVEC SCROLL HORIZONTAL -->
+    <!-- SECTION TOP VENTES AVEC SCROLL HORIZONTAL -->
     <section class="best-sellers-section" id="best-sellers">
-        <h2 class="section-title">Meilleures Ventes</h2>
+        <h2 class="section-title">Top Ventes</h2>
         <div class="products-scroll-container">
-            <a href="javascript:void(0)" onclick="openProductPage('ghassoul')" class="scroll-product-card">
-                <div class="top-badge">TOP</div>
-                <div class="scroll-product-image">
-                    <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" alt="Masque Ghassoul">
-                </div>
-                <div class="scroll-product-info">
-                    <h3>Masque Ghassoul</h3>
-                    <div class="scroll-new-price">100 DH</div>
-                </div>
-            </a>
-            
             <a href="javascript:void(0)" onclick="openProductPage('argalux50')" class="scroll-product-card">
-                <div class="top-badge">TOP</div>
+                <div class="top-badge-red">TOP</div>
                 <div class="scroll-product-image">
                     <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile Argan">
                 </div>
@@ -651,25 +641,14 @@
                 </div>
             </a>
             
-            <a href="javascript:void(0)" onclick="openProductPage('gommage')" class="scroll-product-card">
-                <div class="top-badge">TOP</div>
+            <a href="javascript:void(0)" onclick="openProductPage('ghassoul')" class="scroll-product-card">
+                <div class="top-badge-red">TOP</div>
                 <div class="scroll-product-image">
-                    <img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32" alt="Gommage Figue Barbarie">
+                    <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" alt="Masque Ghassoul">
                 </div>
                 <div class="scroll-product-info">
-                    <h3>Gommage Figue Barbarie</h3>
-                    <div class="scroll-new-price">150 DH</div>
-                </div>
-            </a>
-            
-            <a href="javascript:void(0)" onclick="openProductPage('antichute')" class="scroll-product-card">
-                <div class="top-badge">TOP</div>
-                <div class="scroll-product-image">
-                    <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti-Chute">
-                </div>
-                <div class="scroll-product-info">
-                    <h3>Pack Anti-Chute</h3>
-                    <div class="scroll-new-price">300 DH</div>
+                    <h3>Masque Ghassoul</h3>
+                    <div class="scroll-new-price">100 DH</div>
                 </div>
             </a>
         </div>
