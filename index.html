@@ -143,6 +143,16 @@
             max-width: 400px;
             margin: 0 auto;
             text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
         
         .promo-image {
@@ -179,6 +189,13 @@
             font-size: 1.5rem;
             color: var(--text);
             margin-bottom: 1rem;
+        }
+        
+        .promo-info p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
         
         .promo-price {
@@ -237,6 +254,11 @@
             text-decoration: none;
             color: inherit;
             position: relative;
+        }
+        
+        .scroll-product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
         .scroll-product-image {
@@ -303,6 +325,11 @@
             transition: 0.3s;
             text-decoration: none;
             color: inherit;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
         @media (min-width: 768px) {
@@ -610,7 +637,7 @@
     <!-- SECTION PROMOTION -->
     <section class="promo-section" id="promo">
         <h2 class="section-title">Promotion du Mois</h2>
-        <div class="promo-card">
+        <a href="javascript:void(0)" onclick="openProductPage('antichute')" class="promo-card">
             <div class="promo-image">
                 <div class="promo-badge">PROMO -20%</div>
                 <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti-Chute">
@@ -623,7 +650,7 @@
                     <span class="new-price">300 DH</span>
                 </div>
             </div>
-        </div>
+        </a>
     </section>
     
     <!-- SECTION TOP VENTES AVEC SCROLL HORIZONTAL -->
@@ -761,28 +788,28 @@
 
         const productDetails = {
             'antichute': {
-                title: 'Gamme Capillaire Anti-Chute à l\'Argan',
+                title: 'Pack Anti-Chute Complet à l\'Argan',
                 price: '300 DH',
                 img: 'https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f',
-                text: '<b>Actif Principal :</b> Argan pur reconnu pour ses propriétés fortifiantes.<br><b>Cible :</b> Cheveux fragiles ou sujets à la chute.<br><b>Composition :</b> Rituel complet (masque, huile, shampooing, sérum).<br><br><b>Utilité :</b> Freine la chute, réparation profonde et vitalité du cuir chevelu.'
+                text: '<b>Description :</b> Rituel complet pour cheveux fragiles avec huile d\'argan pure.<br><b>Actif Principal :</b> Argan pur reconnu pour ses propriétés fortifiantes.<br><b>Cible :</b> Cheveux fragiles ou sujets à la chute.<br><b>Composition :</b> Rituel complet (masque, huile, shampooing, sérum).<br><br><b>Utilité :</b> Freine la chute, réparation profonde et vitalité du cuir chevelu.<br><b>Prix original :</b> <s>350 DH</s><br><b>Prix promotion :</b> <strong>300 DH (-20%)</strong>'
             },
             'gommage': {
                 title: 'Soin Exfoliant Régénérant – Figue de Barbarie',
                 price: '150 DH',
                 img: 'https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32',
-                text: '<b>Texture :</b> Onctueuse et granuleuse.<br><b>Ingrédient Maître :</b> Huile de pépins de Figue de Barbarie.<br><b>Propriétés :</b> Formule bi-active Visage et Corps.<br><br><b>Utilité :</b> Rénovation cellulaire et lissage immédiat du grain de peau.'
+                text: '<b>Description :</b> Gommage visage et corps à la figue de barbarie.<br><b>Texture :</b> Onctueuse et granuleuse.<br><b>Ingrédient Maître :</b> Huile de pépins de Figue de Barbarie.<br><b>Propriétés :</b> Formule bi-active Visage et Corps.<br><br><b>Utilité :</b> Rénovation cellulaire et lissage immédiat du grain de peau.<br><b>Prix :</b> <strong>150 DH</strong>'
             },
             'argalux50': {
                 title: 'Élixir d\'Argan Pure ARGALUX',
                 price: '80 DH',
                 img: 'https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb',
-                text: '<b>Pureté :</b> 100% biologique extraite à froid.<br><b>Format :</b> Flacon pompe 50ml.<br><b>Usage :</b> Universel (visage, corps, cheveux).<br><br><b>Utilité :</b> Régénération intense et hydratation profonde anti-âge.'
+                text: '<b>Description :</b> Huile d\'argan pure 100% biologique.<br><b>Pureté :</b> 100% biologique extraite à froid.<br><b>Format :</b> Flacon pompe 50ml.<br><b>Usage :</b> Universel (visage, corps, cheveux).<br><br><b>Utilité :</b> Régénération intense et hydratation profonde anti-âge.<br><b>Prix :</b> <strong>80 DH</strong>'
             },
             'ghassoul': {
                 title: 'Masque au Ghassoul (Fleur d\'Oranger)',
                 price: '100 DH',
                 img: 'https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3',
-                text: '<b>Composition :</b> Argile minérale naturelle du Maroc.<br><b>Parfum :</b> Essence de fleur d\'oranger.<br><br><b>Utilité :</b> Purification profonde et soin multi-zones (visage et cuir chevelu).'
+                text: '<b>Description :</b> Masque purifiant au ghassoul parfumé à la fleur d\'oranger.<br><b>Composition :</b> Argile minérale naturelle du Maroc.<br><b>Parfum :</b> Essence de fleur d\'oranger.<br><br><b>Utilité :</b> Purification profonde et soin multi-zones (visage et cuir chevelu).<br><b>Prix :</b> <strong>100 DH</strong>'
             }
         };
 
