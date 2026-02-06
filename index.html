@@ -399,30 +399,28 @@
             left: 100%;
         }
 
-        /* SECTION UNIFIÉE NOTRE ENGAGEMENT */
-        #notre-engagement {
+        /* SECTION RÉSEAUX SOCIAUX */
+        #reseaux-sociaux {
             padding: 6rem 2rem;
-            background: linear-gradient(135deg, rgba(139, 115, 85, 0.05) 0%, rgba(255, 179, 0, 0.05) 100%);
-            position: relative;
+            background: linear-gradient(135deg, rgba(245, 232, 208, 0.3) 0%, rgba(255, 255, 255, 0.6) 100%);
+            text-align: center;
         }
 
-        .engagement-container {
+        .reseaux-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .engagement-title {
-            text-align: center;
+        .reseaux-title {
             color: var(--primary);
             font-size: 2.5rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
             position: relative;
             display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
-        .engagement-title::after {
+        .reseaux-title::after {
             content: '';
             position: absolute;
             bottom: -10px;
@@ -434,110 +432,20 @@
             border-radius: 2px;
         }
 
-        .engagement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .engagement-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-top: 4px solid var(--primary);
-        }
-
-        .engagement-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.15);
-        }
-
-        .engagement-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 1.8rem;
-        }
-
-        .engagement-card h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .engagement-card p {
-            color: var(--text-light);
-            line-height: 1.6;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .engagement-list {
-            list-style: none;
-            text-align: left;
-            margin-top: 1.5rem;
-        }
-
-        .engagement-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.8rem;
-            position: relative;
-            color: var(--text);
-        }
-
-        .engagement-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* SECTION RÉSEAUX SOCIAUX */
-        #reseaux-sociaux {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, rgba(245, 232, 208, 0.3) 0%, rgba(255, 255, 255, 0.6) 100%);
-            text-align: center;
-        }
-
-        .reseaux-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .reseaux-title {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
         .reseaux-description {
             color: var(--text-light);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            max-width: 600px;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
 
         .reseaux-grid {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 3rem;
             flex-wrap: wrap;
         }
 
@@ -546,29 +454,42 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            padding: 2rem;
+            padding: 2.5rem;
             background: white;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             transition: var(--transition);
-            min-width: 150px;
+            min-width: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reseaux-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent);
         }
 
         .reseaux-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .reseaux-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: white;
             transition: var(--transition);
+            margin-bottom: 1rem;
         }
 
         .whatsapp { background: #25D366; }
@@ -579,12 +500,20 @@
         .tiktok { background: #000000; }
 
         .reseaux-item:hover .reseaux-icon {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
         }
 
         .reseaux-item span {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text);
+            font-size: 1.2rem;
+        }
+
+        .reseaux-subtitle {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            max-width: 150px;
         }
 
         /* FEATURES BANNER (maintenant caché car remplacé par la barre d'annonce) */
@@ -1118,6 +1047,89 @@
             margin: 2rem 0;
         }
 
+        /* MODAL FOOTER CONTENT */
+        .footer-modal-content {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 3rem;
+            background: white;
+            border-radius: var(--radius);
+            position: relative;
+            animation: modalSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .footer-modal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .footer-modal-header h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .footer-modal-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-modal-body {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .footer-modal-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(245, 232, 208, 0.2);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+        }
+
+        .footer-modal-section h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-modal-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .footer-modal-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
+        }
+
+        .footer-modal-list li:last-child {
+            border-bottom: none;
+        }
+
+        .footer-modal-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
         /* CART SIDEBAR */
         .cart-sidebar {
             position: fixed;
@@ -1176,7 +1188,7 @@
         footer {
             background: linear-gradient(135deg, var(--dark) 0%, #333 100%);
             color: white;
-            padding: 4rem 2rem 2rem;
+            padding: 6rem 2rem 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -1195,41 +1207,83 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
         }
 
         .footer-logo {
             font-size: 2rem;
             font-weight: 700;
             color: white;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: var(--transition);
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .footer-links a:hover {
+        .footer-description {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.5rem 0;
+        }
+
+        .footer-link:hover {
             color: var(--accent);
-            transform: translateX(5px);
+            transform: translateX(10px);
+        }
+
+        .footer-link i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .contact-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 2rem;
-            margin-top: 3rem;
+            padding-top: 3rem;
+            margin-top: 4rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.9rem;
             color: rgba(255,255,255,0.6);
@@ -1320,6 +1374,11 @@
                 max-width: 500px;
                 margin: 0 auto;
             }
+            
+            .footer-modal-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1391,30 +1450,26 @@
                 font-size: 1.1rem;
             }
             
-            #notre-engagement {
+            #reseaux-sociaux {
                 padding: 4rem 1rem;
             }
             
-            .engagement-title {
+            .reseaux-title {
                 font-size: 2rem;
             }
             
-            .engagement-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            #reseaux-sociaux {
-                padding: 3rem 1rem;
+            .reseaux-description {
+                font-size: 1rem;
+                margin-bottom: 3rem;
             }
             
             .reseaux-grid {
-                gap: 1rem;
+                gap: 1.5rem;
             }
             
             .reseaux-item {
-                min-width: 130px;
-                padding: 1.5rem;
+                min-width: 140px;
+                padding: 2rem;
             }
             
             .produits-grid {
@@ -1429,6 +1484,11 @@
             
             .modal-content {
                 margin: 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
             
             .cart-sidebar {
@@ -1636,64 +1696,6 @@
         </div>
     </section>
 
-    <!-- SECTION NOTRE ENGAGEMENT UNIFIÉE -->
-    <section id="notre-engagement">
-        <div class="engagement-container">
-            <h2 class="engagement-title">Notre Engagement</h2>
-            
-            <div class="engagement-grid">
-                <!-- NOTRE OBJECTIF -->
-                <div class="engagement-card">
-                    <div class="engagement-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Notre Objectif</h3>
-                    <p>Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales en renforçant leur autonomie financière.</p>
-                    <ul class="engagement-list">
-                        <li>Autonomisation des femmes berbères</li>
-                        <li>Production d'huiles de haute qualité</li>
-                        <li>Augmentation des revenus</li>
-                        <li>Alphabétisation et formation</li>
-                        <li>Travail collectif et structuré</li>
-                    </ul>
-                </div>
-
-                <!-- NOTRE HISTOIRE -->
-                <div class="engagement-card">
-                    <div class="engagement-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
-                    <h3>Notre Histoire</h3>
-                    <p>Fondée en 2002 par 18 femmes inspirées, notre coopérative perpétue un savoir-faire ancestral tout en valorisant le travail des femmes berbères.</p>
-                    <ul class="engagement-list">
-                        <li>Création en 2002</li>
-                        <li>18 femmes fondatrices</li>
-                        <li>Soutien de l'Association Ibno al Baytar</li>
-                        <li>Savoir-faire ancestral préservé</li>
-                        <li>Coopérative féminine de Taitmatine</li>
-                    </ul>
-                </div>
-
-                <!-- PROCESSUS DE PRODUCTION -->
-                <div class="engagement-card">
-                    <div class="engagement-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>Notre Processus</h3>
-                    <p>Un processus artisanal en 7 étapes pour une huile d'argan de qualité exceptionnelle, du fruit à la bouteille.</p>
-                    <ul class="engagement-list">
-                        <li>Récolte des fruits d'argan</li>
-                        <li>Dépulpage et séchage</li>
-                        <li>Concassage manuel</li>
-                        <li>Extraction à froid</li>
-                        <li>Décantation et filtrage</li>
-                        <li>Mise en bouteille</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- SECTION RÉSEAUX SOCIAUX -->
     <section id="reseaux-sociaux">
         <div class="reseaux-container">
@@ -1706,6 +1708,7 @@
                         <i class="fab fa-whatsapp"></i>
                     </div>
                     <span>WhatsApp</span>
+                    <div class="reseaux-subtitle">Contact direct</div>
                 </div>
                 
                 <div class="reseaux-item">
@@ -1713,6 +1716,7 @@
                         <i class="fab fa-facebook-f"></i>
                     </div>
                     <span>Facebook</span>
+                    <div class="reseaux-subtitle">Actualités</div>
                 </div>
                 
                 <div class="reseaux-item">
@@ -1720,6 +1724,7 @@
                         <i class="fab fa-instagram"></i>
                     </div>
                     <span>Instagram</span>
+                    <div class="reseaux-subtitle">Inspiration & Conseils</div>
                 </div>
                 
                 <div class="reseaux-item">
@@ -1727,6 +1732,7 @@
                         <i class="fab fa-tiktok"></i>
                     </div>
                     <span>TikTok</span>
+                    <div class="reseaux-subtitle">Vidéo & Tutoriels</div>
                 </div>
             </div>
         </div>
@@ -1736,35 +1742,74 @@
     <footer id="contact">
         <div class="footer-content">
             <div>
-                <div class="footer-logo">ARGAN STORE</div>
-                <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 1.5rem;">
+                <div class="footer-logo">
+                    <i class="fas fa-spa"></i>
+                    ARGAN STORE
+                </div>
+                <p class="footer-description">
                     Votre destination pour des soins naturels à base d'huile d'argan marocaine. Produits 100% biologiques, fabriqués avec soin par notre coopérative féminine.
                 </p>
             </div>
-            <div>
-                <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.2rem;">Liens Rapides</h3>
+            
+            <div class="footer-section">
+                <h3>Notre Mission</h3>
                 <div class="footer-links">
-                    <a href="#hero"><i class="fas fa-home"></i> Accueil</a>
-                    <a href="#produits"><i class="fas fa-shopping-bag"></i> Produits</a>
-                    <a href="#notre-engagement"><i class="fas fa-hands-helping"></i> Notre Engagement</a>
-                    <a href="#reseaux-sociaux"><i class="fas fa-share-alt"></i> Réseaux Sociaux</a>
+                    <a href="#" class="footer-link" onclick="showFooterContent('objectif')">
+                        <i class="fas fa-hands-helping"></i>
+                        Notre Objectif
+                    </a>
+                    <a href="#" class="footer-link" onclick="showFooterContent('histoire')">
+                        <i class="fas fa-history"></i>
+                        Notre Histoire
+                    </a>
+                    <a href="#" class="footer-link" onclick="showFooterContent('processus')">
+                        <i class="fas fa-seedling"></i>
+                        Processus de Production
+                    </a>
                 </div>
             </div>
-            <div>
-                <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.2rem;">Contact</h3>
+            
+            <div class="footer-section">
+                <h3>Navigation</h3>
                 <div class="footer-links">
-                    <a href="tel:+212600000000"><i class="fas fa-phone"></i> +212 600 00 00 00</a>
-                    <a href="mailto:contact@arganstore.ma"><i class="fas fa-envelope"></i> contact@arganstore.ma</a>
-                    <a href="#"><i class="fas fa-map-marker-alt"></i> Maroc</a>
-                    <a href="#" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="#hero" class="footer-link">
+                        <i class="fas fa-home"></i>
+                        Accueil
+                    </a>
+                    <a href="#produits" class="footer-link">
+                        <i class="fas fa-shopping-bag"></i>
+                        Produits
+                    </a>
+                    <a href="#reseaux-sociaux" class="footer-link">
+                        <i class="fas fa-share-alt"></i>
+                        Réseaux Sociaux
+                    </a>
+                    <a href="#" class="footer-link" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        Panier
+                    </a>
                 </div>
             </div>
-            <div>
-                <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.2rem;">Horaires</h3>
-                <div style="color: rgba(255,255,255,0.8); line-height: 1.6;">
-                    <p>Lun - Ven: 9h - 18h</p>
-                    <p>Samedi: 10h - 16h</p>
-                    <p>Dimanche: Fermé</p>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+212 600 00 00 00</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@arganstore.ma</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Maroc</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Lun-Ven: 9h-18h</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1812,6 +1857,14 @@
         </div>
     </div>
 
+    <!-- MODAL FOOTER CONTENT -->
+    <div id="footerModal" class="modal">
+        <div class="footer-modal-content">
+            <span class="close-modal" onclick="closeFooterModal()">&times;</span>
+            <div id="footerModalContent"></div>
+        </div>
+    </div>
+
     <script>
         // INITIALISATION
         document.addEventListener('DOMContentLoaded', function() {
@@ -1838,7 +1891,115 @@
             loadCartFromStorage();
         });
 
-        // DONNÉES DES PRODUITS AVEC PRIX PROMO CORRIGÉ
+        // CONTENU DES MODAUX DU FOOTER
+        const footerContent = {
+            'objectif': {
+                title: 'Notre Objectif',
+                icon: 'fas fa-hands-helping',
+                content: `
+                    <div class="footer-modal-header">
+                        <h2><i class="fas fa-hands-helping"></i> Notre Objectif</h2>
+                        <p>Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales en renforçant leur autonomie financière à travers la production d'huiles culinaires et cosmétiques de très haute qualité.</p>
+                    </div>
+                    <div class="footer-modal-body">
+                        <div class="footer-modal-section">
+                            <h3><i class="fas fa-bullseye"></i> Notre Mission</h3>
+                            <p>Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales en renforçant leur autonomie financière à travers la production d'huiles culinaires et cosmétiques de très haute qualité.</p>
+                            <p>Nous favorisons l'augmentation des revenus, l'alphabétisation et l'intégration des femmes dans un cadre de travail collectif et structuré.</p>
+                            <p>À travers notre engagement, nous contribuons à la préservation de l'arganier et à la valorisation durable des produits du terroir marocain.</p>
+                        </div>
+                        
+                        <div class="footer-modal-section">
+                            <h3><i class="fas fa-heart"></i> Notre Impact Social</h3>
+                            <ul class="footer-modal-list">
+                                <li><strong>Autonomisation économique</strong> des femmes berbères</li>
+                                <li><strong>Préservation des savoir-faire</strong> ancestraux</li>
+                                <li><strong>Développement durable</strong> des communautés rurales</li>
+                                <li><strong>Protection de l'écosystème</strong> de l'arganeraie</li>
+                                <li><strong>Commerce équitable</strong> et éthique</li>
+                                <li><strong>Augmentation des revenus</strong> familiaux</li>
+                                <li><strong>Alphabétisation</strong> et formation continue</li>
+                                <li><strong>Intégration professionnelle</strong> des femmes</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'histoire': {
+                title: 'Notre Histoire',
+                icon: 'fas fa-history',
+                content: `
+                    <div class="footer-modal-header">
+                        <h2><i class="fas fa-history"></i> Notre Histoire</h2>
+                        <p>Découvrez l'histoire passionnante de la création de notre coopérative</p>
+                    </div>
+                    <div class="footer-modal-body">
+                        <div class="footer-modal-section">
+                            <h3><i class="fas fa-book"></i> Historique de création de la coopérative</h3>
+                            <p>Avant que l'Association Ibno al Baytar n'appuie la création de la coopérative en 2002, les femmes de Tiout se retrouvaient principalement au sein d'un foyer féminin de tissage. La production artisanale d'huile d'argan était alors une activité traditionnelle secondaire, pratiquée individuellement à domicile.</p>
+                            <p>A l'époque, deux coopératives féminines d'argan existaient à Essaouira et l'Association Ibno al Baytar finança aux femmes de Tiout une visite d'échange dans ces deux coopératives.</p>
+                            <p>Cette visite les inspira et c'est ainsi que <strong>18 femmes fondèrent la Coopérative agricole féminine de Taitmatine</strong>. Soutenues par l'Association Ibno al Baytar et puis par un Projet financé par la Principauté de Monaco, la coopérative reçut différents appuis, en particulier de nombreuses formations.</p>
+                            <p>Aujourd'hui, notre coopérative continue de perpétuer ce savoir-faire ancestral tout en valorisant le travail des femmes berbères et en préservant l'écosystème unique de l'arganeraie marocaine.</p>
+                        </div>
+                        
+                        <div class="footer-modal-section">
+                            <h3><i class="fas fa-star"></i> Points Clés</h3>
+                            <ul class="footer-modal-list">
+                                <li><strong>Création en 2002</strong> - Fondation par 18 femmes inspirées</li>
+                                <li><strong>Coopérative féminine de Taitmatine</strong> - Notre nom et notre identité</li>
+                                <li><strong>Soutien de l'Association Ibno al Baytar</strong> - Partenaire fondateur</li>
+                                <li><strong>Projet financé par la Principauté de Monaco</strong> - Soutien international</li>
+                                <li><strong>Formations continues</strong> - Développement des compétences</li>
+                                <li><strong>Savoir-faire ancestral préservé</strong> - Tradition et modernité</li>
+                                <li><strong>Valorisation du travail des femmes berbères</strong> - Empowerment</li>
+                                <li><strong>Préservation de l'écosystème de l'arganeraie</strong> - Engagement écologique</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'processus': {
+                title: 'Processus de Production',
+                icon: 'fas fa-seedling',
+                content: `
+                    <div class="footer-modal-header">
+                        <h2><i class="fas fa-seedling"></i> Notre Processus de Production</h2>
+                        <p>Découvrez les 7 étapes artisanales de fabrication de notre huile d'argan, un savoir-faire ancestral préservé</p>
+                    </div>
+                    <div class="footer-modal-body">
+                        <div class="footer-modal-section">
+                            <h3><i class="fas fa-list-ol"></i> Les 7 Étapes de Fabrication</h3>
+                            <p>Un processus artisanal en 7 étapes pour une huile d'argan de qualité exceptionnelle, du fruit à la bouteille.</p>
+                            <ul class="footer-modal-list">
+                                <li><strong>Récolte des fruits d'argan</strong> - Lorsque les fruits arrivent à maturité, ils sont récoltés par les femmes et les hommes berbères dans les arganeraies.</li>
+                                <li><strong>Dépulpage et séchage</strong> - Séparation de la pulpe sèche de la noix d'argan, suivie d'un séchage au soleil.</li>
+                                <li><strong>Concassage manuel</strong> - Étape traditionnelle qui demande de la maîtrise et de la précision pour ouvrir la noix sans endommager les amandons.</li>
+                                <li><strong>Extraction à froid</strong> - Les amandons sont pressés à froid pour préserver toutes les propriétés nutritives de l'huile.</li>
+                                <li><strong>Décantation</strong> - L'huile est laissée au repos pendant 15 à 20 jours pour éliminer les particules en suspension.</li>
+                                <li><strong>Filtrage</strong> - Filtration soigneuse à travers des tissus fins pour obtenir une huile parfaitement claire et pure.</li>
+                                <li><strong>Mise en bouteille</strong> - Conditionnement dans des bouteilles, étiquetage et contrôle qualité avant expédition.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-modal-section">
+                            <h3><i class="fas fa-gem"></i> Caractéristiques de Notre Production</h3>
+                            <ul class="footer-modal-list">
+                                <li><strong>100% Artisanal</strong> - Respect des méthodes traditionnelles</li>
+                                <li><strong>Pressage à froid</strong> - Préservation des nutriments</li>
+                                <li><strong>Qualité Premium</strong> - Normes de qualité strictes</li>
+                                <li><strong>Écologique</strong> - Processus respectueux de l'environnement</li>
+                                <li><strong>Traçabilité</strong> - Contrôle à chaque étape</li>
+                                <li><strong>Commerce équitable</strong> - Rémunération juste des productrices</li>
+                                <li><strong>Certifications</strong> - Produits biologiques certifiés</li>
+                                <li><strong>Emballage durable</strong> - Matériaux écologiques et recyclables</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // DONNÉES DES PRODUITS
         const products = {
             'gommage': {
                 title: 'Gommage Figue de Barbarie – Éclat & Jeunesse',
@@ -1999,6 +2160,23 @@
 
         function openWhatsApp() {
             window.open('https://wa.me/212600000000?text=Bonjour%20Argan%20Store,%20je%20suis%20intéressé%20par%20vos%20produits', '_blank');
+        }
+
+        // FONCTIONS MODAUX FOOTER
+        function showFooterContent(contentId) {
+            const content = footerContent[contentId];
+            if (!content) return;
+
+            const modalContent = document.getElementById('footerModalContent');
+            modalContent.innerHTML = content.content;
+
+            document.getElementById('footerModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFooterModal() {
+            document.getElementById('footerModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
         // FONCTIONS DE PRODUITS
@@ -2238,10 +2416,14 @@
         window.addEventListener('scroll', updateActiveNav);
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('productModal');
+            const footerModal = document.getElementById('footerModal');
             const cartSidebar = document.querySelector('.cart-sidebar');
             
             if (event.target === modal) {
                 closeModal();
+            }
+            if (event.target === footerModal) {
+                closeFooterModal();
             }
             if (!cartSidebar.contains(event.target) && !event.target.closest('.cart-icon')) {
                 cartSidebar.classList.remove('active');
