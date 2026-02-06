@@ -72,6 +72,76 @@
         .produit-image img { width: 100%; height: 250px; object-fit: cover; }
         .produit-info { padding: 1.5rem; }
 
+        /* COLLECTIONS - NOUVELLE SECTION */
+        #collections {
+            padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; text-align: center;
+        }
+        .collections-title {
+            font-size: 2rem; margin-bottom: 3rem; color: var(--primary);
+        }
+        .collections-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+        }
+        .collection-item {
+            position: relative; overflow: hidden; border-radius: var(--radius);
+            box-shadow: var(--shadow); height: 300px; cursor: pointer;
+            transition: var(--transition);
+        }
+        .collection-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.2);
+        }
+        .collection-image {
+            width: 100%; height: 100%; position: relative;
+        }
+        .collection-image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .collection-item:hover .collection-image img {
+            transform: scale(1.1);
+        }
+        .collection-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7) 100%);
+            display: flex; align-items: flex-end; padding: 2rem;
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .collection-item:hover .collection-overlay {
+            opacity: 1;
+        }
+        .collection-name {
+            color: white; font-size: 1.5rem; font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Animation pour les collections */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .collection-item {
+            opacity: 0; animation: fadeInUp 0.8s ease forwards;
+        }
+        .collection-item:nth-child(1) { animation-delay: 0.1s; }
+        .collection-item:nth-child(2) { animation-delay: 0.3s; }
+        .collection-item:nth-child(3) { animation-delay: 0.5s; }
+        
+        /* Animation pulsante pour les masques */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .mask-icon {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 3rem; color: white; text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            animation: pulse 2s infinite;
+            z-index: 2;
+        }
+
         /* MODAL SYSTEM */
         .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -96,6 +166,12 @@
         .cart-icon { position: relative; cursor: pointer; font-size: 1.3rem; }
         .cart-count { position: absolute; top: -10px; right: -10px; background: var(--accent); color: white; width: 20px; height: 20px; border-radius: 50%; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; }
         .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: white; padding: 10px 25px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: none; z-index: 11000; }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .collections-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .collection-item { height: 250px; }
+        }
     </style>
 </head>
 <body>
@@ -115,6 +191,7 @@
         <nav>
             <a href="#hero" class="nav-link">Accueil</a>
             <a href="#produits" class="nav-link">Produits</a>
+            <a href="#collections" class="nav-link">Collections</a>
             <div class="cart-icon" onclick="openCart()"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
         </nav>
     </header>
@@ -142,6 +219,45 @@
                     <h3>Huile d'Argan Pure</h3>
                     <p>80 DH</p>
                     <button onclick="addToCart('Huile Argan', 80)" style="width:100%; margin-top:10px; padding:10px; background:var(--primary); color:white; border:none; border-radius:5px; cursor:pointer;">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION COLLECTIONS AJOUTÉE - SIMPLE AVEC SEULEMENT DES IMAGES -->
+    <section id="collections">
+        <h2 class="collections-title">Nos Collections</h2>
+        <div class="collections-grid">
+            <!-- Collection Soins Corps -->
+            <div class="collection-item" onclick="showCollection('corps')">
+                <div class="collection-image">
+                    <img src="https://github.com/user-attachments/assets/cc099969-dd11-483d-a6da-6a64782ed974" alt="Soins Corps">
+                    <div class="mask-icon"><i class="fas fa-spa"></i></div>
+                </div>
+                <div class="collection-overlay">
+                    <div class="collection-name">Soins Corps</div>
+                </div>
+            </div>
+            
+            <!-- Collection Soins Visage -->
+            <div class="collection-item" onclick="showCollection('visage')">
+                <div class="collection-image">
+                    <img src="https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f" alt="Soins Visage">
+                    <div class="mask-icon"><i class="fas fa-user-circle"></i></div>
+                </div>
+                <div class="collection-overlay">
+                    <div class="collection-name">Soins Visage</div>
+                </div>
+            </div>
+            
+            <!-- Collection Soins Cheveux -->
+            <div class="collection-item" onclick="showCollection('cheveux')">
+                <div class="collection-image">
+                    <img src="https://github.com/user-attachments/assets/ab4bc0df-3ddd-4880-b7dd-e8e82d3bd567" alt="Soins Cheveux">
+                    <div class="mask-icon"><i class="fas fa-air-freshener"></i></div>
+                </div>
+                <div class="collection-overlay">
+                    <div class="collection-name">Soins Cheveux</div>
                 </div>
             </div>
         </div>
@@ -222,13 +338,55 @@
             cartCount++;
             document.querySelector('.cart-count').innerText = cartCount;
             const toast = document.getElementById('toast');
+            toast.textContent = `${name} ajouté au panier !`;
             toast.style.display = 'block';
             setTimeout(() => toast.style.display = 'none', 2000);
+        }
+        
+        function showCollection(type) {
+            let message = "";
+            let icon = "";
+            
+            switch(type) {
+                case 'corps':
+                    message = "Découvrez notre collection Soins Corps avec des produits naturels pour hydrater et nourrir votre peau.";
+                    icon = "fas fa-spa";
+                    break;
+                case 'visage':
+                    message = "Explorez notre collection Soins Visage avec des masques et soins spécialisés pour votre peau.";
+                    icon = "fas fa-user-circle";
+                    break;
+                case 'cheveux':
+                    message = "Découvrez notre collection Soins Cheveux pour des cheveux brillants et en pleine santé.";
+                    icon = "fas fa-air-freshener";
+                    break;
+            }
+            
+            // Afficher un message toast pour la collection
+            const toast = document.getElementById('toast');
+            toast.innerHTML = `<i class="${icon}"></i> ${message}`;
+            toast.style.display = 'block';
+            setTimeout(() => toast.style.display = 'none', 3000);
+        }
+
+        function openCart() {
+            alert("Fonctionnalité panier en développement. Vous avez " + cartCount + " produit(s) dans votre panier.");
         }
 
         window.onclick = function(event) {
             if (event.target == document.getElementById('infoModal')) closeInfo();
         }
+        
+        // Ajouter un lien actif dans la navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
     </script>
 </body>
 </html>
