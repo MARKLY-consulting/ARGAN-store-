@@ -954,14 +954,6 @@
             opacity: 0.1;
         }
 
-        .etapes-rituel {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            padding: 1.8rem;
-            border-radius: var(--radius);
-            border-left: 5px solid #2196f3;
-            margin: 2rem 0;
-        }
-
         /* MODAL FOOTER CONTENT */
         .footer-modal-content {
             max-width: 900px;
@@ -1045,51 +1037,12 @@
             font-weight: bold;
         }
 
-        /* STYLES POUR LES IMAGES DU PROCESSUS */
-        .processus-images {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .processus-etape {
-            flex: 1;
-            min-width: 250px;
-            max-width: 300px;
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .processus-etape:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .processus-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            border: 3px solid var(--secondary);
-        }
-
+        /* STYLES POUR LES IMAGES DU PROCESSUS - SUPPRIMÉS */
+        .processus-images,
+        .processus-etape,
+        .processus-image,
         .etape-numero {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            line-height: 35px;
-            font-weight: bold;
-            margin-bottom: 0.8rem;
+            display: none;
         }
 
         /* STYLE POUR L'IMAGE DANS L'OBJECTIF */
@@ -1392,14 +1345,6 @@
                 padding: 2rem;
                 margin: 1rem;
             }
-            
-            .processus-images {
-                gap: 1rem;
-            }
-            
-            .processus-etape {
-                min-width: 200px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1497,16 +1442,6 @@
             .cart-sidebar {
                 width: 100%;
                 right: -100%;
-            }
-            
-            .processus-images {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .processus-etape {
-                width: 100%;
-                max-width: 100%;
             }
             
             .image-thumbnails {
@@ -1968,63 +1903,12 @@
                 content: `
                     <div class="footer-modal-header">
                         <h2><i class="fas fa-seedling"></i> Notre Processus de Production</h2>
-                        <p>Découvrez les 7 étapes artisanales de fabrication de notre huile d'argan, un savoir-faire ancestral préservé</p>
+                        <p>Découvrez les étapes artisanales de fabrication de notre huile d'argan, un savoir-faire ancestral préservé</p>
                     </div>
                     <div class="footer-modal-body">
                         <div class="footer-modal-section">
-                            <h3><i class="fas fa-list-ol"></i> Les 7 Étapes de Fabrication</h3>
-                            <p>Un processus artisanal en 7 étapes pour une huile d'argan de qualité exceptionnelle, du fruit à la bouteille.</p>
-                            
-                            <div class="processus-images">
-                                <div class="processus-etape">
-                                    <div class="etape-numero">1</div>
-                                    <img src="https://github.com/user-attachments/assets/026d526f-4549-4ee5-9efe-9eed98bb5aab" alt="Étape 1 - Récolte" class="processus-image">
-                                    <h4>Récolte des fruits</h4>
-                                    <p>Les femmes et hommes berbères récoltent les fruits à maturité dans les arganeraies.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">2</div>
-                                    <img src="https://github.com/user-attachments/assets/08ed7431-0a11-4fa0-b804-61041e0c246f" alt="Étape 2 - Dépulpage" class="processus-image">
-                                    <h4>Dépulpage & Séchage</h4>
-                                    <p>Séparation de la pulpe sèche suivie d'un séchage naturel au soleil.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">3</div>
-                                    <img src="https://github.com/user-attachments/assets/a9266aaf-0ace-4531-bc24-5198fc69e844" alt="Étape 3 - Concassage" class="processus-image">
-                                    <h4>Concassage Manuel</h4>
-                                    <p>Ouverture précise de la noix sans endommager les précieux amandons.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">4</div>
-                                    <img src="https://github.com/user-attachments/assets/479a8a97-e1f9-45d8-b6d0-ae15353d8b65" alt="Étape 4 - Extraction" class="processus-image">
-                                    <h4>Extraction à Froid</h4>
-                                    <p>Pressage des amandons à froid pour préserver tous les nutriments.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">5</div>
-                                    <img src="https://github.com/user-attachments/assets/8d145d37-bb80-40b9-82a2-eb73c5b1608f" alt="Étape 5 - Décantation" class="processus-image">
-                                    <h4>Décantation</h4>
-                                    <p>Repos de 15-20 jours pour éliminer les particules en suspension.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">6</div>
-                                    <img src="https://github.com/user-attachments/assets/9193708f-989d-442b-8e12-64ecad41b669" alt="Étape 6 - Filtrage" class="processus-image">
-                                    <h4>Filtrage</h4>
-                                    <p>Filtration à travers des tissus fins pour une huile parfaitement claire.</p>
-                                </div>
-                                
-                                <div class="processus-etape">
-                                    <div class="etape-numero">7</div>
-                                    <img src="https://github.com/user-attachments/assets/b60ab570-d1cc-4ba8-bada-d0e86c3a758b" alt="Étape 7 - Mise en bouteille" class="processus-image">
-                                    <h4>Mise en Bouteille</h4>
-                                    <p>Conditionnement, étiquetage et contrôle qualité avant expédition.</p>
-                                </div>
-                            </div>
+                            <h3><i class="fas fa-list-ol"></i> Les Étapes de Fabrication</h3>
+                            <p>Un processus artisanal pour une huile d'argan de qualité exceptionnelle, du fruit à la bouteille.</p>
                             
                             <ul class="footer-modal-list">
                                 <li><strong>Récolte des fruits d'argan</strong> - Lorsque les fruits arrivent à maturité, ils sont récoltés par les femmes et les hommes berbères dans les arganeraies.</li>
@@ -2158,12 +2042,6 @@
                     'Type : Gamme complète capillaire',
                     'Résultat : Cheveux plus denses, forts et éclatants'
                 ],
-                etapes: [
-                    'Le Shampooing Fortifiant (200ml) : Nettoie en douceur tout en renforçant la fibre capillaire dès la racine.',
-                    'Le Masque Réparateur : Un soin profond qui nourrit intensément, facilite le démêlage et redonne de la souplesse.',
-                    'L\'Huile Capillaire Anti-Chute : Concentré d\'huiles précieuses pour stimuler la microcirculation.',
-                    'Le Sérum Finition & Croissance : Texture légère pour brillance et protection au quotidien.'
-                ],
                 category: 'cheveux'
             }
         };
@@ -2249,18 +2127,6 @@
             const product = products[productId];
             if (!product) return;
 
-            let etapesHTML = '';
-            if (product.etapes) {
-                etapesHTML = `
-                    <div class="etapes-rituel">
-                        <h3><i class="fas fa-list-ol"></i> Les 4 Étapes de Votre Rituel :</h3>
-                        <ul>
-                            ${product.etapes.map(item => `<li>${item}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
-            }
-
             // AFFICHER LE PRIX AVEC PROMO SI DISPONIBLE
             let priceHTML = '';
             if (product.originalPrice) {
@@ -2312,8 +2178,6 @@
                         <div class="detail-description">
                             <p>${product.description}</p>
                         </div>
-                        
-                        ${etapesHTML}
                         
                         <div class="detail-caracteristiques">
                             <h3><i class="fas fa-heart"></i> Pourquoi adopter ${productId === 'antichute' ? 'cette gamme' : 'ce soin'} ?</h3>
