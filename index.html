@@ -399,123 +399,6 @@
             left: 100%;
         }
 
-        /* SECTION RÉSEAUX SOCIAUX */
-        #reseaux-sociaux {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, rgba(245, 232, 208, 0.3) 0%, rgba(255, 255, 255, 0.6) 100%);
-            text-align: center;
-        }
-
-        .reseaux-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .reseaux-title {
-            color: var(--primary);
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-        }
-
-        .reseaux-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
-        }
-
-        .reseaux-description {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
-        .reseaux-grid {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .reseaux-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            padding: 2.5rem;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            min-width: 180px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .reseaux-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--accent);
-        }
-
-        .reseaux-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .reseaux-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            transition: var(--transition);
-            margin-bottom: 1rem;
-        }
-
-        .whatsapp { background: #25D366; }
-        .facebook { background: #1877F2; }
-        .instagram { 
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-        }
-        .tiktok { background: #000000; }
-
-        .reseaux-item:hover .reseaux-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .reseaux-item span {
-            font-weight: 700;
-            color: var(--text);
-            font-size: 1.2rem;
-        }
-
-        .reseaux-subtitle {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            max-width: 150px;
-        }
-
         /* FEATURES BANNER (maintenant caché car remplacé par la barre d'annonce) */
         #features-banner {
             display: none;
@@ -1450,28 +1333,6 @@
                 font-size: 1.1rem;
             }
             
-            #reseaux-sociaux {
-                padding: 4rem 1rem;
-            }
-            
-            .reseaux-title {
-                font-size: 2rem;
-            }
-            
-            .reseaux-description {
-                font-size: 1rem;
-                margin-bottom: 3rem;
-            }
-            
-            .reseaux-grid {
-                gap: 1.5rem;
-            }
-            
-            .reseaux-item {
-                min-width: 140px;
-                padding: 2rem;
-            }
-            
             .produits-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1696,48 +1557,6 @@
         </div>
     </section>
 
-    <!-- SECTION RÉSEAUX SOCIAUX -->
-    <section id="reseaux-sociaux">
-        <div class="reseaux-container">
-            <h2 class="reseaux-title">Suivez-nous</h2>
-            <p class="reseaux-description">Rejoignez notre communauté sur les réseaux sociaux pour découvrir nos actualités, promotions et conseils beauté.</p>
-            
-            <div class="reseaux-grid">
-                <div class="reseaux-item">
-                    <div class="reseaux-icon whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <span>WhatsApp</span>
-                    <div class="reseaux-subtitle">Contact direct</div>
-                </div>
-                
-                <div class="reseaux-item">
-                    <div class="reseaux-icon facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </div>
-                    <span>Facebook</span>
-                    <div class="reseaux-subtitle">Actualités</div>
-                </div>
-                
-                <div class="reseaux-item">
-                    <div class="reseaux-icon instagram">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <span>Instagram</span>
-                    <div class="reseaux-subtitle">Inspiration & Conseils</div>
-                </div>
-                
-                <div class="reseaux-item">
-                    <div class="reseaux-icon tiktok">
-                        <i class="fab fa-tiktok"></i>
-                    </div>
-                    <span>TikTok</span>
-                    <div class="reseaux-subtitle">Vidéo & Tutoriels</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FOOTER -->
     <footer id="contact">
         <div class="footer-content">
@@ -1779,10 +1598,6 @@
                     <a href="#produits" class="footer-link">
                         <i class="fas fa-shopping-bag"></i>
                         Produits
-                    </a>
-                    <a href="#reseaux-sociaux" class="footer-link">
-                        <i class="fas fa-share-alt"></i>
-                        Réseaux Sociaux
                     </a>
                     <a href="#" class="footer-link" onclick="toggleCart()">
                         <i class="fas fa-shopping-cart"></i>
