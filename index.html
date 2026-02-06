@@ -27,7 +27,7 @@
         header { position: fixed; top: 35px; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; height: 60px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .logo-head img { height: 35px; }
 
-        #hero { height: 35vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; border-bottom-right-radius: 60px; }
+        #hero { height: 30vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; border-bottom-right-radius: 60px; }
         #hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; }
 
         #produits { padding: 2rem 5%; }
@@ -49,15 +49,22 @@
         .old-price { color: var(--danger); text-decoration: line-through; font-size: 0.9rem; margin-right: 8px; }
         .new-price { color: var(--accent); font-weight: 700; font-size: 1.4rem; }
 
-        /* MODAL DETAILS PRODUIT */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10001; }
-        .modal-content { background: white; width: 100%; height: 100%; overflow-y: auto; padding: 2rem 1.5rem; position: relative; }
-        .close-btn { position: fixed; right: 20px; top: 50px; font-size: 2rem; color: var(--text); z-index: 10002; background: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        /* MODAL DETAILS PRODUIT - OPTIMISÉ */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10001; padding: 10px; }
+        .modal-content { background: white; width: 100%; max-width: 900px; margin: 20px auto; border-radius: var(--radius); overflow-y: auto; padding: 2rem; position: relative; max-height: 90vh; }
+        .close-btn { position: absolute; right: 15px; top: 15px; font-size: 1.8rem; color: var(--text); cursor: pointer; z-index: 10; }
         
-        .detail-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary-dark); margin: 1rem 0; }
-        .detail-section-title { font-weight: 600; color: var(--accent); margin-top: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .detail-text { font-size: 0.9rem; line-height: 1.6; color: #555; margin: 0.5rem 0; }
-        .btn-order-ws { background: #25D366; color: white; border: none; padding: 1rem; width: 100%; border-radius: 50px; font-weight: 600; margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1rem; text-decoration: none; }
+        .detail-flex { display: flex; flex-direction: column; gap: 2rem; }
+        @media (min-width: 768px) { .detail-flex { flex-direction: row; align-items: flex-start; } }
+
+        .detail-img-box { flex: 0 0 40%; }
+        .detail-img-box img { width: 100%; border-radius: 15px; object-fit: cover; }
+
+        .detail-info-box { flex: 1; }
+        .detail-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 0.5rem; }
+        .detail-section-title { font-weight: 600; color: var(--accent); margin-top: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 3px; font-size: 0.9rem; text-transform: uppercase; }
+        .detail-text { font-size: 0.85rem; line-height: 1.5; color: #555; margin: 0.4rem 0; }
+        .btn-order-ws { background: #25D366; color: white; border: none; padding: 0.8rem; width: 100%; border-radius: 50px; font-weight: 600; margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 0.9rem; text-decoration: none; }
 
         footer { background: #1A1A1A; color: white; padding: 3rem 10% 2rem; text-align: center; }
         .footer-logo img { height: 60px; margin-bottom: 2rem; }
@@ -75,15 +82,10 @@
 
     <header>
         <div class="logo-head"><img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12"></div>
-        <div class="cart-icon" onclick="toggleCart()">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-count">0</span>
-        </div>
+        <div class="cart-icon" onclick="toggleCart()"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
     </header>
 
-    <section id="hero">
-        <h1>Pureté d'Argan</h1>
-    </section>
+    <section id="hero"><h1>Pureté d'Argan</h1></section>
 
     <section id="produits">
         <div class="categories">
@@ -98,34 +100,19 @@
             <div class="produit-card" data-category="cheveux" onclick="showProduct('antichute')">
                 <div class="badge-promo">OFFRE SPÉCIALE</div>
                 <div class="produit-image"><img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f"></div>
-                <div class="produit-info">
-                    <h3>Pack Anti-Chute</h3>
-                    <div class="produit-prix"><span class="old-price">350 DH</span><span class="new-price">300 DH</span></div>
-                </div>
+                <div class="produit-info"><h3>Pack Anti-Chute</h3><div class="produit-prix"><span class="old-price">350 DH</span><span class="new-price">300 DH</span></div></div>
             </div>
-
             <div class="produit-card" data-category="corps" onclick="showProduct('gommage')">
                 <div class="produit-image"><img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32"></div>
-                <div class="produit-info">
-                    <h3>Gommage Figue Barbarie</h3>
-                    <div class="new-price">150 DH</div>
-                </div>
+                <div class="produit-info"><h3>Gommage Figue Barbarie</h3><div class="new-price">150 DH</div></div>
             </div>
-
             <div class="produit-card" data-category="visage" onclick="showProduct('argalux50')">
                 <div class="produit-image"><img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb"></div>
-                <div class="produit-info">
-                    <h3>Huile d'Argan Pure</h3>
-                    <div class="new-price">80 DH</div>
-                </div>
+                <div class="produit-info"><h3>Huile d'Argan Pure</h3><div class="new-price">80 DH</div></div>
             </div>
-
             <div class="produit-card" data-category="masque" onclick="showProduct('ghassoul')">
                 <div class="produit-image"><img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3"></div>
-                <div class="produit-info">
-                    <h3>Masque Ghassoul</h3>
-                    <div class="new-price">100 DH</div>
-                </div>
+                <div class="produit-info"><h3>Masque Ghassoul</h3><div class="new-price">100 DH</div></div>
             </div>
         </div>
     </section>
@@ -136,65 +123,70 @@
     </footer>
 
     <div id="productModal" class="modal">
-        <span class="close-btn" onclick="closeModal('productModal')">&times;</span>
-        <div class="modal-content" id="productBody"></div>
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('productModal')">&times;</span>
+            <div id="productBody"></div>
+        </div>
     </div>
 
     <script>
         const products = {
             'antichute': {
-                title: 'Gamme Capillaire Anti-Chute à l\'Argan',
-                price: '300 DH',
-                oldPrice: '350 DH',
+                title: 'Gamme Capillaire Anti-Chute',
+                price: '300 DH', oldPrice: '350 DH',
                 detailImg: 'https://github.com/user-attachments/assets/8335cb94-a1ed-4011-95a8-4de02f2a1820',
-                tech: 'Argan pur fortifiant, cible cheveux fragiles, packaging premium violet/or.',
-                utilite: 'Freine la chute, réparation profonde, protection et vitalité du cuir chevelu.'
+                tech: 'Argan pur fortifiant, cible cheveux fragiles, packaging premium.',
+                utilite: 'Freine la chute, réparation profonde, vitalité du cuir chevelu.'
             },
             'gommage': {
-                title: 'Soin Exfoliant Régénérant – Figue de Barbarie',
+                title: 'Soin Exfoliant Figue de Barbarie',
                 price: '150 DH',
                 detailImg: 'https://github.com/user-attachments/assets/cc099969-dd11-483d-a6da-6a64782ed974',
-                tech: 'Texture onctueuse, Huile de pépins de Figue de Barbarie (Vitamine E), Bi-active Visage/Corps.',
-                utilite: 'Rénovation cellulaire, lissage du grain de peau, action préventive anti-âge.'
+                tech: 'Huile de pépins de Figue de Barbarie (Vitamine E), Bi-active Visage/Corps.',
+                utilite: 'Rénovation cellulaire, lissage du grain, action anti-âge.'
             },
             'argalux50': {
                 title: 'Élixir d\'Argan Pure ARGALUX',
                 price: '80 DH',
                 detailImg: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f',
-                tech: '100% biologique, extraite à froid, flacon pompe 50ml, usage universel.',
-                utilite: 'Régénération intense, hydratation et souplesse, éclat capillaire sans alourdir.'
+                tech: '100% biologique, flacon pompe 50ml, usage universel.',
+                utilite: 'Régénération intense, souplesse, éclat capillaire.'
             },
             'ghassoul': {
                 title: 'Masque au Ghassoul (Fleur d\'Oranger)',
                 price: '100 DH',
                 detailImg: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f',
-                tech: 'Argile minérale naturelle, parfum fleur d\'oranger, pot élégant couvercle doré.',
-                utilite: 'Purification profonde (sébum), soin multi-zones (visage/cheveux), adoucissement.'
+                tech: 'Argile naturelle, parfum fleur d\'oranger, pot doré.',
+                utilite: 'Purification profonde, soin visage/cheveux, adoucissement.'
             }
         };
 
         function showProduct(id) {
             const p = products[id];
-            const priceHtml = p.oldPrice ? `<span style="text-decoration:line-through; color:red;">${p.oldPrice}</span> <span style="color:var(--accent); font-size:1.5rem; font-weight:700;">${p.price}</span>` : `<span style="color:var(--accent); font-size:1.5rem; font-weight:700;">${p.price}</span>`;
+            const priceHtml = p.oldPrice ? `<span style="text-decoration:line-through; color:red; font-size:0.9rem;">${p.oldPrice}</span> <span style="color:var(--accent); font-size:1.4rem; font-weight:700;">${p.price}</span>` : `<span style="color:var(--accent); font-size:1.4rem; font-weight:700;">${p.price}</span>`;
             
             document.getElementById('productBody').innerHTML = `
-                <img src="${p.detailImg}" style="width:100%; border-radius:15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h2 class="detail-title">${p.title}</h2>
-                <div style="margin-bottom:1rem;">${priceHtml}</div>
-                <h3 class="detail-section-title">Caractéristiques Techniques</h3>
-                <p class="detail-text">${p.tech}</p>
-                <h3 class="detail-section-title">Fonctions et Utilité</h3>
-                <p class="detail-text">${p.utilite}</p>
-                <a href="https://wa.me/212636221900?text=Bonjour, je souhaite commander : ${p.title}" class="btn-order-ws">
-                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
-                </a>
-            `;
+                <div class="detail-flex">
+                    <div class="detail-img-box">
+                        <img src="${p.detailImg}">
+                    </div>
+                    <div class="detail-info-box">
+                        <h2 class="detail-title">${p.title}</h2>
+                        <div>${priceHtml}</div>
+                        <h3 class="detail-section-title">Caractéristiques</h3>
+                        <p class="detail-text">${p.tech}</p>
+                        <h3 class="detail-section-title">Utilité</h3>
+                        <p class="detail-text">${p.utilite}</p>
+                        <a href="https://wa.me/212636221900?text=Bonjour, je souhaite commander : ${p.title}" class="btn-order-ws">
+                            <i class="fab fa-whatsapp"></i> Commander
+                        </a>
+                    </div>
+                </div>`;
             document.getElementById('productModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = 'auto'; }
-        
         function filterProducts(cat) {
             document.querySelectorAll('.produit-card').forEach(card => card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none');
             document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
