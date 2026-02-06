@@ -19,7 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Poppins', sans-serif; background: #FAF9F6; color: var(--text); padding-top: 80px; overflow-x: hidden; }
         
-        /* BARRE D'ANNONCE */
+        /* ANNOUNCEMENT */
         .announcement-bar { position: fixed; top: 0; width: 100%; height: 35px; background: #1A1A1A; color: white; z-index: 9999; display: flex; align-items: center; overflow: hidden; font-size: 0.7rem; border-bottom: 1px solid var(--accent); }
         .announcement-track { display: flex; animation: scroll 15s linear infinite; white-space: nowrap; }
         .announcement-item { padding: 0 30px; text-transform: uppercase; letter-spacing: 1px; }
@@ -28,10 +28,10 @@
         header { position: fixed; top: 35px; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; height: 60px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .logo-head img { height: 35px; }
 
-        #hero { height: 30vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; border-bottom-right-radius: 60px; }
+        #hero { height: 35vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; border-bottom-right-radius: 60px; }
         #hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; }
 
-        /* GRILLE PRODUITS ACCUEIL */
+        /* GRID PRODUITS */
         #produits { padding: 2rem 5%; }
         .produits-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
         @media (min-width: 768px) { .produits-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); } }
@@ -49,25 +49,32 @@
 
         /* MODAL DETAILS PRODUIT */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10001; padding: 10px; }
-        .modal-content { background: white; width: 100%; max-width: 1000px; margin: 10px auto; border-radius: var(--radius); overflow-y: auto; padding: 2rem; position: relative; max-height: 95vh; }
+        .modal-content { background: white; width: 100%; max-width: 900px; margin: 10px auto; border-radius: var(--radius); overflow-y: auto; padding: 2rem; position: relative; max-height: 95vh; }
         .close-btn { position: absolute; right: 15px; top: 15px; font-size: 1.8rem; color: var(--text); cursor: pointer; z-index: 10; }
         
         .detail-flex { display: flex; flex-direction: column; gap: 2rem; }
         @media (min-width: 768px) { .detail-flex { flex-direction: row; align-items: flex-start; } }
-
         .detail-img-box { flex: 0 0 45%; }
-        .detail-img-box img { width: 100%; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .detail-img-box img { width: 100%; border-radius: 15px; }
 
         .detail-info-box { flex: 1; }
-        .detail-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #222; margin-bottom: 0.5rem; line-height: 1.2; }
-        .detail-section-title { font-weight: 600; color: var(--accent); margin-top: 1.5rem; border-bottom: 1.5px solid #f0f0f0; padding-bottom: 5px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
-        .detail-text { font-size: 0.88rem; line-height: 1.6; color: #444; margin: 0.8rem 0; white-space: pre-line; }
+        .detail-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #222; margin-bottom: 0.5rem; }
+        .detail-section-title { font-weight: 600; color: var(--accent); margin-top: 1.2rem; border-bottom: 1.5px solid #f0f0f0; padding-bottom: 3px; font-size: 0.9rem; text-transform: uppercase; }
+        .detail-text { font-size: 0.85rem; line-height: 1.6; color: #444; margin: 0.5rem 0; white-space: pre-line; }
         
-        .btn-order-ws { background: #25D366; color: white; border: none; padding: 1rem; width: 100%; border-radius: 50px; font-weight: 600; margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1rem; text-decoration: none; transition: 0.3s; }
-        .btn-order-ws:hover { background: #128C7E; transform: translateY(-2px); }
+        .btn-order-ws { background: #25D366; color: white; border: none; padding: 0.8rem; width: 100%; border-radius: 50px; font-weight: 600; margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 0.9rem; text-decoration: none; }
 
-        footer { background: #1A1A1A; color: white; padding: 3rem 10% 2rem; text-align: center; }
-        .footer-logo img { height: 70px; margin-bottom: 1.5rem; }
+        /* FOOTER RESTAURÉ */
+        footer { background: #1A1A1A; color: white; padding: 4rem 10% 2rem; text-align: center; }
+        .footer-logo img { height: 70px; margin-bottom: 2rem; }
+        .footer-nav { margin-bottom: 2rem; }
+        .footer-nav a { display: block; color: #BBB; text-decoration: none; margin-bottom: 1rem; font-size: 0.9rem; cursor: pointer; transition: 0.3s; }
+        .footer-nav a:hover { color: var(--accent); }
+        .contact-box { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; }
+        .contact-box p { font-size: 0.85rem; color: #BBB; margin-bottom: 0.5rem; }
+        .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .social-links a { color: white; font-size: 1.3rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--accent); }
     </style>
 </head>
 <body>
@@ -111,7 +118,23 @@
 
     <footer>
         <div class="footer-logo"><img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12"></div>
-        <div style="color:#BBB; font-size:0.8rem;">&copy; 2026 Organix. 06 36 22 19 00</div>
+        <div class="footer-nav">
+            <a onclick="window.scrollTo({top:0, behavior:'smooth'})">Accueil</a>
+            <a onclick="showInfo('objectif')">Notre Objectif</a>
+            <a onclick="showInfo('histoire')">Notre Histoire</a>
+            <a onclick="showInfo('processus')">Processus</a>
+            <a href="#produits">Boutique</a>
+        </div>
+        <div class="contact-box">
+            <p><i class="fas fa-phone-alt" style="color:var(--accent); margin-right:10px;"></i> 06 36 22 19 00</p>
+            <p><i class="fas fa-envelope" style="color:var(--accent); margin-right:10px;"></i> contact@organix.ma</p>
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div style="color:#666; font-size:0.7rem;">&copy; 2026 Organix. Tous droits réservés.</div>
     </footer>
 
     <div id="productModal" class="modal">
@@ -121,86 +144,62 @@
         </div>
     </div>
 
+    <div id="infoModal" class="modal">
+        <div class="modal-content" style="height:auto; margin-top:50px;">
+            <span class="close-btn" onclick="closeModal('infoModal')">&times;</span>
+            <div id="infoBody"></div>
+        </div>
+    </div>
+
     <script>
+        const infoData = {
+            'objectif': { content: '<h2>Notre Objectif</h2><p style="margin:1rem 0;">Améliorer les conditions des femmes rurales.</p><img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76" style="width:100%; border-radius:10px;">' },
+            'histoire': { content: '<h2>Notre Histoire</h2><p style="margin:1rem 0;">Fondée en 2002 à Tiout par 18 femmes inspirées.</p>' },
+            'processus': { content: '<h2>Processus</h2><p style="margin:1rem 0;">Récolte manuelle, concassage et pressage à froid.</p>' }
+        };
+
         const products = {
             'antichute': {
                 title: 'Gamme Capillaire Anti-Chute à l\'Argan',
                 price: '300 DH', oldPrice: '350 DH',
                 detailImg: 'https://github.com/user-attachments/assets/8335cb94-a1ed-4011-95a8-4de02f2a1820',
-                tech: `Actif Principal : Argan pur, reconnu pour ses propriétés fortifiantes et nutritives exceptionnelles.
-                Cible : Cheveux fragiles, cassants ou sujets à la chute prématurée.
-                Design : Packaging premium violet et or avec des motifs orientaux.
-                Composition : Un rituel complet comprenant un masque onctueux, une huile capillaire, un shampooing fortifiant et un sérum de finition.`,
-                utilite: `Freine la chute : Stimule le cuir chevelu et renforce les follicules pileux.
-                Réparation Profonde : Restaure la souplesse et la brillance naturelle.
-                Protection et Vitalité : Crée une barrière protectrice contre les agressions.
-                Soin Complet : Apaise et nourrit la base du cheveu pour une croissance saine.`
+                tech: `Actif Principal : Argan pur fortifiant.\nCible : Cheveux fragiles ou cassants.\nComposition : Masque, huile, shampooing et sérum.`,
+                utilite: `Freine la chute : Stimule le cuir chevelu.\nRéparation : Restaure la souplesse.\nProtection : Contre les agressions.`
             },
             'gommage': {
                 title: 'Soin Exfoliant Régénérant – Figue de Barbarie',
                 price: '150 DH',
                 detailImg: 'https://github.com/user-attachments/assets/cc099969-dd11-483d-a6da-6a64782ed974',
-                tech: `Texture : Onctueuse et granuleuse pour une abrasion douce.
-                Ingrédient Maître : Huile de pépins de Figue de Barbarie (Riche en vitamine E et stérols).
-                Propriétés : Formule bi-active (Exfoliante & Anti-âge) Visage et Corps.
-                Engagement : Composition naturelle et respectueuse de la barrière hydrolipidique.`,
-                utilite: `Rénovation Cellulaire : Élimine mécaniquement les cellules mortes.
-                Lissage du Grain de Peau : Affine les pores et lisse les rugosités.
-                Action Préventive Anti-Âge : Stimule la microcirculation et lutte contre le relâchement cutané.`
+                tech: `Texture : Onctueuse et granuleuse.\nIngrédient Maître : Huile de pépins de Figue de Barbarie.\nPropriétés : Exfoliante & Anti-âge.`,
+                utilite: `Rénovation Cellulaire : Élimine les impuretés.\nLissage : Affine les pores.\nAction Anti-Âge : Lutte contre le relâchement.`
             },
             'argalux50': {
                 title: 'Élixir d\'Argan Pure ARGALUX',
                 price: '80 DH',
                 detailImg: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f',
-                tech: `Pureté Certifiée : Huile d'Argan 100% biologique, extraite à froid.
-                Format Prestige : Flacon pompe de 50 ml assurant une conservation optimale.
-                Usage Universel : Formule adaptée au visage, au corps et aux cheveux.`,
-                utilite: `Régénération Intense : Agit comme un puissant sérum anti-âge et réparateur.
-                Hydratation et Souplesse : Nourrit les tissus en profondeur (peaux sèches).
-                Éclat Capillaire : Discipline les pointes fourchues sans alourdir la fibre.`
+                tech: `Pureté : 100% biologique, extraite à froid.\nFormat : Flacon pompe de 50 ml.\nUsage : Visage, corps et cheveux.`,
+                utilite: `Régénération : Sérum anti-âge.\nHydratation : Pour peaux sèches.\nÉclat : Discipline les pointes.`
             },
             'ghassoul': {
-                title: 'Masque au Ghassoul (Parfum Fleur d\'Oranger)',
+                title: 'Masque au Ghassoul (Fleur d\'Oranger)',
                 price: '100 DH',
                 detailImg: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f',
-                tech: `Composition Traditionnelle : À base d'argile minérale naturelle du Maroc.
-                Signature Sensorielle : Parfumé à l'essence de fleur d'oranger.
-                Format : Pot généreux au design sobre avec couvercle doré.`,
-                utilite: `Purification Profonde : Absorbe les impuretés et l'excès de sébum.
-                Soin Multi-zones : Visage (grain de peau) ou cuir chevelu (détox).
-                Adoucissement : Laisse la peau incroyablement douce.`
+                tech: `Composition : Argile minérale naturelle.\nParfum : Fleur d'oranger.\nDesign : Pot avec couvercle doré.`,
+                utilite: `Purification : Absorbe le sébum.\nSoin Multi-zones : Visage ou cuir chevelu.\nAdoucissement : Peau soyeuse.`
             }
         };
 
         function showProduct(id) {
             const p = products[id];
             const priceHtml = p.oldPrice ? `<span style="text-decoration:line-through; color:red; font-size:1rem;">${p.oldPrice}</span> <span style="color:var(--accent); font-size:1.8rem; font-weight:700;">${p.price}</span>` : `<span style="color:var(--accent); font-size:1.8rem; font-weight:700;">${p.price}</span>`;
-            
-            document.getElementById('productBody').innerHTML = `
-                <div class="detail-flex">
-                    <div class="detail-img-box">
-                        <img src="${p.detailImg}">
-                    </div>
-                    <div class="detail-info-box">
-                        <h2 class="detail-title">${p.title}</h2>
-                        <div>${priceHtml}</div>
-                        
-                        <h3 class="detail-section-title">Caractéristiques Techniques</h3>
-                        <p class="detail-text">${p.tech}</p>
-                        
-                        <h3 class="detail-section-title">Fonctions et Utilité</h3>
-                        <p class="detail-text">${p.utilite}</p>
-                        
-                        <a href="https://wa.me/212636221900?text=Bonjour Khadija, je souhaite commander : ${p.title}" class="btn-order-ws">
-                            <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
-                        </a>
-                    </div>
-                </div>`;
+            document.getElementById('productBody').innerHTML = `<div class="detail-flex"><div class="detail-img-box"><img src="${p.detailImg}"></div><div class="detail-info-box"><h2 class="detail-title">${p.title}</h2><div>${priceHtml}</div><h3 class="detail-section-title">Caractéristiques</h3><p class="detail-text">${p.tech}</p><h3 class="detail-section-title">Utilité</h3><p class="detail-text">${p.utilite}</p><a href="https://wa.me/212636221900?text=Bonjour, je souhaite commander : ${p.title}" class="btn-order-ws"><i class="fab fa-whatsapp"></i> Commander</a></div></div>`;
             document.getElementById('productModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
+        function showInfo(id) { document.getElementById('infoBody').innerHTML = infoData[id].content; document.getElementById('infoModal').style.display = 'block'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = 'auto'; }
+        window.onclick = function(e) { if(e.target.className === 'modal') { closeModal('productModal'); closeModal('infoModal'); } }
     </script>
 </body>
 </html>
