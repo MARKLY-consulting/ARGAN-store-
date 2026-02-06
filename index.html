@@ -27,8 +27,8 @@
         header { position: fixed; top: 35px; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; height: 60px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .logo-head img { height: 35px; }
 
-        #hero { height: 40vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; border-bottom-right-radius: 60px; }
-        #hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
+        #hero { height: 35vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; border-bottom-right-radius: 60px; }
+        #hero h1 { font-family: 'Playfair Display', serif; font-size: 2rem; }
 
         #produits { padding: 2rem 5%; }
         .categories { display: flex; overflow-x: auto; gap: 0.5rem; margin-bottom: 2rem; padding-bottom: 10px; scrollbar-width: none; }
@@ -49,22 +49,18 @@
         .old-price { color: var(--danger); text-decoration: line-through; font-size: 0.9rem; margin-right: 8px; }
         .new-price { color: var(--accent); font-weight: 700; font-size: 1.4rem; }
 
-        footer { background: #1A1A1A; color: white; padding: 4rem 10% 2rem; text-align: center; }
-        .footer-logo img { height: 70px; margin-bottom: 2rem; }
-        .footer-nav a { display: block; color: #BBB; text-decoration: none; margin-bottom: 1rem; font-size: 0.9rem; cursor: pointer; }
-
         /* MODAL DETAILS PRODUIT */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10001; }
         .modal-content { background: white; width: 100%; height: 100%; overflow-y: auto; padding: 2rem 1.5rem; position: relative; }
         .close-btn { position: fixed; right: 20px; top: 50px; font-size: 2rem; color: var(--text); z-index: 10002; background: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         
-        .detail-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--primary-dark); margin: 1rem 0; }
+        .detail-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary-dark); margin: 1rem 0; }
         .detail-section-title { font-weight: 600; color: var(--accent); margin-top: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
         .detail-text { font-size: 0.9rem; line-height: 1.6; color: #555; margin: 0.5rem 0; }
         .btn-order-ws { background: #25D366; color: white; border: none; padding: 1rem; width: 100%; border-radius: 50px; font-weight: 600; margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1rem; text-decoration: none; }
 
-        .cart-sidebar { position: fixed; right: -100%; top: 0; width: 100%; height: 100%; background: white; z-index: 10000; transition: 0.4s; padding: 2rem; display: flex; flex-direction: column; }
-        .cart-sidebar.active { right: 0; }
+        footer { background: #1A1A1A; color: white; padding: 3rem 10% 2rem; text-align: center; }
+        .footer-logo img { height: 60px; margin-bottom: 2rem; }
     </style>
 </head>
 <body>
@@ -101,7 +97,7 @@
         <div class="produits-grid">
             <div class="produit-card" data-category="cheveux" onclick="showProduct('antichute')">
                 <div class="badge-promo">OFFRE SPÉCIALE</div>
-                <div class="produit-image"><img src="https://github.com/user-attachments/assets/8335cb94-a1ed-4011-95a8-4de02f2a1820"></div>
+                <div class="produit-image"><img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f"></div>
                 <div class="produit-info">
                     <h3>Pack Anti-Chute</h3>
                     <div class="produit-prix"><span class="old-price">350 DH</span><span class="new-price">300 DH</span></div>
@@ -109,7 +105,7 @@
             </div>
 
             <div class="produit-card" data-category="corps" onclick="showProduct('gommage')">
-                <div class="produit-image"><img src="https://github.com/user-attachments/assets/cc099969-dd11-483d-a6da-6a64782ed974"></div>
+                <div class="produit-image"><img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32"></div>
                 <div class="produit-info">
                     <h3>Gommage Figue Barbarie</h3>
                     <div class="new-price">150 DH</div>
@@ -117,7 +113,7 @@
             </div>
 
             <div class="produit-card" data-category="visage" onclick="showProduct('argalux50')">
-                <div class="produit-image"><img src="https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f"></div>
+                <div class="produit-image"><img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb"></div>
                 <div class="produit-info">
                     <h3>Huile d'Argan Pure</h3>
                     <div class="new-price">80 DH</div>
@@ -125,7 +121,7 @@
             </div>
 
             <div class="produit-card" data-category="masque" onclick="showProduct('ghassoul')">
-                <div class="produit-image"><img src="https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f"></div>
+                <div class="produit-image"><img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3"></div>
                 <div class="produit-info">
                     <h3>Masque Ghassoul</h3>
                     <div class="new-price">100 DH</div>
@@ -136,31 +132,12 @@
 
     <footer>
         <div class="footer-logo"><img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12"></div>
-        <div class="footer-nav">
-            <a onclick="window.scrollTo({top:0, behavior:'smooth'})">Accueil</a>
-            <a onclick="showInfo('objectif')">Notre Objectif</a>
-            <a onclick="showInfo('histoire')">Notre Histoire</a>
-            <a onclick="showInfo('processus')">Processus</a>
-        </div>
-        <div style="color:#BBB; font-size:0.8rem; margin-top:2rem;">&copy; 2026 Organix. 06 36 22 19 00</div>
+        <div style="color:#BBB; font-size:0.8rem;">&copy; 2026 Organix. 06 36 22 19 00</div>
     </footer>
 
     <div id="productModal" class="modal">
         <span class="close-btn" onclick="closeModal('productModal')">&times;</span>
         <div class="modal-content" id="productBody"></div>
-    </div>
-
-    <div id="infoModal" class="modal">
-        <div class="modal-content" style="height:auto; margin-top:100px; border-radius:20px;">
-            <span class="close-btn" onclick="closeModal('infoModal')">&times;</span>
-            <div id="infoBody"></div>
-        </div>
-    </div>
-
-    <div class="cart-sidebar" id="cartSidebar">
-        <h2>Mon Panier</h2>
-        <div id="cartItems" style="flex:1;"></div>
-        <button onclick="toggleCart()" class="btn-order-ws" style="background:var(--text)">Fermer</button>
     </div>
 
     <script>
@@ -169,28 +146,28 @@
                 title: 'Gamme Capillaire Anti-Chute à l\'Argan',
                 price: '300 DH',
                 oldPrice: '350 DH',
-                img: 'https://github.com/user-attachments/assets/8335cb94-a1ed-4011-95a8-4de02f2a1820',
+                detailImg: 'https://github.com/user-attachments/assets/8335cb94-a1ed-4011-95a8-4de02f2a1820',
                 tech: 'Argan pur fortifiant, cible cheveux fragiles, packaging premium violet/or.',
                 utilite: 'Freine la chute, réparation profonde, protection et vitalité du cuir chevelu.'
             },
             'gommage': {
                 title: 'Soin Exfoliant Régénérant – Figue de Barbarie',
                 price: '150 DH',
-                img: 'https://github.com/user-attachments/assets/cc099969-dd11-483d-a6da-6a64782ed974',
+                detailImg: 'https://github.com/user-attachments/assets/cc099969-dd11-483d-a6da-6a64782ed974',
                 tech: 'Texture onctueuse, Huile de pépins de Figue de Barbarie (Vitamine E), Bi-active Visage/Corps.',
                 utilite: 'Rénovation cellulaire, lissage du grain de peau, action préventive anti-âge.'
             },
             'argalux50': {
                 title: 'Élixir d\'Argan Pure ARGALUX',
                 price: '80 DH',
-                img: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f',
+                detailImg: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f',
                 tech: '100% biologique, extraite à froid, flacon pompe 50ml, usage universel.',
                 utilite: 'Régénération intense, hydratation et souplesse, éclat capillaire sans alourdir.'
             },
             'ghassoul': {
                 title: 'Masque au Ghassoul (Fleur d\'Oranger)',
                 price: '100 DH',
-                img: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f',
+                detailImg: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f',
                 tech: 'Argile minérale naturelle, parfum fleur d\'oranger, pot élégant couvercle doré.',
                 utilite: 'Purification profonde (sébum), soin multi-zones (visage/cheveux), adoucissement.'
             }
@@ -198,49 +175,26 @@
 
         function showProduct(id) {
             const p = products[id];
-            const priceHtml = p.oldPrice ? `<span style="text-decoration:line-through; color:red; font-size:1rem;">${p.oldPrice}</span> <span style="color:var(--accent); font-size:1.8rem; font-weight:700;">${p.price}</span>` : `<span style="color:var(--accent); font-size:1.8rem; font-weight:700;">${p.price}</span>`;
+            const priceHtml = p.oldPrice ? `<span style="text-decoration:line-through; color:red;">${p.oldPrice}</span> <span style="color:var(--accent); font-size:1.5rem; font-weight:700;">${p.price}</span>` : `<span style="color:var(--accent); font-size:1.5rem; font-weight:700;">${p.price}</span>`;
             
             document.getElementById('productBody').innerHTML = `
-                <img src="${p.img}" style="width:100%; border-radius:15px;">
+                <img src="${p.detailImg}" style="width:100%; border-radius:15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                 <h2 class="detail-title">${p.title}</h2>
                 <div style="margin-bottom:1rem;">${priceHtml}</div>
-                
                 <h3 class="detail-section-title">Caractéristiques Techniques</h3>
                 <p class="detail-text">${p.tech}</p>
-                
                 <h3 class="detail-section-title">Fonctions et Utilité</h3>
                 <p class="detail-text">${p.utilite}</p>
-                
                 <a href="https://wa.me/212636221900?text=Bonjour, je souhaite commander : ${p.title}" class="btn-order-ws">
                     <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
                 </a>
-                <button class="btn-order-ws" style="background:var(--primary); margin-top:10px;" onclick="addToCart('${id}')">Ajouter au panier</button>
             `;
             document.getElementById('productModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = 'auto'; }
-        function toggleCart() { document.getElementById('cartSidebar').classList.toggle('active'); }
-        function showInfo(id) { 
-            const info = {
-                'objectif': '<h2>Objectif</h2><p>Améliorer la vie des femmes rurales.</p><img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76" style="width:100%; margin-top:10px; border-radius:10px;">',
-                'histoire': '<h2>Notre Histoire</h2><p>Depuis 2002 à Tiout.</p>',
-                'processus': '<h2>Processus</h2><p>Récolte et pressage à froid.</p>'
-            };
-            document.getElementById('infoBody').innerHTML = info[id];
-            document.getElementById('infoModal').style.display = 'block';
-        }
-
-        function addToCart(id) {
-            const p = products[id];
-            const list = document.getElementById('cartItems');
-            list.innerHTML += `<div style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #eee;"><span>${p.title}</span><strong>${p.price}</strong></div>`;
-            document.querySelector('.cart-count').textContent = parseInt(document.querySelector('.cart-count').textContent) + 1;
-            closeModal('productModal');
-            toggleCart();
-        }
-
+        
         function filterProducts(cat) {
             document.querySelectorAll('.produit-card').forEach(card => card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none');
             document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
