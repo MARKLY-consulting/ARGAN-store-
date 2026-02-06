@@ -1,255 +1,166 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organix | Boutique Argan Bio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #BC8F8F;
+            --accent: #D4AF37;
+            --danger: #e74c3c;
+            --text: #333333;
+            --light: #FFFFFF;
+            --radius: 20px;
+        }
 
-  <title>Organix Argan | Huile d’Argan Bio & Soins Naturels</title>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Poppins', sans-serif; background: #FAF9F6; color: var(--text); padding-top: 35px; overflow-x: hidden; }
+        
+        .announcement-bar { position: fixed; top: 0; width: 100%; height: 35px; background: #1A1A1A; color: white; z-index: 9999; display: flex; align-items: center; overflow: hidden; font-size: 0.7rem; border-bottom: 1px solid var(--accent); }
+        .announcement-track { display: flex; animation: scroll 15s linear infinite; white-space: nowrap; }
+        .announcement-item { padding: 0 30px; text-transform: uppercase; letter-spacing: 1px; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-  <!-- SEO -->
-  <meta name="description" content="Organix Argan – Huiles d’argan bio et soins naturels fabriqués artisanalement par des femmes rurales au Maroc. Qualité premium & commerce équitable.">
-  <meta name="keywords" content="huile d'argan, argan bio, cosmétique naturelle maroc, soin cheveux, gommage figue de barbarie">
-  <meta name="author" content="Organix Argan">
+        /* Pas de header ici comme demandé */
 
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        #hero { height: 40vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; border-bottom-right-radius: 60px; }
+        #hero h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; }
 
-  <style>
-    :root {
-      --primary:#BC8F8F;
-      --accent:#D4AF37;
-      --danger:#e74c3c;
-      --dark:#1A1A1A;
-      --light:#fff;
-      --radius:18px;
-    }
+        #produits { padding: 2rem 5%; }
+        .produits-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        @media (min-width: 768px) { .produits-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); } }
+        
+        .produit-card { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; cursor: pointer; transition: 0.3s; position: relative; }
+        .produit-image { height: 280px; width: 100%; }
+        .produit-image img { width: 100%; height: 100%; object-fit: cover; }
+        .produit-info { padding: 1.2rem; text-align: center; }
+        .new-price { color: var(--accent); font-weight: 700; font-size: 1.4rem; }
+        .old-price { color: var(--danger); text-decoration: line-through; font-size: 0.9rem; margin-right: 8px; }
+        
+        .badge-promo { position: absolute; top: 15px; left: 15px; background: var(--danger); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; z-index: 5; animation: pulseRed 1.5s infinite; }
+        @keyframes pulseRed { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-    * {margin:0;padding:0;box-sizing:border-box}
-    body {
-      font-family:'Poppins',sans-serif;
-      background:#FAF9F6;
-      color:#333;
-      padding-top:40px;
-    }
+        footer { background: #1A1A1A; color: white; padding: 3rem 10% 2rem; text-align: center; }
+        .footer-logo img { height: 60px; margin-bottom: 2rem; }
+        .footer-nav a { display: block; color: #BBB; text-decoration: none; margin-bottom: 1.2rem; font-size: 0.9rem; cursor: pointer; transition: 0.3s; }
+        .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .social-links a { color: white; font-size: 1.5rem; transition: 0.3s; }
 
-    /* ANNOUNCEMENT */
-    .announcement-bar{
-      position:fixed;top:0;width:100%;height:35px;
-      background:var(--dark);color:#fff;
-      display:flex;align-items:center;
-      font-size:.7rem;z-index:9999;
-      border-bottom:1px solid var(--accent);
-      overflow:hidden;
-    }
-    .announcement-track{
-      display:flex;white-space:nowrap;
-      animation:scroll 15s linear infinite;
-    }
-    .announcement-item{padding:0 30px;letter-spacing:1px}
-    @keyframes scroll{
-      from{transform:translateX(0)}
-      to{transform:translateX(-50%)}
-    }
-
-    /* HERO */
-    #hero{
-      height:40vh;
-      background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
-      url("https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af") center/cover;
-      display:flex;align-items:center;justify-content:center;
-      color:white;text-align:center;
-      border-bottom-right-radius:60px;
-      margin-top:35px;
-    }
-    #hero h1{
-      font-family:'Playfair Display',serif;
-      font-size:2.6rem;
-    }
-
-    /* PRODUCTS */
-    #produits{padding:2.5rem 6%}
-    .produits-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-      gap:1.5rem;
-    }
-
-    .produit-card{
-      background:#fff;
-      border-radius:var(--radius);
-      overflow:hidden;
-      text-decoration:none;
-      color:inherit;
-      box-shadow:0 6px 18px rgba(0,0,0,.06);
-      transition:.3s;
-      position:relative;
-    }
-    .produit-card:hover{
-      transform:translateY(-6px);
-    }
-    .produit-image{
-      height:270px;
-    }
-    .produit-image img{
-      width:100%;height:100%;
-      object-fit:cover;
-    }
-    .produit-info{
-      padding:1.2rem;
-      text-align:center;
-    }
-    .new-price{
-      color:var(--accent);
-      font-weight:700;
-      font-size:1.4rem;
-    }
-    .old-price{
-      color:var(--danger);
-      text-decoration:line-through;
-      font-size:.9rem;
-      margin-right:8px;
-    }
-    .badge-promo{
-      position:absolute;
-      top:15px;left:15px;
-      background:var(--danger);
-      color:#fff;
-      padding:.4rem 1rem;
-      border-radius:50px;
-      font-size:.7rem;
-      font-weight:700;
-      animation:pulse 1.5s infinite;
-    }
-    @keyframes pulse{
-      0%{transform:scale(1)}
-      50%{transform:scale(1.1)}
-      100%{transform:scale(1)}
-    }
-
-    /* FOOTER */
-    footer{
-      background:var(--dark);
-      color:#fff;
-      text-align:center;
-      padding:3rem 10% 2rem;
-    }
-    .footer-logo img{height:60px;margin-bottom:1.5rem}
-    .social-links{
-      display:flex;justify-content:center;
-      gap:1.5rem;margin-bottom:2rem;
-    }
-    .social-links a{
-      color:#fff;font-size:1.4rem;
-      transition:.3s;
-    }
-    .social-links a:hover{
-      color:var(--accent);
-      transform:translateY(-3px);
-    }
-    .footer-nav a{
-      display:block;
-      color:#bbb;
-      margin-bottom:.9rem;
-      cursor:pointer;
-      text-decoration:none;
-    }
-    .footer-nav a:hover{color:var(--accent)}
-
-    /* MODAL */
-    .modal{
-      display:none;
-      position:fixed;inset:0;
-      background:rgba(0,0,0,.9);
-      z-index:10000;
-    }
-    .modal-content{
-      background:#fff;
-      width:92%;max-width:900px;
-      margin:50px auto;
-      border-radius:var(--radius);
-      padding:2rem;
-    }
-    .close-btn{
-      float:right;
-      font-size:2rem;
-      cursor:pointer;
-      color:var(--primary);
-    }
-  </style>
+        /* MODAL UNIQUE POUR PRODUITS ET INFO */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10001; overflow-y: auto; }
+        .modal-content { background: white; width: 92%; max-width: 900px; margin: 20px auto; border-radius: var(--radius); padding: 2rem 1.5rem; position: relative; }
+        .close-btn { position: sticky; top: 10px; right: 10px; float: right; font-size: 2rem; color: var(--primary); cursor: pointer; z-index: 10002; background: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .modal-h2 { font-family: 'Playfair Display', serif; color: var(--primary); margin: 1rem 0; text-align: center; font-size: 1.8rem; }
+        .modal-text { font-size: 0.95rem; line-height: 1.7; color: #444; margin-bottom: 1.5rem; }
+        
+        .process-step { background: #f9f9f9; padding: 15px; border-radius: 15px; margin-bottom: 20px; }
+        .process-img { width: 100%; border-radius: 10px; margin: 10px 0; }
+        .btn-ws { background: #25D366; color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 15px; border-radius: 50px; font-weight: 600; margin-top: 20px; gap: 10px; }
+    </style>
 </head>
-
 <body>
 
-<!-- ANNOUNCEMENT -->
-<div class="announcement-bar">
-  <div class="announcement-track">
-    <div class="announcement-item">Organix – 100% Bio & Naturel</div>
-    <div class="announcement-item">Livraison partout au Maroc</div>
-    <div class="announcement-item">Fabrication artisanale féminine</div>
-  </div>
-</div>
+    <div class="announcement-bar">
+        <div class="announcement-track">
+            <div class="announcement-item">Organix : 100% Naturel & Bio</div>
+            <div class="announcement-item">Livraison Partout au Maroc</div>
+            <div class="announcement-item">Tradition & Qualité Premium</div>
+        </div>
+    </div>
 
-<!-- HERO -->
-<section id="hero">
-  <h1>Organix Argan</h1>
-</section>
+    <section id="hero">
+        <h1>Organix Argan</h1>
+    </section>
 
-<!-- PRODUCTS -->
-<section id="produits">
-  <div class="produits-grid">
+    <section id="produits">
+        <div class="produits-grid">
+            <div onclick="openProductInSamePage('antichute')" class="produit-card">
+                <div class="badge-promo">PROMO</div>
+                <div class="produit-image"><img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f"></div>
+                <div class="produit-info"><h3>Pack Anti-Chute</h3><div class="new-price">300 DH</div></div>
+            </div>
+            <div onclick="openProductInSamePage('gommage')" class="produit-card">
+                <div class="produit-image"><img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32"></div>
+                <div class="produit-info"><h3>Gommage Figue Barbarie</h3><div class="new-price">150 DH</div></div>
+            </div>
+            <div onclick="openProductInSamePage('argalux50')" class="produit-card">
+                <div class="produit-image"><img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb"></div>
+                <div class="produit-info"><h3>Huile d'Argan Pure</h3><div class="new-price">80 DH</div></div>
+            </div>
+            <div onclick="openProductInSamePage('ghassoul')" class="produit-card">
+                <div class="produit-image"><img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3"></div>
+                <div class="produit-info"><h3>Masque Ghassoul</h3><div class="new-price">100 DH</div></div>
+            </div>
+        </div>
+    </section>
 
-    <a class="produit-card" onclick="openProduct('Pack Anti-Chute','300 DH','https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f')">
-      <span class="badge-promo">PROMO</span>
-      <div class="produit-image">
-        <img loading="lazy" src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti Chute Argan">
-      </div>
-      <div class="produit-info">
-        <h3>Pack Anti-Chute</h3>
-        <span class="old-price">350 DH</span>
-        <span class="new-price">300 DH</span>
-      </div>
-    </a>
+    <footer>
+        <div class="footer-logo"><img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12"></div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="footer-nav">
+            <a onclick="showInfo('objectif')">Notre Objectif</a>
+            <a onclick="showInfo('histoire')">Notre Histoire</a>
+            <a onclick="showInfo('processus')">Processus de Production</a>
+        </div>
+        <div style="color:#666; font-size:0.7rem;">&copy; 2026 Organix. 06 36 22 19 00</div>
+    </footer>
 
-  </div>
-</section>
+    <div id="mainModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">
-    <img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12">
-  </div>
+    <script>
+        const products = {
+            'antichute': { title: 'Pack Anti-Chute à l\'Argan', price: '300 DH', img: 'https://github.com/user-attachments/assets/8335cb94-a1ed-4011-95a8-4de02f2a1820', desc: 'Soin complet pour freiner la chute et réparer en profondeur.' },
+            'gommage': { title: 'Gommage Figue de Barbarie', price: '150 DH', img: 'https://github.com/user-attachments/assets/cc099969-dd11-483d-a6da-6a64782ed974', desc: 'Rénovation cellulaire et lissage immédiat du grain de peau.' },
+            'argalux50': { title: 'Huile d\'Argan Pure ARGALUX', price: '80 DH', img: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f', desc: '100% biologique extraite à froid pour une régénération intense.' },
+            'ghassoul': { title: 'Masque au Ghassoul', price: '100 DH', img: 'https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f', desc: 'Argile minérale naturelle parfumée à la fleur d\'oranger.' }
+        };
 
-  <div class="social-links">
-    <a><i class="fab fa-instagram"></i></a>
-    <a><i class="fab fa-facebook-f"></i></a>
-    <a><i class="fab fa-tiktok"></i></a>
-  </div>
+        const infoData = {
+            'objectif': { content: '<h2 class="modal-h2">Notre Objectif</h2><img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76" style="width:100%; border-radius:15px; margin-bottom:15px;"><p class="modal-text">Nous œuvrons pour l\'autonomie financière des femmes rurales.</p>' },
+            'histoire': { content: '<h2 class="modal-h2">Notre Histoire</h2><p class="modal-text">Fondée en 2002, la coopérative valorise le travail des femmes berbères.</p>' },
+            'processus': {
+                content: `
+                <h2 class="modal-h2">Processus</h2>
+                <div class="process-step"><strong>1. Récolte</strong><img src="https://github.com/user-attachments/assets/026d526f-4549-4ee5-9efe-9eed98bb5aab" class="process-img"></div>
+                <div class="process-step"><strong>2. Dépulpage</strong><img src="https://github.com/user-attachments/assets/08ed7431-0a11-4fa0-b804-61041e0c246f" class="process-img"></div>
+                <div class="process-step"><strong>3. Concassage</strong><img src="https://github.com/user-attachments/assets/a9266aaf-0ace-4531-bc24-5198fc69e844" class="process-img"></div>
+                <div class="process-step"><strong>4. Extraction</strong><img src="https://github.com/user-attachments/assets/479a8a97-e1f9-45d8-b6d0-ae15353d8b65" class="process-img"></div>
+                <div class="process-step"><strong>5. Décantation</strong><img src="https://github.com/user-attachments/assets/8d145d37-bb80-40b9-82a2-eb73c5b1608f" class="process-img"></div>
+                <div class="process-step"><strong>6. Filtrage</strong><img src="https://github.com/user-attachments/assets/9193708f-989d-442b-8e12-64ecad41b669" class="process-img"></div>
+                <div class="process-step"><strong>7. Mise en bouteille</strong><img src="https://github.com/user-attachments/assets/b60ab570-d1cc-4ba8-bada-d0e86c3a758b" class="process-img"></div>`
+            }
+        };
 
-  <div class="footer-nav">
-    <a onclick="showInfo()">Notre Objectif</a>
-    <a onclick="showInfo()">Notre Histoire</a>
-    <a onclick="showInfo()">Processus</a>
-  </div>
+        function openProductInSamePage(id) {
+            const p = products[id];
+            document.getElementById('modalBody').innerHTML = `
+                <img src="${p.img}" style="width:100%; border-radius:15px; margin-bottom:20px;">
+                <h2 class="modal-h2">${p.title}</h2>
+                <div style="text-align:center; font-size:1.5rem; font-weight:700; color:var(--accent); margin-bottom:15px;">${p.price}</div>
+                <p class="modal-text">${p.desc}</p>
+                <a href="https://wa.me/212636221900?text=Je commande : ${p.title}" class="btn-ws"><i class="fab fa-whatsapp"></i> Commander sur WhatsApp</a>`;
+            document.getElementById('mainModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
 
-  <p style="font-size:.75rem;color:#666">© 2026 Organix – 06 36 22 19 00</p>
-</footer>
-
-<script>
-function openProduct(title, price, img){
-  const w = window.open("", "_blank");
-  w.document.write(`
-    <h1>${title}</h1>
-    <img src="${img}" style="max-width:300px;border-radius:15px">
-    <h2>${price}</h2>
-    <a href="https://wa.me/212636221900?text=Je souhaite commander ${title}">
-      Commander sur WhatsApp
-    </a>
-  `);
-}
-</script>
-
+        function showInfo(id) { 
+            document.getElementById('modalBody').innerHTML = infoData[id].content; 
+            document.getElementById('mainModal').style.display = 'block'; 
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() { document.getElementById('mainModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    </script>
 </body>
 </html>
