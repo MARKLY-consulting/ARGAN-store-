@@ -19,7 +19,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Poppins', sans-serif; background: #FAF9F6; color: var(--text); padding-top: 80px; overflow-x: hidden; }
         
-        /* ANNOUNCEMENT MOBILE OPTIMIZED */
         .announcement-bar { position: fixed; top: 0; width: 100%; height: 35px; background: #1A1A1A; color: white; z-index: 9999; display: flex; align-items: center; overflow: hidden; font-size: 0.7rem; border-bottom: 1px solid var(--accent); }
         .announcement-track { display: flex; animation: scroll 15s linear infinite; white-space: nowrap; }
         .announcement-item { padding: 0 30px; text-transform: uppercase; letter-spacing: 1px; }
@@ -28,53 +27,42 @@
         header { position: fixed; top: 35px; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; height: 60px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .logo-head img { height: 35px; }
 
-        /* HERO MOBILE */
-        #hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px; }
-        #hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 1rem; }
-        .btn-primary { background: var(--accent); color: white; border: none; padding: 0.8rem 2rem; border-radius: 50px; cursor: pointer; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; }
+        #hero { height: 50vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px; border-bottom-right-radius: 60px; }
+        #hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
 
-        /* PRODUITS MOBILE GRID */
-        #produits { padding: 3rem 5%; }
+        #produits { padding: 2rem 5%; }
         .categories { display: flex; overflow-x: auto; gap: 0.5rem; margin-bottom: 2rem; padding-bottom: 10px; scrollbar-width: none; }
         .categories::-webkit-scrollbar { display: none; }
         .category-btn { background: white; border: 1px solid #eee; padding: 0.5rem 1.2rem; border-radius: 50px; white-space: nowrap; font-size: 0.8rem; }
         .category-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
         .produits-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-        @media (min-width: 768px) { .produits-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } }
+        @media (min-width: 768px) { .produits-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); } }
 
         .produit-card { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative; border: 1px solid #f0f0f0; }
         .produit-image { height: 280px; width: 100%; }
         .produit-image img { width: 100%; height: 100%; object-fit: cover; }
         .produit-info { padding: 1.2rem; text-align: center; }
         
-        /* BADGE PROMO ROUGE ANIMÉ */
-        .badge-promo { position: absolute; top: 15px; left: 15px; background: var(--danger); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; z-index: 5; animation: pulseRed 1.5s infinite; box-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+        .badge-promo { position: absolute; top: 15px; left: 15px; background: var(--danger); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; z-index: 5; animation: pulseRed 1.5s infinite; }
         @keyframes pulseRed { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-        .old-price { color: var(--danger); text-decoration: line-through; font-size: 0.9rem; margin-right: 8px; font-weight: 400; }
+        .old-price { color: var(--danger); text-decoration: line-through; font-size: 0.9rem; margin-right: 8px; }
         .new-price { color: var(--accent); font-weight: 700; font-size: 1.4rem; }
 
-        /* FOOTER MOBILE OPTIMIZED */
         footer { background: #1A1A1A; color: white; padding: 4rem 10% 2rem; text-align: center; }
-        .footer-logo { margin-bottom: 2.5rem; }
-        .footer-logo img { height: 60px; filter: brightness(1.2); }
-        .footer-nav { margin-bottom: 2.5rem; }
-        .footer-nav a { display: block; color: #BBB; text-decoration: none; margin-bottom: 1rem; font-size: 0.9rem; }
+        .footer-logo img { height: 70px; margin-bottom: 2rem; }
+        .footer-nav a { display: block; color: #BBB; text-decoration: none; margin-bottom: 1rem; font-size: 0.9rem; cursor: pointer; }
         .contact-box { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 15px; margin-bottom: 2.5rem; }
-        .contact-box p { font-size: 0.85rem; color: #BBB; margin-bottom: 0.5rem; }
         .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
-        .social-links a { color: white; font-size: 1.3rem; transition: 0.3s; }
-        .social-links a:hover { color: var(--accent); }
+        .social-links a { color: white; font-size: 1.3rem; }
 
-        /* CART SIDEBAR MOBILE */
         .cart-sidebar { position: fixed; right: -100%; top: 0; width: 100%; height: 100%; background: white; z-index: 10000; transition: 0.4s; padding: 2rem; display: flex; flex-direction: column; }
         .cart-sidebar.active { right: 0; }
-        
-        /* MODALS MOBILE */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10001; padding: 15px; }
         .modal-content { background: white; width: 100%; border-radius: 20px; padding: 2rem 1.5rem; position: relative; margin-top: 50px; max-height: 80vh; overflow-y: auto; }
         .close-btn { position: absolute; right: 15px; top: 15px; font-size: 1.5rem; color: var(--primary); }
+        .btn-voir { width: 100%; background: none; border: 1.5px solid var(--primary); color: var(--primary); padding: 0.7rem; border-radius: 50px; cursor: pointer; font-weight: 600; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -96,10 +84,7 @@
     </header>
 
     <section id="hero">
-        <div>
-            <h1>Pureté d'Argan</h1>
-            <button class="btn-primary" onclick="document.getElementById('produits').scrollIntoView()">Boutique</button>
-        </div>
+        <h1>Pureté d'Argan</h1>
     </section>
 
     <section id="produits">
@@ -108,6 +93,7 @@
             <button class="category-btn" onclick="filterProducts('cheveux')">Cheveux</button>
             <button class="category-btn" onclick="filterProducts('visage')">Visage</button>
             <button class="category-btn" onclick="filterProducts('corps')">Corps</button>
+            <button class="category-btn" onclick="filterProducts('masque')">Masques</button>
         </div>
 
         <div class="produits-grid">
@@ -120,7 +106,16 @@
                         <span class="old-price">350 DH</span>
                         <span class="new-price">300 DH</span>
                     </div>
-                    <button class="btn-voir" onclick="showProduct('antichute')">Voir le Pack</button>
+                    <button class="btn-voir" onclick="showProduct('antichute')">Voir l'offre</button>
+                </div>
+            </div>
+
+            <div class="produit-card" data-category="masque">
+                <div class="produit-image"><img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3"></div>
+                <div class="produit-info">
+                    <h3>Masque Ghassoul</h3>
+                    <div class="new-price" style="margin-bottom:0.5rem;">100 DH</div>
+                    <button class="btn-voir" onclick="showProduct('ghassoul')">Détails</button>
                 </div>
             </div>
 
@@ -146,112 +141,70 @@
 
     <footer>
         <div class="footer-logo">
-            <img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12" alt="Logo Organix">
+            <img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12">
         </div>
-
         <div class="footer-nav">
             <a onclick="window.scrollTo({top:0, behavior:'smooth'})">Accueil</a>
             <a onclick="showInfo('objectif')">Notre Objectif</a>
             <a onclick="showInfo('histoire')">Notre Histoire</a>
             <a onclick="showInfo('processus')">Processus</a>
-            <a href="#produits">Boutique</a>
         </div>
-
         <div class="contact-box">
-            <p><i class="fas fa-phone-alt" style="color:var(--accent);"></i> 06 36 22 19 00</p>
-            <p><i class="fas fa-envelope" style="color:var(--accent);"></i> contact@organix.ma</p>
+            <p><i class="fas fa-phone-alt"></i> 06 36 22 19 00</p>
+            <p><i class="fas fa-envelope"></i> contact@organix.ma</p>
         </div>
-
         <div class="social-links">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-tiktok"></i></a>
         </div>
-
-        <p style="font-size:0.7rem; color:#666;">&copy; 2026 Organix. Tous droits réservés.</p>
     </footer>
 
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('infoModal')">&times;</span>
-            <div id="infoBody"></div>
-        </div>
-    </div>
-
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('productModal')">&times;</span>
-            <div id="productBody"></div>
-        </div>
-    </div>
+    <div id="infoModal" class="modal"><div class="modal-content"><span class="close-btn" onclick="closeModal('infoModal')">&times;</span><div id="infoBody"></div></div></div>
+    <div id="productModal" class="modal"><div class="modal-content"><span class="close-btn" onclick="closeModal('productModal')">&times;</span><div id="productBody"></div></div></div>
 
     <div class="cart-sidebar" id="cartSidebar">
         <h2 style="margin-bottom:2rem;">Mon Panier</h2>
         <div id="cartItems" style="flex:1; overflow-y:auto;"></div>
         <div style="padding-top:1rem; border-top:1px solid #eee;">
-            <div style="display:flex; justify-content:space-between; font-size:1.2rem; margin-bottom:1.5rem;">
-                <strong>Total:</strong> <span id="cartTotal" style="color:var(--accent);">0 DH</span>
-            </div>
-            <button class="btn-primary" style="width:100%" onclick="alert('Commande WhatsApp en cours...')">Commander</button>
-            <button onclick="toggleCart()" style="width:100%; background:none; border:none; margin-top:1rem; color:#999;">Fermer</button>
+            <div style="display:flex; justify-content:space-between; font-size:1.2rem; margin-bottom:1.5rem;"><strong>Total:</strong> <span id="cartTotal">0 DH</span></div>
+            <button onclick="toggleCart()" style="width:100%; background:none; border:none; color:#999;">Fermer</button>
         </div>
     </div>
 
     <script>
         const infoData = {
-            'objectif': { content: '<h2>Objectif</h2><p style="margin-top:1rem;">Autonomisation des femmes rurales et excellence des produits naturels.</p><img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76" style="width:100%; margin-top:10px; border-radius:10px;">' },
-            'histoire': { content: '<h2>Notre Histoire</h2><p style="margin-top:1rem;">Depuis 2002, Organix valorise le savoir-faire des femmes de Tiout.</p>' },
-            'processus': { content: '<h2>Processus</h2><p style="margin-top:1rem;">Récolte, concassage manuel et pressage à froid pour une pureté 100%.</p>' }
+            'objectif': { content: '<h2>Objectif</h2><p>Améliorer la vie des femmes rurales.</p><img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76" style="width:100%; border-radius:10px;">' },
+            'histoire': { content: '<h2>Histoire</h2><p>Depuis 2002 à Tiout.</p>' },
+            'processus': { content: '<h2>Processus</h2><p>Récolte et pressage à froid.</p>' }
         };
 
         const products = {
             'antichute': { title: 'Pack Anti-Chute', price: '300 DH', img: 'https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f' },
+            'ghassoul': { title: 'Masque Ghassoul', price: '100 DH', img: 'https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3' },
             'argalux50': { title: "Huile d'Argan Pure", price: '80 DH', img: 'https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb' },
             'gommage': { title: 'Gommage Figue Barbarie', price: '150 DH', img: 'https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32' }
         };
 
         let cart = [];
-
         function showInfo(id) { document.getElementById('infoBody').innerHTML = infoData[id].content; document.getElementById('infoModal').style.display = 'block'; }
         function showProduct(id) {
             const p = products[id];
-            document.getElementById('productBody').innerHTML = `
-                <img src="${p.img}" style="width:100%; border-radius:15px; margin-bottom:1rem;">
-                <h3>${p.title}</h3>
-                <p style="font-size:1.5rem; color:var(--accent); margin:0.5rem 0;">${p.price}</p>
-                <button class="btn-primary" style="width:100%" onclick="addToCart('${id}')">Ajouter au panier</button>`;
+            document.getElementById('productBody').innerHTML = `<img src="${p.img}" style="width:100%; border-radius:15px; margin-bottom:1rem;"><h3>${p.title}</h3><p style="font-size:1.5rem; color:var(--accent); margin:0.5rem 0;">${p.price}</p><button class="btn-voir" style="background:var(--primary); color:white;" onclick="addToCart('${id}')">Ajouter</button>`;
             document.getElementById('productModal').style.display = 'block';
         }
-
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
         function toggleCart() { document.getElementById('cartSidebar').classList.toggle('active'); }
-        
-        function addToCart(id) {
-            cart.push(products[id]);
-            updateCart();
-            closeModal('productModal');
-            toggleCart();
-        }
-
+        function addToCart(id) { cart.push(products[id]); updateCart(); closeModal('productModal'); toggleCart(); }
         function updateCart() {
-            const list = document.getElementById('cartItems');
-            list.innerHTML = '';
-            let total = 0;
-            cart.forEach(item => {
-                total += parseInt(item.price);
-                list.innerHTML += `<div style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #eee;"><span>${item.title}</span><strong>${item.price}</strong></div>`;
-            });
-            document.getElementById('cartTotal').textContent = total + ' DH';
-            document.querySelector('.cart-count').textContent = cart.length;
+            const list = document.getElementById('cartItems'); list.innerHTML = ''; let total = 0;
+            cart.forEach(item => { total += parseInt(item.price); list.innerHTML += `<div style="display:flex; justify-content:space-between; padding:10px 0;"><span>${item.title}</span><strong>${item.price}</strong></div>`; });
+            document.getElementById('cartTotal').textContent = total + ' DH'; document.querySelector('.cart-count').textContent = cart.length;
         }
-
         function filterProducts(cat) {
             document.querySelectorAll('.produit-card').forEach(card => card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none');
-            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active')); event.target.classList.add('active');
         }
-
-        window.onclick = function(e) { if(e.target.className === 'modal') { closeModal('infoModal'); closeModal('productModal'); } }
     </script>
 </body>
 </html>
