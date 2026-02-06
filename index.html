@@ -63,6 +63,73 @@
         }
         #hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
 
+        /* COLLECTIONS */
+        #collections {
+            padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;
+        }
+        .collections-container {
+            display: flex; flex-direction: column; gap: 4rem; margin-top: 2rem;
+        }
+        .collection-item {
+            display: flex; background: white; border-radius: var(--radius); 
+            overflow: hidden; box-shadow: var(--shadow); opacity: 0; transform: translateY(30px);
+            transition: var(--transition);
+        }
+        .collection-item.visible { opacity: 1; transform: translateY(0); }
+        .collection-image {
+            flex: 0 0 40%; position: relative; overflow: hidden;
+        }
+        .collection-image img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;
+        }
+        .collection-item:hover .collection-image img {
+            transform: scale(1.05);
+        }
+        .collection-content {
+            flex: 1; padding: 2rem; display: flex; flex-direction: column; justify-content: center;
+        }
+        .collection-content h3 {
+            font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary);
+        }
+        .collection-products {
+            display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;
+        }
+        .product-mini {
+            background: var(--secondary); border-radius: 8px; padding: 0.8rem 1rem;
+            display: flex; align-items: center; gap: 0.5rem; transition: var(--transition);
+            cursor: pointer; min-width: 150px;
+        }
+        .product-mini:hover {
+            background: var(--primary); color: white; transform: translateY(-5px);
+        }
+        .product-mini i { font-size: 1.2rem; }
+        
+        /* Animation pour les masques visage */
+        .mask-animation {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .mask-icon {
+            background: rgba(255, 255, 255, 0.9); border-radius: 50%; width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center; 
+            animation: pulseMask 2s infinite; color: var(--primary);
+        }
+        @keyframes pulseMask {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        
+        /* Animation pour les produits de la collection */
+        .product-slide {
+            animation: slideInProducts 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes slideInProducts {
+            0% { opacity: 0; transform: translateX(-20px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        
         /* PRODUITS GRID */
         #produits { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; margin-bottom: 3rem; }
@@ -96,6 +163,13 @@
         .cart-icon { position: relative; cursor: pointer; font-size: 1.3rem; }
         .cart-count { position: absolute; top: -10px; right: -10px; background: var(--accent); color: white; width: 20px; height: 20px; border-radius: 50%; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; }
         .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: white; padding: 10px 25px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: none; z-index: 11000; }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .collection-item { flex-direction: column; }
+            .collection-image { flex: 0 0 250px; }
+            #hero h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -114,6 +188,7 @@
         <div class="logo"><i class="fas fa-spa"></i> ARGAN STORE</div>
         <nav>
             <a href="#hero" class="nav-link">Accueil</a>
+            <a href="#collections" class="nav-link">Collections</a>
             <a href="#produits" class="nav-link">Produits</a>
             <div class="cart-icon" onclick="openCart()"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
         </nav>
@@ -122,7 +197,74 @@
     <section id="hero">
         <h1>L'Or Berbère pour votre Beauté</h1>
         <p>Soins naturels et éthiques issus des coopératives du Sud Marocain</p>
-        <a href="#produits" class="btn-primary" style="margin-top:20px; background:var(--accent); color:white; padding:12px 30px; border-radius:50px; text-decoration:none;">Voir la collection</a>
+        <a href="#collections" class="btn-primary" style="margin-top:20px; background:var(--accent); color:white; padding:12px 30px; border-radius:50px; text-decoration:none;">Découvrir nos collections</a>
+    </section>
+
+    <!-- SECTION COLLECTIONS AJOUTÉE -->
+    <section id="collections">
+        <div class="section-title">
+            <h2>Nos Collections Exclusives</h2>
+            <p>Découvrez notre gamme de soins naturels organisés par catégories</p>
+        </div>
+        
+        <div class="collections-container">
+            <!-- Collection Soins Corps -->
+            <div class="collection-item" id="collection-corps">
+                <div class="collection-image">
+                    <img src="https://github.com/user-attachments/assets/cc099969-dd11-483d-a6da-6a64782ed974" alt="Soins Corps">
+                    <div class="mask-animation">
+                        <div class="mask-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="collection-content">
+                    <h3><i class="fas fa-hands"></i> Soins Corps</h3>
+                    <p>Une gamme complète de produits pour nourrir, hydrater et sublimer votre peau. Formulés à base d'huile d'argan pure et d'ingrédients naturels.</p>
+                    <div class="collection-products" id="products-corps">
+                        <!-- Les produits seront ajoutés dynamiquement avec animation -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Collection Soins Visage -->
+            <div class="collection-item" id="collection-visage">
+                <div class="collection-image">
+                    <img src="https://github.com/user-attachments/assets/b4f13553-8e46-4b4b-ab6f-89d1eddffc9f" alt="Soins Visage">
+                    <div class="mask-animation">
+                        <div class="mask-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="collection-content">
+                    <h3><i class="fas fa-user-circle"></i> Soins Visage</h3>
+                    <p>Des masques, sérums et crèmes spécialement conçus pour prendre soin de votre visage. Laissez parler votre beauté naturelle.</p>
+                    <div class="collection-products" id="products-visage">
+                        <!-- Les produits seront ajoutés dynamiquement avec animation -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Collection Soins Cheveux -->
+            <div class="collection-item" id="collection-cheveux">
+                <div class="collection-image">
+                    <img src="https://github.com/user-attachments/assets/ab4bc0df-3ddd-4880-b7dd-e8e82d3bd567" alt="Soins Cheveux">
+                    <div class="mask-animation">
+                        <div class="mask-icon">
+                            <i class="fas fa-air-freshener"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="collection-content">
+                    <h3><i class="fas fa-air-freshener"></i> Soins Cheveux</h3>
+                    <p>Redonnez force, brillance et vitalité à vos cheveux avec nos soins capillaires à base d'huile d'argan et de plantes marocaines.</p>
+                    <div class="collection-products" id="products-cheveux">
+                        <!-- Les produits seront ajoutés dynamiquement avec animation -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="produits">
@@ -205,6 +347,37 @@
                     <strong>4. Filtration :</strong> L'huile repose pour devenir limpide et pure.
                 </div>`
         };
+        
+        // Données des collections et produits
+        const collectionsData = {
+            "corps": {
+                name: "Soins Corps",
+                products: [
+                    { name: "Crème Hydratante", price: "120 DH", icon: "fas fa-spa" },
+                    { name: "Gommage Argan", price: "95 DH", icon: "fas fa-hand-sparkles" },
+                    { name: "Huile de Massage", price: "150 DH", icon: "fas fa-hand-holding-heart" },
+                    { name: "Lait Corporel", price: "85 DH", icon: "fas fa-tint" }
+                ]
+            },
+            "visage": {
+                name: "Soins Visage",
+                products: [
+                    { name: "Masque Purifiant", price: "75 DH", icon: "fas fa-mask" },
+                    { name: "Sérum Anti-âge", price: "180 DH", icon: "fas fa-flask" },
+                    { name: "Crème de Jour", price: "130 DH", icon: "fas fa-sun" },
+                    { name: "Gel Nettoyant", price: "65 DH", icon: "fas fa-wind" }
+                ]
+            },
+            "cheveux": {
+                name: "Soins Cheveux",
+                products: [
+                    { name: "Shampoing Argan", price: "70 DH", icon: "fas fa-pump-soap" },
+                    { name: "Masque Capillaire", price: "90 DH", icon: "fas fa-air-freshener" },
+                    { name: "Huile Brillance", price: "110 DH", icon: "fas fa-star" },
+                    { name: "Spray Hydratant", price: "60 DH", icon: "fas fa-spray-can" }
+                ]
+            }
+        };
 
         function openInfo(type) {
             document.getElementById('infoTarget').innerHTML = infoContent[type];
@@ -222,13 +395,84 @@
             cartCount++;
             document.querySelector('.cart-count').innerText = cartCount;
             const toast = document.getElementById('toast');
+            toast.textContent = `${name} ajouté au panier !`;
             toast.style.display = 'block';
             setTimeout(() => toast.style.display = 'none', 2000);
+        }
+        
+        // Fonction pour animer les collections
+        function animateCollections() {
+            const collectionItems = document.querySelectorAll('.collection-item');
+            collectionItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                    
+                    // Ajouter les produits avec animation
+                    const collectionId = item.id.split('-')[1];
+                    if (collectionsData[collectionId]) {
+                        const productsContainer = document.getElementById(`products-${collectionId}`);
+                        
+                        collectionsData[collectionId].products.forEach((product, prodIndex) => {
+                            setTimeout(() => {
+                                const productElement = document.createElement('div');
+                                productElement.className = 'product-mini product-slide';
+                                productElement.innerHTML = `
+                                    <i class="${product.icon}"></i>
+                                    <div>
+                                        <div><strong>${product.name}</strong></div>
+                                        <div style="font-size:0.9rem">${product.price}</div>
+                                    </div>
+                                `;
+                                productElement.onclick = () => addToCart(product.name, parseInt(product.price));
+                                productsContainer.appendChild(productElement);
+                                
+                                // Reset animation pour déclencher à nouveau
+                                setTimeout(() => {
+                                    productElement.style.animation = 'none';
+                                    setTimeout(() => {
+                                        productElement.style.animation = 'slideInProducts 0.5s ease-out forwards';
+                                    }, 10);
+                                }, 100);
+                            }, prodIndex * 200);
+                        });
+                    }
+                }, index * 300);
+            });
+        }
+        
+        // Fonction pour ouvrir le panier (à implémenter)
+        function openCart() {
+            alert("Fonctionnalité panier en développement. Vous avez " + cartCount + " produit(s) dans votre panier.");
         }
 
         window.onclick = function(event) {
             if (event.target == document.getElementById('infoModal')) closeInfo();
         }
+        
+        // Observer pour animer les collections quand elles sont visibles
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCollections();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        // Initialiser quand la page est chargée
+        document.addEventListener('DOMContentLoaded', function() {
+            const collectionsSection = document.getElementById('collections');
+            observer.observe(collectionsSection);
+            
+            // Ajouter un lien actif dans la navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
     </script>
 </body>
 </html>
