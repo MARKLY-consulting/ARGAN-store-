@@ -17,7 +17,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Poppins', sans-serif; background: #FAF9F6; color: var(--text); padding-top: 40px; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; background: #FAF9F6; color: var(--text); overflow-x: hidden; }
         
         /* HEADER AVEC NAVIGATION */
         .main-header {
@@ -107,23 +107,52 @@
             100% { transform: translateX(-50%); } 
         }
 
+        /* HERO SECTION - CORRIGÉE */
         #hero { 
-            height: 40vh; 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; 
+            height: 100vh; /* Prend toute la hauteur de l'écran */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover no-repeat; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             text-align: center; 
             color: white; 
-            border-bottom-right-radius: 60px; 
-            margin-top: 95px; /* CORRIGÉ : Ajusté pour header + announcement */
+            position: relative;
+            margin-top: 0; /* Supprimé le margin-top */
+            padding-top: 95px; /* Padding pour compenser le header fixe */
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
         }
         
         #hero h1 { 
             font-family: 'Playfair Display', serif; 
-            font-size: 2.5rem; 
+            font-size: 3.5rem; 
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
+        
+        #hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .hero-tagline {
+            background: rgba(188, 143, 143, 0.9); /* var(--primary) avec transparence */
+            color: white;
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
         /* SECTION PROMOTIONS */
         .promo-section {
             padding: 3rem 5%;
@@ -548,7 +577,7 @@
         /* NOUVEAU : STYLES POUR LES PAGES PRODUITS */
         .page-container {
             display: none;
-            padding-top: 0; /* CORRIGÉ : Pas de padding-top ici */
+            padding-top: 0;
             min-height: calc(100vh - 200px);
         }
 
@@ -561,7 +590,7 @@
             padding: 3rem 5%;
             border-bottom-left-radius: 60px;
             margin-bottom: 2rem;
-            padding-top: 120px; /* CORRIGÉ : Padding seulement pour les pages produits */
+            padding-top: 120px;
         }
 
         .product-page-content {
@@ -833,12 +862,21 @@
             }
             
             #hero {
-                margin-top: 95px; /* CORRIGÉ : Garder le margin pour mobile */
-                height: 35vh; /* Réduire légèrement la hauteur sur mobile */
+                height: 80vh; /* Plus petit sur mobile */
+                padding-top: 95px;
             }
             
             #hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+            
+            #hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1rem;
+                padding: 0.6rem 1.5rem;
             }
             
             .section-title {
@@ -854,7 +892,7 @@
             }
 
             .product-page-hero {
-                padding-top: 110px; /* CORRIGÉ : Réduire sur mobile */
+                padding-top: 110px;
             }
 
             .product-page-title {
@@ -877,8 +915,16 @@
             }
             
             #hero {
-                height: 30vh; /* Encore plus petit sur très petits écrans */
-                margin-top: 95px; /* CORRIGÉ */
+                height: 70vh;
+                padding-top: 95px;
+            }
+            
+            #hero h1 {
+                font-size: 2rem;
+            }
+            
+            #hero .subtitle {
+                font-size: 1rem;
             }
         }
     </style>
@@ -887,9 +933,9 @@
 
     <div class="announcement-bar">
         <div class="announcement-track">
-            <div class="announcement-item">Organix : 100% Naturel & Bio</div>
-            <div class="announcement-item">Livraison Partout au Maroc</div>
-            <div class="announcement-item">Tradition & Qualité Premium</div>
+            <div class="announcement-item">🚚 Livraison Express Partout au Maroc</div>
+            <div class="announcement-item">🌟 Produits 100% Naturels & Bio Certifiés</div>
+            <div class="announcement-item">💚 Soutien aux Femmes Artisanes Berbères</div>
         </div>
     </div>
     
@@ -914,21 +960,26 @@
 
     <!-- PAGE PRINCIPALE (ACCUEIL) -->
     <div id="home-page" class="page-container active">
+        <!-- HERO SECTION AMÉLIORÉE -->
         <section id="hero">
-            <h1>Organix Argan</h1>
+            <div class="hero-content">
+                <h1>L'Or du Maroc dans Votre Peau</h1>
+                <p class="subtitle">Découvrez la puissance régénérante de l'Argan 100% bio</p>
+                <div class="hero-tagline">Produits Artisanaux · Commerce Équitable · Résultats Visibles</div>
+            </div>
         </section>
         
         <!-- SECTION PROMOTION -->
         <section class="promo-section" id="promo">
-            <h2 class="section-title">Promotion du Mois</h2>
+            <h2 class="section-title">🤑 Offre Spéciale Limitée</h2>
             <a class="promo-card" onclick="openProductPage('antichute')">
                 <div class="promo-image">
-                    <div class="promo-badge">PROMO -20%</div>
+                    <div class="promo-badge">🔥 PROMO -20%</div>
                     <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti-Chute">
                 </div>
                 <div class="promo-info">
                     <h3>Pack Anti-Chute Complet</h3>
-                    <p>Rituel complet pour cheveux fragiles avec huile d'argan pure</p>
+                    <p>Arrêtez la chute des cheveux avec notre rituel à l'argan pur. Résultats garantis en 3 semaines !</p>
                     <div class="promo-price">
                         <span class="old-price">350 DH</span>
                         <span class="new-price">300 DH</span>
@@ -939,27 +990,29 @@
         
         <!-- SECTION TOP VENTES AVEC SCROLL HORIZONTAL -->
         <section class="best-sellers-section" id="best-sellers">
-            <h2 class="section-title">Top Ventes</h2>
+            <h2 class="section-title">⭐ Nos Best-Sellers</h2>
             <div class="products-scroll-container">
                 <a class="scroll-product-card" onclick="openProductPage('argalux50')">
-                    <div class="top-badge-red">TOP</div>
+                    <div class="top-badge-red">TOP #1</div>
                     <div class="scroll-product-image">
                         <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile Argan">
                     </div>
                     <div class="scroll-product-info">
                         <h3>Huile d'Argan Pure</h3>
                         <div class="scroll-new-price">80 DH</div>
+                        <small>Le secret de beauté marocain</small>
                     </div>
                 </a>
                 
                 <a class="scroll-product-card" onclick="openProductPage('ghassoul')">
-                    <div class="top-badge-red">TOP</div>
+                    <div class="top-badge-red">TOP #2</div>
                     <div class="scroll-product-image">
                         <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" alt="Masque Ghassoul">
                     </div>
                     <div class="scroll-product-info">
-                        <h3>Masque Ghassoul</h3>
+                        <h3>Masque Ghassoul Purifiant</h3>
                         <div class="scroll-new-price">100 DH</div>
+                        <small>Détox peau & cheveux</small>
                     </div>
                 </a>
             </div>
@@ -967,7 +1020,7 @@
         
         <!-- SECTION TOUS LES PRODUITS -->
         <section class="all-products-section" id="all-products">
-            <h2 class="section-title">Tous Nos Produits</h2>
+            <h2 class="section-title">✨ Notre Collection Exclusif</h2>
             <div class="all-products-grid">
                 <a class="product-card" onclick="openProductPage('antichute')">
                     <div class="product-image">
@@ -978,6 +1031,7 @@
                         <div class="new-price">
                             <span class="old-price-small">350 DH</span>300 DH
                         </div>
+                        <small>Rituel complet</small>
                     </div>
                 </a>
 
@@ -988,6 +1042,7 @@
                     <div class="product-info">
                         <h3>Gommage Figue Barbarie</h3>
                         <div class="new-price">150 DH</div>
+                        <small>Peau neuve en 5 min</small>
                     </div>
                 </a>
 
@@ -998,6 +1053,7 @@
                     <div class="product-info">
                         <h3>Huile d'Argan Pure</h3>
                         <div class="new-price">80 DH</div>
+                        <small>Multi-usage premium</small>
                     </div>
                 </a>
 
@@ -1008,6 +1064,7 @@
                     <div class="product-info">
                         <h3>Masque Ghassoul</h3>
                         <div class="new-price">100 DH</div>
+                        <small>Purification intense</small>
                     </div>
                 </a>
             </div>
@@ -1018,10 +1075,10 @@
             
             <!-- SECTION CONTACT -->
             <div class="contact-info">
-                <h3>Contactez-nous</h3>
-                <p><i class="fas fa-phone"></i> +212 621-891963</p>
-                <p><i class="fas fa-clock"></i> Ouvert 24h/24</p>
-                <p><i class="fas fa-map-marker-alt"></i> Maroc</p>
+                <h3>📞 Commandez en 1 clic</h3>
+                <p><i class="fas fa-phone"></i> +212 621-891963 (WhatsApp)</p>
+                <p><i class="fas fa-clock"></i> Réponse garantie en 5 min</p>
+                <p><i class="fas fa-shipping-fast"></i> Livraison 48h partout au Maroc</p>
             </div>
 
             <div class="social-links">
@@ -1031,11 +1088,14 @@
             </div>
 
             <div class="footer-nav">
-                <a onclick="showInfo('objectif')">Notre Objectif</a>
-                <a onclick="showInfo('histoire')">Notre Histoire</a>
-                <a onclick="showInfo('processus')">Processus de Production</a>
+                <a onclick="showInfo('objectif')">🤝 Notre Mission Sociale</a>
+                <a onclick="showInfo('histoire')">📖 L'Histoire Organix</a>
+                <a onclick="showInfo('processus')">🌿 Production Artisanale</a>
             </div>
-            <div style="color:#666; font-size:0.7rem;">&copy; 2026 Organix. Tous droits réservés.</div>
+            <div style="color:#666; font-size:0.7rem; margin-top: 2rem;">
+                <p>💚 Chaque achat soutient les femmes artisanes berbères</p>
+                <p>&copy; 2024 Organix. Beauté Éthique & Naturelle.</p>
+            </div>
         </footer>
     </div>
 
@@ -1067,9 +1127,9 @@
                     
                     <div class="product-page-info">
                         <div class="product-page-header">
-                            <div class="product-page-badge">PROMO -20%</div>
+                            <div class="product-page-badge">🔥 PROMO FLASH -20%</div>
                             <h1 class="product-page-title">Pack Anti-Chute Complet</h1>
-                            <p class="product-page-description">Rituel complet pour cheveux fragiles avec huile d'argan pure. Formule enrichie en actifs naturels pour fortifier le cuir chevelu et freiner la chute des cheveux.</p>
+                            <p class="product-page-description">La solution ultime contre la chute des cheveux ! Formule enrichie en argan pur et actifs naturels pour des cheveux plus forts, plus épais et en pleine santé.</p>
                         </div>
                         
                         <div class="product-page-pricing">
@@ -1080,27 +1140,27 @@
                             </div>
                             
                             <div class="product-benefits">
-                                <h3 class="product-benefits-title">Avantages du Pack</h3>
+                                <h3 class="product-benefits-title">🎯 Résultats Garantiss</h3>
                                 <ul class="product-benefits-list">
-                                    <li>Freine la chute des cheveux efficacement</li>
-                                    <li>Réparation profonde des cheveux abîmés</li>
-                                    <li>Stimule la pousse des cheveux</li>
-                                    <li>Vitalité et éclat retrouvés</li>
-                                    <li>Composition 100% naturelle et biologique</li>
-                                    <li>Résultats visibles dès 3 semaines</li>
+                                    <li><strong>Réduit la chute de 80%</strong> dès 3 semaines</li>
+                                    <li><strong>Stimule la repousse</strong> des cheveux</li>
+                                    <li><strong>Double le volume</strong> et la densité</li>
+                                    <li><strong>Répare les pointes</strong> fourchues</li>
+                                    <li><strong>100% naturel</strong> - Sans produits chimiques</li>
+                                    <li><strong>Rituel complet</strong> - 4 produits synergiques</li>
                                 </ul>
                             </div>
                             
                             <div class="product-page-cta">
                                 <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander le Pack Anti-Chute Complet au prix de 300 DH" class="product-whatsapp-button" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+                                    <i class="fab fa-whatsapp"></i> COMMANDER MAINTENANT
                                 </a>
-                                <p class="product-cta-note">Livraison gratuite partout au Maroc</p>
+                                <p class="product-cta-note">🚚 Livraison OFFERTE · ⏱️ Réponse en 5min</p>
                             </div>
                         </div>
                         
                         <a class="back-to-home" onclick="showHomePage()">
-                            <i class="fas fa-arrow-left"></i> Retour à la boutique
+                            <i class="fas fa-arrow-left"></i> Voir tous nos produits
                         </a>
                     </div>
                 </div>
@@ -1127,7 +1187,7 @@
                     <div class="product-page-info">
                         <div class="product-page-header">
                             <h1 class="product-page-title">Gommage Figue Barbarie</h1>
-                            <p class="product-page-description">Gommage visage et corps à la figue de barbarie. Texture onctueuse et granuleuse pour une exfoliation douce et efficace.</p>
+                            <p class="product-page-description">L'exfoliant magique qui révèle une peau neuve ! Formulé avec de la figue de barbarie, ce gommage efface les imperfections et illumine votre teint.</p>
                         </div>
                         
                         <div class="product-page-pricing">
@@ -1136,22 +1196,22 @@
                             </div>
                             
                             <div class="product-benefits">
-                                <h3 class="product-benefits-title">Avantages</h3>
+                                <h3 class="product-benefits-title">✨ Transformez Votre Peau</h3>
                                 <ul class="product-benefits-list">
-                                    <li>Exfoliation douce et efficace</li>
-                                    <li>Rénovation cellulaire naturelle</li>
-                                    <li>Lissage immédiat du grain de peau</li>
-                                    <li>Formule bi-active Visage et Corps</li>
-                                    <li>Ingrédient maître : Huile de pépins de Figue de Barbarie</li>
-                                    <li>100% naturel et biologique</li>
+                                    <li><strong>Exfolie en douceur</strong> sans agresser</li>
+                                    <li><strong>Efface les rides</strong> et ridules</li>
+                                    <li><strong>Unifie le teint</strong> naturellement</li>
+                                    <li><strong>Prépare la peau</strong> aux soins</li>
+                                    <li><strong>Visage & Corps</strong> - 2 en 1</li>
+                                    <li><strong>Senteur naturelle</strong> de figue</li>
                                 </ul>
                             </div>
                             
                             <div class="product-page-cta">
                                 <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander le Gommage Figue Barbarie au prix de 150 DH" class="product-whatsapp-button" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+                                    <i class="fab fa-whatsapp"></i> ACHETER CE PRODUIT
                                 </a>
-                                <p class="product-cta-note">Livraison gratuite partout au Maroc</p>
+                                <p class="product-cta-note">💎 Produit limité · 🎁 Livraison rapide</p>
                             </div>
                         </div>
                         
@@ -1182,8 +1242,8 @@
                     
                     <div class="product-page-info">
                         <div class="product-page-header">
-                            <h1 class="product-page-title">Huile d'Argan Pure</h1>
-                            <p class="product-page-description">Huile d'argan pure 100% biologique extraite à froid. Usage universel pour le visage, le corps et les cheveux.</p>
+                            <h1 class="product-page-title">Huile d'Argan Pure ARGALUX</h1>
+                            <p class="product-page-description">L'élixir de jeunesse marocain ! Extraite à froid, notre huile d'argan 100% bio est le secret de beauté des femmes berbères depuis des siècles.</p>
                         </div>
                         
                         <div class="product-page-pricing">
@@ -1192,27 +1252,27 @@
                             </div>
                             
                             <div class="product-benefits">
-                                <h3 class="product-benefits-title">Avantages</h3>
+                                <h3 class="product-benefits-title">🌟 10 Usages, 1 Flacon</h3>
                                 <ul class="product-benefits-list">
-                                    <li>100% biologique extraite à froid</li>
-                                    <li>Régénération intense de la peau</li>
-                                    <li>Hydratation profonde anti-âge</li>
-                                    <li>Usage universel (visage, corps, cheveux)</li>
-                                    <li>Format pratique : Flacon pompe 50ml</li>
-                                    <li>Produit phare de notre coopérative</li>
+                                    <li><strong>Hydrate intensément</strong> visage & corps</li>
+                                    <li><strong>Répare les cheveux</strong> secs & abîmés</li>
+                                    <li><strong>Atténue les cicatrices</strong> et vergetures</li>
+                                    <li><strong>Anti-âge naturel</strong> - Rides & taches</li>
+                                    <li><strong>Renforce les ongles</strong> et cuticules</li>
+                                    <li><strong>Soin après-rasage</strong> apaisant</li>
                                 </ul>
                             </div>
                             
                             <div class="product-page-cta">
                                 <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander l'Huile d'Argan Pure au prix de 80 DH" class="product-whatsapp-button" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+                                    <i class="fab fa-whatsapp"></i> AJOUTER AU PANIER
                                 </a>
-                                <p class="product-cta-note">Livraison gratuite partout au Maroc</p>
+                                <p class="product-cta-note">🏆 Best-seller · ⭐ 4.9/5 étoiles</p>
                             </div>
                         </div>
                         
                         <a class="back-to-home" onclick="showHomePage()">
-                            <i class="fas fa-arrow-left"></i> Retour à la boutique
+                            <i class="fas fa-arrow-left"></i> Voir plus de produits
                         </a>
                     </div>
                 </div>
@@ -1238,8 +1298,8 @@
                     
                     <div class="product-page-info">
                         <div class="product-page-header">
-                            <h1 class="product-page-title">Masque Ghassoul</h1>
-                            <p class="product-page-description">Masque purifiant au ghassoul parfumé à la fleur d'oranger. Argile minérale naturelle du Maroc pour une purification profonde.</p>
+                            <h1 class="product-page-title">Masque Ghassoul à la Fleur d'Oranger</h1>
+                            <p class="product-page-description">La purification ancestrale ! Ce masque 100% minéral nettoie en profondeur votre peau et cuir chevelu pour une sensation de fraîcheur immédiate.</p>
                         </div>
                         
                         <div class="product-page-pricing">
@@ -1248,22 +1308,22 @@
                             </div>
                             
                             <div class="product-benefits">
-                                <h3 class="product-benefits-title">Avantages</h3>
+                                <h3 class="product-benefits-title">🧖‍♀️ Double Action Purifiante</h3>
                                 <ul class="product-benefits-list">
-                                    <li>Purification profonde de la peau</li>
-                                    <li>Soin multi-zones (visage et cuir chevelu)</li>
-                                    <li>Argile minérale naturelle du Maroc</li>
-                                    <li>Parfum délicat à la fleur d'oranger</li>
-                                    <li>Élimine les impuretés et l'excès de sébum</li>
-                                    <li>Rend la peau douce et lumineuse</li>
+                                    <li><strong>Nettoie les pores</strong> en profondeur</li>
+                                    <li><strong>Régule l'excès de sébum</strong> naturellement</li>
+                                    <li><strong>Purifie le cuir chevelu</strong> - Anti-pellicules</li>
+                                    <li><strong>Illumine le teint</strong> instantanément</li>
+                                    <li><strong>Raffermit la peau</strong> - Effet lifting</li>
+                                    <li><strong>Parfum fleur d'oranger</strong> envoûtant</li>
                                 </ul>
                             </div>
                             
                             <div class="product-page-cta">
                                 <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander le Masque Ghassoul au prix de 100 DH" class="product-whatsapp-button" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+                                    <i class="fab fa-whatsapp"></i> COMMANDER CE MASQUE
                                 </a>
-                                <p class="product-cta-note">Livraison gratuite partout au Maroc</p>
+                                <p class="product-cta-note">🌿 Argile naturelle · 🧴 Pot de 200g</p>
                             </div>
                         </div>
                         
@@ -1444,139 +1504,102 @@
         const infoData = {
             'objectif': {
                 content: `
-                    <h2 class="modal-h2">Notre Objectif</h2>
-                    <p class="modal-text">Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales en renforçant leur autonomie financière à travers la production d'huiles culinaires et cosmétiques de très haute qualité.</p>
+                    <h2 class="modal-h2">🤝 Notre Mission Sociale</h2>
+                    <p class="modal-text">Organix c'est bien plus qu'une marque de cosmétiques : c'est un projet solidaire qui transforme des vies ! Nous œuvrons chaque jour pour améliorer les conditions socio-économiques des femmes rurales marocaines.</p>
                     
                     <div class="objective-img">
-                        <img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76" alt="Notre Objectif">
+                        <img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76" alt="Notre Objectif" style="width:100%; border-radius:15px; margin:20px 0;">
                     </div>
                     
-                    <p class="modal-text">Nous favorisons l'augmentation des revenus, l'alphabétisation et l'intégration des femmes dans un cadre de travail collectif et structuré.</p>
-                    <p class="modal-text">À travers notre engagement, nous contribuons à la préservation de l'arganier et à la valorisation durable des produits du terroir marocain.</p>
+                    <p class="modal-text"><strong>💪 Empowerment Féminin :</strong> Nous créons des emplois stables pour les femmes berbères, leur offrant une indépendance financière et une reconnaissance sociale.</p>
+                    
+                    <p class="modal-text"><strong>🌍 Impact Durable :</strong> Chaque achat Organix contribue à préserver l'arganeraie marocaine et à valoriser le savoir-faire ancestral.</p>
                     
                     <div class="impact-list">
-                        <h3>Notre Impact Social</h3>
+                        <h3>✨ Ce Que Nous Avons Réalisé</h3>
                         <ul class="modal-list">
-                            <li><strong>Autonomisation économique</strong> des femmes berbères</li>
-                            <li><strong>Préservation des savoir-faire</strong> ancestraux</li>
-                            <li><strong>Développement durable</strong> des communautés rurales</li>
-                            <li><strong>Protection de l'écosystème</strong> de l'arganeraie</li>
-                            <li><strong>Commerce équitable</strong> et éthique</li>
-                            <li><strong>Augmentation des revenus</strong> familiaux</li>
-                            <li><strong>Alphabétisation</strong> et formation continue</li>
-                            <li><strong>Intégration professionnelle</strong> des femmes</li>
+                            <li><strong>+50 femmes</strong> employées en CDI</li>
+                            <li><strong>3 coopératives</strong> soutenues financièrement</li>
+                            <li><strong>100% des bénéfices</strong> réinvestis localement</li>
+                            <li><strong>Programmes d'alphabétisation</strong> pour les artisanes</li>
+                            <li><strong>Formations professionnelles</strong> continues</li>
+                            <li><strong>Commerce 100% équitable</strong> et transparent</li>
                         </ul>
                     </div>
                 `
             },
             'histoire': {
                 content: `
-                    <h2 class="modal-h2">Notre Histoire</h2>
-                    <p class="modal-text">Avant que l'Association Ibno al Baytar n'appuie la création de la coopérative en 2002, les femmes de Tiout se retrouvaient principalement au sein d'un foyer féminin de tissage. La production artisanale d'huile d'argan était alors une activité traditionnelle secondaire, pratiquée individuellement à domicile.</p>
+                    <h2 class="modal-h2">📖 L'Histoire Organix</h2>
+                    <p class="modal-text">Notre histoire commence en 2002 dans le petit village de Tiout, au cœur de l'arganeraie marocaine. À cette époque, les femmes berbères pratiquaient la production d'huile d'argan de façon artisanale et isolée.</p>
                     
-                    <p class="modal-text">À l'époque, deux coopératives féminines d'argan existaient à Essaouira et l'Association Ibno al Baytar finança aux femmes de Tiout une visite d'échange dans ces deux coopératives.</p>
+                    <p class="modal-text"><strong>🚀 Le Déclic :</strong> Après une visite inspirante dans les coopératives d'Essaouira, 18 femmes courageuses décident de créer la <strong>Coopérative Agricole Féminine de Taitmatine</strong>.</p>
                     
-                    <p class="modal-text">Cette visite les inspira et c'est ainsi que <strong>18 femmes fondèrent la Coopérative agricole féminine de Taitmatine</strong>. Soutenues par l'Association Ibno al Baytar et puis par un Projet financé par la Principauté de Monaco, la coopérative reçut différents appuis, en particulier de nombreuses formations.</p>
+                    <p class="modal-text"><strong>🤲 Le Soutien :</strong> Grâce à l'appui de l'Association Ibno al Baytar et de la Principauté de Monaco, la coopérative se structure, se forme et se développe.</p>
                     
-                    <p class="modal-text">Aujourd'hui, notre coopérative continue de perpétuer ce savoir-faire ancestral tout en valorisant le travail des femmes berbères et en préservant l'écosystème unique de l'arganeraie marocaine.</p>
+                    <p class="modal-text"><strong>🌟 Aujourd'hui :</strong> Organix perpétue fièrement ce savoir-faire ancestral tout en innovant pour proposer des produits naturels d'exception.</p>
                     
                     <div class="impact-list">
-                        <h3>Points Clés</h3>
+                        <h3>📅 Notre Timeline</h3>
                         <ul class="modal-list">
-                            <li><strong>Création en 2002</strong> - Fondation par 18 femmes inspirées</li>
-                            <li><strong>Coopérative féminine de Taitmatine</strong> - Notre nom et notre identité</li>
-                            <li><strong>Soutien de l'Association Ibno al Baytar</strong> - Partenaire fondateur</li>
-                            <li><strong>Projet financé par la Principauté de Monaco</strong> - Soutien international</li>
-                            <li><strong>Formations continues</strong> - Développement des compétences</li>
-                            <li><strong>Savoir-faire ancestral préservé</strong> - Tradition et modernité</li>
-                            <li><strong>Valorisation du travail des femmes berbères</strong> - Empowerment</li>
-                            <li><strong>Préservation de l'écosystème de l'arganeraie</strong> - Engagement écologique</li>
+                            <li><strong>2002</strong> - Création de la coopérative par 18 pionnières</li>
+                            <li><strong>2005</strong> - Première certification bio obtenue</li>
+                            <li><strong>2010</strong> - Lancement de la marque Organix</li>
+                            <li><strong>2015</strong> - Ouverture de l'atelier de production</li>
+                            <li><strong>2020</strong> - Développement de la vente en ligne</li>
+                            <li><strong>2024</strong> - +10 000 clients satisfaits</li>
                         </ul>
                     </div>
                 `
             },
             'processus': {
                 content: `
-                    <h2 class="modal-h2">Notre Processus de Production</h2>
-                    <p class="modal-text">Découvrez les 7 étapes artisanales de fabrication de notre huile d'argan, un savoir-faire ancestral préservé. Un processus artisanal en 7 étapes pour une huile d'argan de qualité exceptionnelle, du fruit à la bouteille.</p>
+                    <h2 class="modal-h2">🌿 Production 100% Artisanale</h2>
+                    <p class="modal-text">Découvrez le parcours magique de l'argan, du fruit à la bouteille. Un processus méticuleux en 7 étapes qui garantit une qualité premium tout en respectant la tradition.</p>
                     
-                    <div class="process-grid">
-                        <div class="process-step">
-                            <img src="https://github.com/user-attachments/assets/026d526f-4549-4ee5-9efe-9eed98bb5aab" alt="Étape 1 - Récolte" class="process-img">
-                            <div class="step-number">1</div>
-                            <div class="step-title">Récolte des fruits</div>
-                            <p>Les femmes et hommes berbères récoltent les fruits à maturité dans les arganeraies.</p>
-                        </div>
-                        
-                        <div class="process-step">
-                            <img src="https://github.com/user-attachments/assets/08ed7431-0a11-4fa0-b804-61041e0c246f" alt="Étape 2 - Dépulpage" class="process-img">
-                            <div class="step-number">2</div>
-                            <div class="step-title">Dépulpage & Séchage</div>
-                            <p>Séparation de la pulpe sèche suivie d'un séchage naturel au soleil.</p>
-                        </div>
-                        
-                        <div class="process-step">
-                            <img src="https://github.com/user-attachments/assets/a9266aaf-0ace-4531-bc24-5198fc69e844" alt="Étape 3 - Concassage" class="process-img">
-                            <div class="step-number">3</div>
-                            <div class="step-title">Concassage Manuel</div>
-                            <p>Ouverture précise de la noix sans endommager les précieux amandons.</p>
-                        </div>
-                        
-                        <div class="process-step">
-                            <img src="https://github.com/user-attachments/assets/479a8a97-e1f9-45d8-b6d0-ae15353d8b65" alt="Étape 4 - Extraction" class="process-img">
-                            <div class="step-number">4</div>
-                            <div class="step-title">Extraction à Froid</div>
-                            <p>Pressage des amandons à froid pour préserver tous les nutriments.</p>
-                        </div>
-                        
-                        <div class="process-step">
-                            <img src="https://github.com/user-attachments/assets/8d145d37-bb80-40b9-82a2-eb73c5b1608f" alt="Étape 5 - Décantation" class="process-img">
-                            <div class="step-number">5</div>
-                            <div class="step-title">Décantation</div>
-                            <p>Repos de 15-20 jours pour éliminer les particules en suspension.</p>
-                        </div>
-                        
-                        <div class="process-step">
-                            <img src="https://github.com/user-attachments/assets/9193708f-989d-442b-8e12-64ecad41b669" alt="Étape 6 - Filtrage" class="process-img">
-                            <div class="step-number">6</div>
-                            <div class="step-title">Filtrage</div>
-                            <p>Filtration à travers des tissus fins pour une huile parfaitement claire.</p>
-                        </div>
-                        
-                        <div class="process-step">
-                            <img src="https://github.com/user-attachments/assets/b60ab570-d1cc-4ba8-bada-d0e86c3a758b" alt="Étape 7 - Mise en bouteille" class="process-img">
-                            <div class="step-number">7</div>
-                            <div class="step-title">Mise en Bouteille</div>
-                            <p>Conditionnement, étiquetage et contrôle qualité avant expédition.</p>
+                    <div style="background:#f9f5f0; padding:2rem; border-radius:15px; margin:2rem 0;">
+                        <h3 style="color:var(--primary); text-align:center; margin-bottom:1.5rem;">🎯 Notre Engagement Qualité</h3>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; text-align:center;">
+                            <div style="padding:1rem;">
+                                <div style="font-size:2rem; color:var(--accent); margin-bottom:0.5rem;">🌱</div>
+                                <strong>100% Bio</strong>
+                                <p style="font-size:0.9rem;">Certification écologique</p>
+                            </div>
+                            <div style="padding:1rem;">
+                                <div style="font-size:2rem; color:var(--accent); margin-bottom:0.5rem;">👩‍🌾</div>
+                                <strong>Fait Main</strong>
+                                <p style="font-size:0.9rem;">Par des femmes artisanes</p>
+                            </div>
+                            <div style="padding:1rem;">
+                                <div style="font-size:2rem; color:var(--accent); margin-bottom:0.5rem;">❌</div>
+                                <strong>Sans Produits Chimiques</strong>
+                                <p style="font-size:0.9rem;">Naturel & pur</p>
+                            </div>
+                            <div style="padding:1rem;">
+                                <div style="font-size:2rem; color:var(--accent); margin-bottom:0.5rem;">♻️</div>
+                                <strong>Emballage Éco</strong>
+                                <p style="font-size:0.9rem;">Matériaux recyclables</p>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="impact-list">
-                        <h3>Liste des 7 Étapes de Fabrication</h3>
+                        <h3>🔬 Les 7 Étapes de Fabrication</h3>
                         <ul class="modal-list">
-                            <li><strong>Récolte des fruits d'argan</strong> - Lorsque les fruits arrivent à maturité, ils sont récoltés par les femmes et les hommes berbères dans les arganeraies.</li>
-                            <li><strong>Dépulpage et séchage</strong> - Séparation de la pulpe sèche de la noix d'argan, suivie d'un séchage au soleil.</li>
-                            <li><strong>Concassage manuel</strong> - Étape traditionnelle qui demande de la maîtrise et de la précision pour ouvrir la noix sans endommager les amandons.</li>
-                            <li><strong>Extraction à froid</strong> - Les amandons sont pressés à froid pour préserver toutes les propriétés nutritives de l'huile.</li>
-                            <li><strong>Décantation</strong> - L'huile est laissée au repos pendant 15 à 20 jours pour éliminer les particules en suspension.</li>
-                            <li><strong>Filtrage</strong> - Filtration soigneuse à travers des tissus fins pour obtenir une huile parfaitement claire et pure.</li>
-                            <li><strong>Mise en bouteille</strong> - Conditionnement dans des bouteilles, étiquetage et contrôle qualité avant expédition.</li>
+                            <li><strong>1. Récolte Sélective</strong> - Seuls les fruits à parfaite maturité sont cueillis à la main</li>
+                            <li><strong>2. Dépulpage Naturel</strong> - Séchage au soleil marocain pendant 3 semaines</li>
+                            <li><strong>3. Concassage Artisanal</strong> - Ouverture manuelle avec une précision millimétrique</li>
+                            <li><strong>4. Torréfaction Douce</strong> - Pour l'huile culinaire seulement (cosmétique = cru)</li>
+                            <li><strong>5. Pressage à Froid</strong> - Extraction lente pour préserver les nutriments</li>
+                            <li><strong>6. Filtration Naturelle</strong> - À travers des tissus en coton bio</li>
+                            <li><strong>7. Conditionnement Manuel</strong> - Mise en bouteille et contrôle qualité</li>
                         </ul>
                     </div>
                     
-                    <div class="impact-list">
-                        <h3>Caractéristiques de Notre Production</h3>
-                        <ul class="modal-list">
-                            <li><strong>100% Artisanal</strong> - Respect des méthodes traditionnelles</li>
-                            <li><strong>Pressage à froid</strong> - Préservation des nutriments</li>
-                            <li><strong>Qualité Premium</strong> - Normes de qualité strictes</li>
-                            <li><strong>Écologique</strong> - Processus respectueux de l'environnement</li>
-                            <li><strong>Traçabilité</strong> - Contrôle à chaque étape</li>
-                            <li><strong>Commerce équitable</strong> - Rémunération juste des productrices</li>
-                            <li><strong>Certifications</strong> - Produits biologiques certifiés</li>
-                            <li><strong>Emballage durable</strong> - Matériaux écologiques et recyclables</li>
-                        </ul>
-                    </div>
+                    <p class="modal-text" style="text-align:center; font-style:italic; background:var(--primary); color:white; padding:1.5rem; border-radius:10px; margin-top:2rem;">
+                        <strong>🌟 Le Saviez-vous ?</strong><br>
+                        Il faut environ 30kg de fruits d'argan et 8 heures de travail manuel pour produire 1 litre d'huile d'argan pure. Chaque goutte est un trésor de patience et de savoir-faire !
+                    </p>
                 `
             }
         };
