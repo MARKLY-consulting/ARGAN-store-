@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organix | Pack Anti-Chute Complet</title>
+    <title>Organix | Boutique Argan Bio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -44,6 +44,7 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: 700;
+            cursor: pointer;
         }
         
         .nav-menu {
@@ -58,6 +59,7 @@
             font-weight: 500;
             font-size: 0.9rem;
             transition: color 0.3s;
+            cursor: pointer;
         }
         
         .nav-menu a:hover {
@@ -105,237 +107,26 @@
             100% { transform: translateX(-50%); } 
         }
 
-        /* SECTION PACK ANTI-CHUTE EN DÉTAIL */
-        .pack-hero {
-            padding-top: 120px;
-            padding-bottom: 3rem;
-            background: linear-gradient(135deg, #f9f5f0 0%, #f0e6d6 100%);
-            border-bottom-left-radius: 60px;
+        #hero { 
+            height: 40vh; 
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/user-attachments/assets/a6306777-45bd-4a87-8df6-0844b26414af') center/cover; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: white; 
+            border-bottom-right-radius: 60px; 
+            margin-top: 95px; /* Ajusté pour header + announcement */
         }
         
-        .pack-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
+        #hero h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.5rem; 
         }
-        
-        .pack-breadcrumb {
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .pack-breadcrumb a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-        
-        .pack-breadcrumb a:hover {
-            text-decoration: underline;
-        }
-        
-        .pack-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        @media (min-width: 992px) {
-            .pack-content {
-                flex-direction: row;
-            }
-        }
-        
-        .pack-images {
-            flex: 1;
-        }
-        
-        .main-pack-image {
-            width: 100%;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            margin-bottom: 1.5rem;
-        }
-        
-        .main-pack-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .pack-thumbnails {
-            display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            padding-bottom: 1rem;
-        }
-        
-        .thumbnail {
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
-            overflow: hidden;
-            flex-shrink: 0;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .thumbnail.active {
-            border-color: var(--accent);
-        }
-        
-        .thumbnail:hover {
-            transform: scale(1.05);
-        }
-        
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .pack-info {
-            flex: 1;
-        }
-        
-        .pack-header {
-            margin-bottom: 2rem;
-        }
-        
-        .pack-badge {
-            display: inline-block;
-            background: var(--danger);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            animation: pulseRed 1.5s infinite;
-        }
-        
-        .pack-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--text);
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-        
-        .pack-description {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        .pack-pricing {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-        }
-        
-        .price-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .old-price-large {
-            color: var(--danger);
-            text-decoration: line-through;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .new-price-large {
-            color: var(--accent);
-            font-size: 3rem;
-            font-weight: 700;
-        }
-        
-        .discount-percent {
-            background: var(--danger);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-        
-        .pack-benefits {
-            margin-bottom: 2rem;
-        }
-        
-        .benefits-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .benefits-list {
-            list-style: none;
-        }
-        
-        .benefits-list li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #f0f0f0;
-            position: relative;
-            padding-left: 2rem;
-        }
-        
-        .benefits-list li:before {
-            content: "✓";
-            color: var(--accent);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .pack-cta {
-            text-align: center;
-        }
-        
-        .whatsapp-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            margin-bottom: 1rem;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-            width: 100%;
-            max-width: 400px;
-        }
-        
-        .whatsapp-button:hover {
-            background: #1da851;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-        }
-        
-        .cta-note {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        /* SECTION DÉTAILS DU PACK */
-        .pack-details-section {
+
+        /* SECTION PROMOTIONS */
+        .promo-section {
             padding: 3rem 5%;
-            background: white;
         }
         
         .section-title {
@@ -346,140 +137,87 @@
             font-size: 2rem;
         }
         
-        .pack-details {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .details-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .tab-btn {
-            background: #f9f5f0;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .tab-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 2rem;
-            background: #f9f5f0;
-            border-radius: var(--radius);
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .tab-content h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-        
-        .tab-content p {
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            color: #444;
-        }
-        
-        .tab-content ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .tab-content li {
-            margin-bottom: 0.8rem;
-            line-height: 1.6;
-        }
-        
-        .products-in-pack {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .product-in-pack {
+        .promo-card {
             background: white;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 0 auto;
             text-align: center;
-            padding: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         
-        .product-in-pack img {
-            width: 100px;
-            height: 100px;
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .promo-image {
+            height: 300px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .promo-image img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 10px;
+        }
+        
+        .promo-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--danger);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            z-index: 5;
+            animation: pulseRed 1.5s infinite;
+        }
+        
+        .promo-info {
+            padding: 2rem;
+        }
+        
+        .promo-info h3 {
+            font-size: 1.5rem;
+            color: var(--text);
             margin-bottom: 1rem;
         }
         
-        .product-in-pack h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+        .promo-info p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
         
-        /* SECTION TEMOIGNAGES */
-        .testimonials-section {
+        .promo-price {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .old-price {
+            color: var(--danger);
+            text-decoration: line-through;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        
+        /* SECTION MEILLEURES VENTES AVEC SCROLL HORIZONTAL */
+        .best-sellers-section {
             padding: 3rem 5%;
             background: #f9f5f0;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .testimonial-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .testimonial-rating {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            color: #444;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        /* SECTION RECOMMANDÉS */
-        .recommended-section {
-            padding: 3rem 5%;
         }
         
         .products-scroll-container {
@@ -563,6 +301,83 @@
             font-size: 0.7rem;
             font-weight: 700;
             z-index: 5;
+        }
+        
+        /* SECTION TOUS LES PRODUITS */
+        .all-products-section {
+            padding: 3rem 5%;
+        }
+        
+        .all-products-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        
+        .product-card {
+            width: calc(50% - 1rem);
+            max-width: 250px;
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        @media (min-width: 768px) {
+            .product-card {
+                width: calc(33.333% - 1rem);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .product-card {
+                width: calc(25% - 1rem);
+            }
+        }
+        
+        .product-image {
+            height: 200px;
+            width: 100%;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 1.2rem;
+            text-align: center;
+        }
+        
+        .product-info h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .new-price {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .old-price-small {
+            color: var(--danger);
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-right: 5px;
         }
         
         /* FOOTER */
@@ -729,7 +544,260 @@
             margin-bottom: 0.8rem; 
             line-height: 1.6; 
         }
-        
+
+        /* NOUVEAU : STYLES POUR LES PAGES PRODUITS */
+        .page-container {
+            display: none;
+            padding-top: 120px;
+            min-height: calc(100vh - 200px);
+        }
+
+        .page-container.active {
+            display: block;
+        }
+
+        .product-page-hero {
+            background: linear-gradient(135deg, #f9f5f0 0%, #f0e6d6 100%);
+            padding: 3rem 5%;
+            border-bottom-left-radius: 60px;
+            margin-bottom: 2rem;
+        }
+
+        .product-page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-breadcrumb {
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .product-breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .product-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .product-page-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .product-page-grid {
+                flex-direction: row;
+            }
+        }
+
+        .product-page-images {
+            flex: 1;
+        }
+
+        .product-main-image {
+            width: 100%;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-main-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-thumbnails {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        .product-thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .product-thumbnail.active {
+            border-color: var(--accent);
+        }
+
+        .product-thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .product-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-page-info {
+            flex: 1;
+        }
+
+        .product-page-header {
+            margin-bottom: 2rem;
+        }
+
+        .product-page-badge {
+            display: inline-block;
+            background: var(--danger);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: pulseRed 1.5s infinite;
+        }
+
+        .product-page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .product-page-description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-page-pricing {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .product-price-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-old-price-large {
+            color: var(--danger);
+            text-decoration: line-through;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .product-new-price-large {
+            color: var(--accent);
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .product-discount-percent {
+            background: var(--danger);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .product-benefits {
+            margin-bottom: 2rem;
+        }
+
+        .product-benefits-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-benefits-list {
+            list-style: none;
+        }
+
+        .product-benefits-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .product-benefits-list li:before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .product-page-cta {
+            text-align: center;
+        }
+
+        .product-whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            width: 100%;
+            max-width: 400px;
+            cursor: pointer;
+        }
+
+        .product-whatsapp-button:hover {
+            background: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .product-cta-note {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+
+        .back-to-home:hover {
+            color: var(--accent);
+        }
+
         @keyframes pulseRed { 
             0% { transform: scale(1); } 
             50% { transform: scale(1.1); } 
@@ -763,28 +831,37 @@
                 border-bottom: 1px solid #f0f0f0;
             }
             
-            .pack-title {
-                font-size: 1.8rem;
-            }
-            
-            .new-price-large {
-                font-size: 2.5rem;
-            }
-            
-            .old-price-large {
-                font-size: 1.3rem;
+            #hero h1 {
+                font-size: 2rem;
             }
             
             .section-title {
                 font-size: 1.5rem;
             }
             
-            .details-tabs {
-                flex-direction: column;
-                align-items: center;
+            .promo-card {
+                max-width: 100%;
             }
             
-            .tab-btn {
+            .product-card {
+                width: calc(50% - 0.75rem);
+            }
+
+            .product-page-title {
+                font-size: 1.8rem;
+            }
+
+            .product-new-price-large {
+                font-size: 2.5rem;
+            }
+
+            .product-old-price-large {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-card {
                 width: 100%;
                 max-width: 300px;
             }
@@ -804,273 +881,388 @@
     <!-- HEADER AVEC NAVIGATION -->
     <header class="main-header">
         <nav class="nav-container">
-            <a href="index.html" class="logo">Organix</a>
+            <a class="logo" onclick="showHomePage()">Organix</a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="index.html#promo">Promotions</a></li>
-                <li><a href="index.html#best-sellers">Top Ventes</a></li>
-                <li><a href="index.html#all-products">Tous les produits</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a onclick="showHomePage()">Accueil</a></li>
+                <li><a onclick="showHomePage()">Promotions</a></li>
+                <li><a onclick="showHomePage()">Top Ventes</a></li>
+                <li><a onclick="showHomePage()">Tous les produits</a></li>
+                <li><a onclick="showHomePage()">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- SECTION PACK ANTI-CHUTE DÉTAIL -->
-    <section class="pack-hero">
-        <div class="pack-container">
-            <div class="pack-breadcrumb">
-                <a href="index.html">Accueil</a> &gt; <a href="index.html#promo">Promotions</a> &gt; Pack Anti-Chute Complet
+    <!-- PAGE PRINCIPALE (ACCUEIL) -->
+    <div id="home-page" class="page-container active">
+        <section id="hero">
+            <h1>Organix Argan</h1>
+        </section>
+        
+        <!-- SECTION PROMOTION -->
+        <section class="promo-section" id="promo">
+            <h2 class="section-title">Promotion du Mois</h2>
+            <a class="promo-card" onclick="openProductPage('antichute')">
+                <div class="promo-image">
+                    <div class="promo-badge">PROMO -20%</div>
+                    <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti-Chute">
+                </div>
+                <div class="promo-info">
+                    <h3>Pack Anti-Chute Complet</h3>
+                    <p>Rituel complet pour cheveux fragiles avec huile d'argan pure</p>
+                    <div class="promo-price">
+                        <span class="old-price">350 DH</span>
+                        <span class="new-price">300 DH</span>
+                    </div>
+                </div>
+            </a>
+        </section>
+        
+        <!-- SECTION TOP VENTES AVEC SCROLL HORIZONTAL -->
+        <section class="best-sellers-section" id="best-sellers">
+            <h2 class="section-title">Top Ventes</h2>
+            <div class="products-scroll-container">
+                <a class="scroll-product-card" onclick="openProductPage('argalux50')">
+                    <div class="top-badge-red">TOP</div>
+                    <div class="scroll-product-image">
+                        <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile Argan">
+                    </div>
+                    <div class="scroll-product-info">
+                        <h3>Huile d'Argan Pure</h3>
+                        <div class="scroll-new-price">80 DH</div>
+                    </div>
+                </a>
+                
+                <a class="scroll-product-card" onclick="openProductPage('ghassoul')">
+                    <div class="top-badge-red">TOP</div>
+                    <div class="scroll-product-image">
+                        <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" alt="Masque Ghassoul">
+                    </div>
+                    <div class="scroll-product-info">
+                        <h3>Masque Ghassoul</h3>
+                        <div class="scroll-new-price">100 DH</div>
+                    </div>
+                </a>
             </div>
+        </section>
+        
+        <!-- SECTION TOUS LES PRODUITS -->
+        <section class="all-products-section" id="all-products">
+            <h2 class="section-title">Tous Nos Produits</h2>
+            <div class="all-products-grid">
+                <a class="product-card" onclick="openProductPage('antichute')">
+                    <div class="product-image">
+                        <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti-Chute">
+                    </div>
+                    <div class="product-info">
+                        <h3>Pack Anti-Chute</h3>
+                        <div class="new-price">
+                            <span class="old-price-small">350 DH</span>300 DH
+                        </div>
+                    </div>
+                </a>
+
+                <a class="product-card" onclick="openProductPage('gommage')">
+                    <div class="product-image">
+                        <img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32" alt="Gommage">
+                    </div>
+                    <div class="product-info">
+                        <h3>Gommage Figue Barbarie</h3>
+                        <div class="new-price">150 DH</div>
+                    </div>
+                </a>
+
+                <a class="product-card" onclick="openProductPage('argalux50')">
+                    <div class="product-image">
+                        <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile Argan">
+                    </div>
+                    <div class="product-info">
+                        <h3>Huile d'Argan Pure</h3>
+                        <div class="new-price">80 DH</div>
+                    </div>
+                </a>
+
+                <a class="product-card" onclick="openProductPage('ghassoul')">
+                    <div class="product-image">
+                        <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" alt="Masque Ghassoul">
+                    </div>
+                    <div class="product-info">
+                        <h3>Masque Ghassoul</h3>
+                        <div class="new-price">100 DH</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <div class="footer-logo"><img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12" alt="Organix Logo"></div>
             
-            <div class="pack-content">
-                <div class="pack-images">
-                    <div class="main-pack-image">
-                        <img id="mainImage" src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti-Chute Complet">
-                    </div>
-                    
-                    <div class="pack-thumbnails">
-                        <div class="thumbnail active" onclick="changeImage('https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f')">
-                            <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti-Chute">
-                        </div>
-                        <div class="thumbnail" onclick="changeImage('https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb')">
-                            <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile d'Argan">
-                        </div>
-                        <div class="thumbnail" onclick="changeImage('https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32')">
-                            <img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32" alt="Gommage">
-                        </div>
-                    </div>
+            <!-- SECTION CONTACT -->
+            <div class="contact-info">
+                <h3>Contactez-nous</h3>
+                <p><i class="fas fa-phone"></i> +212 621-891963</p>
+                <p><i class="fas fa-clock"></i> Ouvert 24h/24</p>
+                <p><i class="fas fa-map-marker-alt"></i> Maroc</p>
+            </div>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <div class="footer-nav">
+                <a onclick="showInfo('objectif')">Notre Objectif</a>
+                <a onclick="showInfo('histoire')">Notre Histoire</a>
+                <a onclick="showInfo('processus')">Processus de Production</a>
+            </div>
+            <div style="color:#666; font-size:0.7rem;">&copy; 2026 Organix. Tous droits réservés.</div>
+        </footer>
+    </div>
+
+    <!-- PAGES PRODUITS (CACHÉES PAR DÉFAUT) -->
+    <div id="product-antichute" class="page-container">
+        <section class="product-page-hero">
+            <div class="product-page-content">
+                <div class="product-breadcrumb">
+                    <a onclick="showHomePage()">Accueil</a> &gt; 
+                    <a onclick="showHomePage()">Promotions</a> &gt; 
+                    <span>Pack Anti-Chute Complet</span>
                 </div>
                 
-                <div class="pack-info">
-                    <div class="pack-header">
-                        <div class="pack-badge">PROMO -20%</div>
-                        <h1 class="pack-title">Pack Anti-Chute Complet</h1>
-                        <p class="pack-description">Rituel complet pour cheveux fragiles avec huile d'argan pure. Formule enrichie en actifs naturels pour fortifier le cuir chevelu et freiner la chute des cheveux.</p>
+                <div class="product-page-grid">
+                    <div class="product-page-images">
+                        <div class="product-main-image">
+                            <img id="antichute-main-img" src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti-Chute Complet">
+                        </div>
+                        
+                        <div class="product-thumbnails">
+                            <div class="product-thumbnail active" onclick="changeProductImage('antichute', 'https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f')">
+                                <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Pack Anti-Chute">
+                            </div>
+                            <div class="product-thumbnail" onclick="changeProductImage('antichute', 'https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb')">
+                                <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile d'Argan">
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="pack-pricing">
-                        <div class="price-section">
-                            <span class="old-price-large">350 DH</span>
-                            <span class="new-price-large">300 DH</span>
-                            <span class="discount-percent">-20%</span>
+                    <div class="product-page-info">
+                        <div class="product-page-header">
+                            <div class="product-page-badge">PROMO -20%</div>
+                            <h1 class="product-page-title">Pack Anti-Chute Complet</h1>
+                            <p class="product-page-description">Rituel complet pour cheveux fragiles avec huile d'argan pure. Formule enrichie en actifs naturels pour fortifier le cuir chevelu et freiner la chute des cheveux.</p>
                         </div>
                         
-                        <div class="pack-benefits">
-                            <h3 class="benefits-title">Avantages du Pack</h3>
-                            <ul class="benefits-list">
-                                <li>Freine la chute des cheveux efficacement</li>
-                                <li>Réparation profonde des cheveux abîmés</li>
-                                <li>Stimule la pousse des cheveux</li>
-                                <li>Vitalité et éclat retrouvés</li>
-                                <li>Composition 100% naturelle et biologique</li>
-                                <li>Résultats visibles dès 3 semaines</li>
-                            </ul>
+                        <div class="product-page-pricing">
+                            <div class="product-price-section">
+                                <span class="product-old-price-large">350 DH</span>
+                                <span class="product-new-price-large">300 DH</span>
+                                <span class="product-discount-percent">-20%</span>
+                            </div>
+                            
+                            <div class="product-benefits">
+                                <h3 class="product-benefits-title">Avantages du Pack</h3>
+                                <ul class="product-benefits-list">
+                                    <li>Freine la chute des cheveux efficacement</li>
+                                    <li>Réparation profonde des cheveux abîmés</li>
+                                    <li>Stimule la pousse des cheveux</li>
+                                    <li>Vitalité et éclat retrouvés</li>
+                                    <li>Composition 100% naturelle et biologique</li>
+                                    <li>Résultats visibles dès 3 semaines</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="product-page-cta">
+                                <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander le Pack Anti-Chute Complet au prix de 300 DH" class="product-whatsapp-button" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+                                </a>
+                                <p class="product-cta-note">Livraison gratuite partout au Maroc</p>
+                            </div>
                         </div>
                         
-                        <div class="pack-cta">
-                            <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander le Pack Anti-Chute Complet au prix de 300 DH" class="whatsapp-button" target="_blank">
-                                <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
-                            </a>
-                            <p class="cta-note">Livraison gratuite partout au Maroc</p>
-                        </div>
+                        <a class="back-to-home" onclick="showHomePage()">
+                            <i class="fas fa-arrow-left"></i> Retour à la boutique
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- SECTION DÉTAILS DU PACK -->
-    <section class="pack-details-section">
-        <h2 class="section-title">Détails du Pack</h2>
-        
-        <div class="pack-details">
-            <div class="details-tabs">
-                <button class="tab-btn active" onclick="openTab('description')">Description</button>
-                <button class="tab-btn" onclick="openTab('composition')">Composition</button>
-                <button class="tab-btn" onclick="openTab('utilisation')">Utilisation</button>
-                <button class="tab-btn" onclick="openTab('produits')">Produits inclus</button>
-            </div>
-            
-            <div id="description" class="tab-content active">
-                <h3>Pack Anti-Chute Complet à l'Argan</h3>
-                <p>Notre Pack Anti-Chute Complet est spécialement formulé pour les cheveux fragiles, fins et sujets à la chute. Il combine les bienfaits de l'huile d'argan pure avec d'autres actifs naturels pour offrir une solution complète de soin capillaire.</p>
-                <p>Ce pack a été développé en collaboration avec des experts en phytothérapie pour maximiser l'efficacité des actifs naturels tout en respectant l'équilibre du cuir chevelu.</p>
-                <p><strong>Résultats attendus :</strong> Réduction visible de la chute des cheveux dès 3 semaines d'utilisation régulière, cheveux plus forts, plus épais et avec plus de volume.</p>
-            </div>
-            
-            <div id="composition" class="tab-content">
-                <h3>Composition Naturelle</h3>
-                <p>Notre formule repose sur des ingrédients 100% naturels et biologiques :</p>
-                <ul>
-                    <li><strong>Huile d'Argan Pure :</strong> Richesse en vitamine E et acides gras essentiels pour nourrir et fortifier</li>
-                    <li><strong>Huile de Ricin :</strong> Connue pour stimuler la pousse et densifier les cheveux</li>
-                    <li><strong>Extrait de Romarin :</strong> Stimule la microcirculation du cuir chevelu</li>
-                    <li><strong>Huile de Lavande :</strong> Apaise le cuir chevelu et régule la production de sébum</li>
-                    <li><strong>Huile de Menthe Poivrée :</strong> Rafraîchit et stimule les follicules pileux</li>
-                    <li><strong>Vitamine B5 :</strong> Renforce la structure du cheveu</li>
-                </ul>
-                <p><strong>Garantie :</strong> Sans parabènes, sans silicones, sans sulfates, sans colorants artificiels.</p>
-            </div>
-            
-            <div id="utilisation" class="tab-content">
-                <h3>Mode d'Utilisation</h3>
-                <p>Pour des résultats optimaux, suivez ce rituel 3 fois par semaine :</p>
-                <ol>
-                    <li><strong>Shampooing Fortifiant :</strong> Appliquer sur cheveux mouillés, masser doucement le cuir chevelu pendant 2 minutes, rincer abondamment.</li>
-                    <li><strong>Masque Traitant :</strong> Appliquer sur cheveux essorés, insister sur les racines et les pointes. Laisser poser 10-15 minutes sous une serviette chaude, rincer.</li>
-                    <li><strong>Sérum Anti-Chute :</strong> Appliquer quelques gouttes sur le cuir chevelu propre et sec, masser délicatement jusqu'à absorption complète.</li>
-                    <li><strong>Huile Nourrissante :</strong> Appliquer une noisette sur les pointes des cheveux humides ou secs pour les protéger et les nourrir.</li>
-                </ol>
-                <p><strong>Durée du traitement :</strong> Minimum 2 mois pour des résultats durables.</p>
-            </div>
-            
-            <div id="produits" class="tab-content">
-                <h3>Produits Inclus dans le Pack</h3>
-                <p>Le Pack Anti-Chute Complet comprend 4 produits complémentaires :</p>
+        </section>
+    </div>
+
+    <div id="product-gommage" class="page-container">
+        <section class="product-page-hero">
+            <div class="product-page-content">
+                <div class="product-breadcrumb">
+                    <a onclick="showHomePage()">Accueil</a> &gt; 
+                    <a onclick="showHomePage()">Tous les produits</a> &gt; 
+                    <span>Gommage Figue Barbarie</span>
+                </div>
                 
-                <div class="products-in-pack">
-                    <div class="product-in-pack">
-                        <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Shampooing">
-                        <h4>Shampooing Fortifiant</h4>
-                        <p>250ml - Nettoie en douceur et prépare le cuir chevelu</p>
+                <div class="product-page-grid">
+                    <div class="product-page-images">
+                        <div class="product-main-image">
+                            <img id="gommage-main-img" src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32" alt="Gommage Figue Barbarie">
+                        </div>
                     </div>
                     
-                    <div class="product-in-pack">
-                        <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" alt="Masque">
-                        <h4>Masque Traitant</h4>
-                        <p>200ml - Action intensive de fortification</p>
+                    <div class="product-page-info">
+                        <div class="product-page-header">
+                            <h1 class="product-page-title">Gommage Figue Barbarie</h1>
+                            <p class="product-page-description">Gommage visage et corps à la figue de barbarie. Texture onctueuse et granuleuse pour une exfoliation douce et efficace.</p>
+                        </div>
+                        
+                        <div class="product-page-pricing">
+                            <div class="product-price-section">
+                                <span class="product-new-price-large">150 DH</span>
+                            </div>
+                            
+                            <div class="product-benefits">
+                                <h3 class="product-benefits-title">Avantages</h3>
+                                <ul class="product-benefits-list">
+                                    <li>Exfoliation douce et efficace</li>
+                                    <li>Rénovation cellulaire naturelle</li>
+                                    <li>Lissage immédiat du grain de peau</li>
+                                    <li>Formule bi-active Visage et Corps</li>
+                                    <li>Ingrédient maître : Huile de pépins de Figue de Barbarie</li>
+                                    <li>100% naturel et biologique</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="product-page-cta">
+                                <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander le Gommage Figue Barbarie au prix de 150 DH" class="product-whatsapp-button" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+                                </a>
+                                <p class="product-cta-note">Livraison gratuite partout au Maroc</p>
+                            </div>
+                        </div>
+                        
+                        <a class="back-to-home" onclick="showHomePage()">
+                            <i class="fas fa-arrow-left"></i> Retour à la boutique
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="product-argalux50" class="page-container">
+        <section class="product-page-hero">
+            <div class="product-page-content">
+                <div class="product-breadcrumb">
+                    <a onclick="showHomePage()">Accueil</a> &gt; 
+                    <a onclick="showHomePage()">Top Ventes</a> &gt; 
+                    <span>Huile d'Argan Pure</span>
+                </div>
+                
+                <div class="product-page-grid">
+                    <div class="product-page-images">
+                        <div class="product-main-image">
+                            <img id="argalux50-main-img" src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile d'Argan Pure">
+                        </div>
                     </div>
                     
-                    <div class="product-in-pack">
-                        <img src="https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f" alt="Sérum">
-                        <h4>Sérum Anti-Chute</h4>
-                        <p>50ml - Concentration élevée en actifs</p>
+                    <div class="product-page-info">
+                        <div class="product-page-header">
+                            <h1 class="product-page-title">Huile d'Argan Pure</h1>
+                            <p class="product-page-description">Huile d'argan pure 100% biologique extraite à froid. Usage universel pour le visage, le corps et les cheveux.</p>
+                        </div>
+                        
+                        <div class="product-page-pricing">
+                            <div class="product-price-section">
+                                <span class="product-new-price-large">80 DH</span>
+                            </div>
+                            
+                            <div class="product-benefits">
+                                <h3 class="product-benefits-title">Avantages</h3>
+                                <ul class="product-benefits-list">
+                                    <li>100% biologique extraite à froid</li>
+                                    <li>Régénération intense de la peau</li>
+                                    <li>Hydratation profonde anti-âge</li>
+                                    <li>Usage universel (visage, corps, cheveux)</li>
+                                    <li>Format pratique : Flacon pompe 50ml</li>
+                                    <li>Produit phare de notre coopérative</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="product-page-cta">
+                                <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander l'Huile d'Argan Pure au prix de 80 DH" class="product-whatsapp-button" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+                                </a>
+                                <p class="product-cta-note">Livraison gratuite partout au Maroc</p>
+                            </div>
+                        </div>
+                        
+                        <a class="back-to-home" onclick="showHomePage()">
+                            <i class="fas fa-arrow-left"></i> Retour à la boutique
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="product-ghassoul" class="page-container">
+        <section class="product-page-hero">
+            <div class="product-page-content">
+                <div class="product-breadcrumb">
+                    <a onclick="showHomePage()">Accueil</a> &gt; 
+                    <a onclick="showHomePage()">Top Ventes</a> &gt; 
+                    <span>Masque Ghassoul</span>
+                </div>
+                
+                <div class="product-page-grid">
+                    <div class="product-page-images">
+                        <div class="product-main-image">
+                            <img id="ghassoul-main-img" src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" alt="Masque Ghassoul">
+                        </div>
                     </div>
                     
-                    <div class="product-in-pack">
-                        <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile">
-                        <h4>Huile Nourrissante</h4>
-                        <p>100ml - Protection et brillance des pointes</p>
+                    <div class="product-page-info">
+                        <div class="product-page-header">
+                            <h1 class="product-page-title">Masque Ghassoul</h1>
+                            <p class="product-page-description">Masque purifiant au ghassoul parfumé à la fleur d'oranger. Argile minérale naturelle du Maroc pour une purification profonde.</p>
+                        </div>
+                        
+                        <div class="product-page-pricing">
+                            <div class="product-price-section">
+                                <span class="product-new-price-large">100 DH</span>
+                            </div>
+                            
+                            <div class="product-benefits">
+                                <h3 class="product-benefits-title">Avantages</h3>
+                                <ul class="product-benefits-list">
+                                    <li>Purification profonde de la peau</li>
+                                    <li>Soin multi-zones (visage et cuir chevelu)</li>
+                                    <li>Argile minérale naturelle du Maroc</li>
+                                    <li>Parfum délicat à la fleur d'oranger</li>
+                                    <li>Élimine les impuretés et l'excès de sébum</li>
+                                    <li>Rend la peau douce et lumineuse</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="product-page-cta">
+                                <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander le Masque Ghassoul au prix de 100 DH" class="product-whatsapp-button" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+                                </a>
+                                <p class="product-cta-note">Livraison gratuite partout au Maroc</p>
+                            </div>
+                        </div>
+                        
+                        <a class="back-to-home" onclick="showHomePage()">
+                            <i class="fas fa-arrow-left"></i> Retour à la boutique
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- SECTION TEMOIGNAGES -->
-    <section class="testimonials-section">
-        <h2 class="section-title">Témoignages Clients</h2>
-        
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="testimonial-text">"J'ai commencé à utiliser le Pack Anti-Chute il y a 2 mois et les résultats sont impressionnants. Ma chute de cheveux a diminué de 80% et mes cheveux ont retrouvé de la densité. Je recommande vivement !"</p>
-                <p class="testimonial-author">- Amal, 34 ans, Casablanca</p>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <p class="testimonial-text">"Après ma grossesse, j'avais une chute de cheveux importante. Ce pack m'a vraiment sauvée ! Les produits sont naturels, sentent bon et surtout efficaces. Mes cheveux sont plus forts et brillants."</p>
-                <p class="testimonial-author">- Sarah, 29 ans, Rabat</p>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="testimonial-text">"Je souffrais de cheveux fins et fragiles depuis des années. Ce pack a changé ma vie capillaire ! Après 3 mois d'utilisation, mes cheveux ont doublé de volume et la chute a complètement cessé. Produits de qualité exceptionnelle."</p>
-                <p class="testimonial-author">- Leila, 42 ans, Marrakech</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SECTION PRODUITS RECOMMANDÉS -->
-    <section class="recommended-section">
-        <h2 class="section-title">Produits Complémentaires</h2>
-        
-        <div class="products-scroll-container">
-            <a href="javascript:void(0)" onclick="openProductPage('argalux50')" class="scroll-product-card">
-                <div class="top-badge-red">TOP</div>
-                <div class="scroll-product-image">
-                    <img src="https://github.com/user-attachments/assets/36fcd538-c4fa-46e5-be50-06bf6a3b42fb" alt="Huile Argan">
-                </div>
-                <div class="scroll-product-info">
-                    <h3>Huile d'Argan Pure</h3>
-                    <div class="scroll-new-price">80 DH</div>
-                </div>
-            </a>
-            
-            <a href="javascript:void(0)" onclick="openProductPage('ghassoul')" class="scroll-product-card">
-                <div class="top-badge-red">TOP</div>
-                <div class="scroll-product-image">
-                    <img src="https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3" alt="Masque Ghassoul">
-                </div>
-                <div class="scroll-product-info">
-                    <h3>Masque Ghassoul</h3>
-                    <div class="scroll-new-price">100 DH</div>
-                </div>
-            </a>
-            
-            <a href="javascript:void(0)" onclick="openProductPage('gommage')" class="scroll-product-card">
-                <div class="scroll-product-image">
-                    <img src="https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32" alt="Gommage">
-                </div>
-                <div class="scroll-product-info">
-                    <h3>Gommage Figue Barbarie</h3>
-                    <div class="scroll-new-price">150 DH</div>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-logo"><img src="https://github.com/user-attachments/assets/27e2ec1e-3c4b-4415-91a5-dc8cc0919a12" alt="Organix Logo"></div>
-        
-        <!-- SECTION CONTACT -->
-        <div class="contact-info">
-            <h3>Contactez-nous</h3>
-            <p><i class="fas fa-phone"></i> +212 621-891963</p>
-            <p><i class="fas fa-clock"></i> Ouvert 24h/24</p>
-            <p><i class="fas fa-map-marker-alt"></i> Maroc</p>
-        </div>
-
-        <div class="social-links">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
-        </div>
-
-        <div class="footer-nav">
-            <a onclick="showInfo('objectif')">Notre Objectif</a>
-            <a onclick="showInfo('histoire')">Notre Histoire</a>
-            <a onclick="showInfo('processus')">Processus de Production</a>
-        </div>
-        <div style="color:#666; font-size:0.7rem;">&copy; 2026 Organix. Tous droits réservés.</div>
-    </footer>
+        </section>
+    </div>
     
     <!-- BOUTON WHATSAPP FLOAT -->
-    <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander le Pack Anti-Chute Complet au prix de 300 DH" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander des produits Organix" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1101,74 +1293,56 @@
             });
         });
 
-        // Changement d'image principale
-        function changeImage(src) {
-            document.getElementById('mainImage').src = src;
+        // FONCTIONS POUR LA NAVIGATION DES PAGES
+        function showHomePage() {
+            // Cacher toutes les pages
+            document.querySelectorAll('.page-container').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Afficher la page d'accueil
+            document.getElementById('home-page').classList.add('active');
+            // Remonter en haut de la page
+            window.scrollTo(0, 0);
+        }
+
+        function openProductPage(id) {
+            // Cacher toutes les pages
+            document.querySelectorAll('.page-container').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Afficher la page du produit sélectionné
+            document.getElementById('product-' + id).classList.add('active');
+            // Remonter en haut de la page
+            window.scrollTo(0, 0);
+            // Fermer le menu mobile si ouvert
+            navMenu.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+
+        function changeProductImage(productId, src) {
+            document.getElementById(productId + '-main-img').src = src;
             
             // Mettre à jour les miniatures actives
-            document.querySelectorAll('.thumbnail').forEach(thumb => {
+            const thumbnails = event.currentTarget.parentElement.querySelectorAll('.product-thumbnail');
+            thumbnails.forEach(thumb => {
                 thumb.classList.remove('active');
             });
             event.currentTarget.classList.add('active');
         }
 
-        // Gestion des onglets
-        function openTab(tabName) {
-            // Masquer tous les onglets
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Désactiver tous les boutons d'onglets
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Afficher l'onglet sélectionné
-            document.getElementById(tabName).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-
-        // DONNÉES POUR LES PAGES INFO (identique à la page principale)
-        const infoData = {
-            'objectif': {
-                content: `
-                    <h2 class="modal-h2">Notre Objectif</h2>
-                    <p class="modal-text">Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales en renforçant leur autonomie financière à travers la production d'huiles culinaires et cosmétiques de très haute qualité.</p>
-                    <p class="modal-text">Nous favorisons l'augmentation des revenus, l'alphabétisation et l'intégration des femmes dans un cadre de travail collectif et structuré.</p>
-                    <p class="modal-text">À travers notre engagement, nous contribuons à la préservation de l'arganier et à la valorisation durable des produits du terroir marocain.</p>
-                `
-            },
-            'histoire': {
-                content: `
-                    <h2 class="modal-h2">Notre Histoire</h2>
-                    <p class="modal-text">Avant que l'Association Ibno al Baytar n'appuie la création de la coopérative en 2002, les femmes de Tiout se retrouvaient principalement au sein d'un foyer féminin de tissage. La production artisanale d'huile d'argan était alors une activité traditionnelle secondaire, pratiquée individuellement à domicile.</p>
-                    <p class="modal-text">À l'époque, deux coopératives féminines d'argan existaient à Essaouira et l'Association Ibno al Baytar finança aux femmes de Tiout une visite d'échange dans ces deux coopératives.</p>
-                    <p class="modal-text">Cette visite les inspira et c'est ainsi que <strong>18 femmes fondèrent la Coopérative agricole féminine de Taitmatine</strong>. Soutenues par l'Association Ibno al Baytar et puis par un Projet financé par la Principauté de Monaco, la coopérative reçut différents appuis, en particulier de nombreuses formations.</p>
-                `
-            },
-            'processus': {
-                content: `
-                    <h2 class="modal-h2">Notre Processus de Production</h2>
-                    <p class="modal-text">Découvrez les 7 étapes artisanales de fabrication de notre huile d'argan, un savoir-faire ancestral préservé. Un processus artisanal en 7 étapes pour une huile d'argan de qualité exceptionnelle, du fruit à la bouteille.</p>
-                    <div class="impact-list">
-                        <h3>Liste des 7 Étapes de Fabrication</h3>
-                        <ul class="modal-list">
-                            <li><strong>Récolte des fruits d'argan</strong> - Lorsque les fruits arrivent à maturité</li>
-                            <li><strong>Dépulpage et séchage</strong> - Séparation de la pulpe sèche de la noix d'argan</li>
-                            <li><strong>Concassage manuel</strong> - Étape traditionnelle qui demande de la maîtrise</li>
-                            <li><strong>Extraction à froid</strong> - Les amandons sont pressés à froid</li>
-                            <li><strong>Décantation</strong> - L'huile est laissée au repos pendant 15 à 20 jours</li>
-                            <li><strong>Filtrage</strong> - Filtration soigneuse à travers des tissus fins</li>
-                            <li><strong>Mise en bouteille</strong> - Conditionnement dans des bouteilles</li>
-                        </ul>
-                    </div>
-                `
-            }
-        };
-
-        // Fonction pour ouvrir les produits recommandés
         const productDetails = {
+            'antichute': {
+                title: 'Pack Anti-Chute Complet à l\'Argan',
+                price: '300 DH',
+                img: 'https://github.com/user-attachments/assets/84c481fc-f17b-44fd-9440-162b33ad701f',
+                text: '<b>Description :</b> Rituel complet pour cheveux fragiles avec huile d\'argan pure.<br><b>Actif Principal :</b> Argan pur reconnu pour ses propriétés fortifiantes.<br><b>Cible :</b> Cheveux fragiles ou sujets à la chute.<br><b>Composition :</b> Rituel complet (masque, huile, shampooing, sérum).<br><br><b>Utilité :</b> Freine la chute, réparation profonde et vitalité du cuir chevelu.<br><b>Prix original :</b> <s>350 DH</s><br><b>Prix promotion :</b> <strong>300 DH (-20%)</strong>'
+            },
+            'gommage': {
+                title: 'Soin Exfoliant Régénérant – Figue de Barbarie',
+                price: '150 DH',
+                img: 'https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32',
+                text: '<b>Description :</b> Gommage visage et corps à la figue de barbarie.<br><b>Texture :</b> Onctueuse et granuleuse.<br><b>Ingrédient Maître :</b> Huile de pépins de Figue de Barbarie.<br><b>Propriétés :</b> Formule bi-active Visage et Corps.<br><br><b>Utilité :</b> Rénovation cellulaire et lissage immédiat du grain de peau.<br><b>Prix :</b> <strong>150 DH</strong>'
+            },
             'argalux50': {
                 title: 'Élixir d\'Argan Pure ARGALUX',
                 price: '80 DH',
@@ -1180,47 +1354,149 @@
                 price: '100 DH',
                 img: 'https://github.com/user-attachments/assets/e26ede55-6360-4786-b564-58c3cf4243e3',
                 text: '<b>Description :</b> Masque purifiant au ghassoul parfumé à la fleur d\'oranger.<br><b>Composition :</b> Argile minérale naturelle du Maroc.<br><b>Parfum :</b> Essence de fleur d\'oranger.<br><br><b>Utilité :</b> Purification profonde et soin multi-zones (visage et cuir chevelu).<br><b>Prix :</b> <strong>100 DH</strong>'
-            },
-            'gommage': {
-                title: 'Soin Exfoliant Régénérant – Figue de Barbarie',
-                price: '150 DH',
-                img: 'https://github.com/user-attachments/assets/8e985882-44cf-4ff5-816e-43eb34e8ff32',
-                text: '<b>Description :</b> Gommage visage et corps à la figue de barbarie.<br><b>Texture :</b> Onctueuse et granuleuse.<br><b>Ingrédient Maître :</b> Huile de pépins de Figue de Barbarie.<br><b>Propriétés :</b> Formule bi-active Visage et Corps.<br><br><b>Utilité :</b> Rénovation cellulaire et lissage immédiat du grain de peau.<br><b>Prix :</b> <strong>150 DH</strong>'
             }
         };
 
-        function openProductPage(id) {
-            const p = productDetails[id];
-            const newWindow = window.open("", "_blank");
-            newWindow.document.write(`
-                <html>
-                <head>
-                    <title>${p.title}</title>
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <style>
-                        body { font-family: 'Poppins', sans-serif; padding: 20px; color: #333; line-height: 1.6; max-width: 500px; margin: 0 auto; }
-                        img { width: 100%; max-width: 300px; border-radius: 15px; display: block; margin: 0 auto 20px; }
-                        h1 { font-size: 1.5rem; color: #BC8F8F; text-align: center; font-family: 'Playfair Display', serif; }
-                        .price { font-size: 1.8rem; color: #D4AF37; font-weight: bold; text-align: center; margin: 1rem 0; }
-                        .description { background: #f9f5f0; padding: 1.5rem; border-radius: 15px; margin: 1.5rem 0; }
-                        .btn { display: block; background: #25D366; color: white; text-align: center; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 2rem 0; font-size: 1.1rem; }
-                        .btn:hover { background: #1da851; }
-                        .whatsapp-icon { margin-right: 10px; }
-                    </style>
-                </head>
-                <body>
-                    <img src="${p.img}" alt="${p.title}">
-                    <h1>${p.title}</h1>
-                    <div class="price">${p.price}</div>
-                    <div class="description">${p.text}</div>
-                    <a href="https://wa.me/212621891963?text=Bonjour, je souhaite commander le produit : ${encodeURIComponent(p.title)} au prix de ${p.price}" class="btn">
-                        <i class="fab fa-whatsapp whatsapp-icon"></i>Commander sur WhatsApp
-                    </a>
-                    <p style="text-align: center; color: #666; font-size: 0.9rem;">Notre équipe vous répondra dans les plus brefs délais.</p>
-                </body>
-                </html>
-            `);
-        }
+        // DONNÉES POUR LES PAGES INFO
+        const infoData = {
+            'objectif': {
+                content: `
+                    <h2 class="modal-h2">Notre Objectif</h2>
+                    <p class="modal-text">Nous œuvrons pour l'amélioration des conditions socio-économiques des femmes rurales en renforçant leur autonomie financière à travers la production d'huiles culinaires et cosmétiques de très haute qualité.</p>
+                    
+                    <div class="objective-img">
+                        <img src="https://github.com/user-attachments/assets/6ce7141d-278e-46b1-a167-9bc2b3a18c76" alt="Notre Objectif">
+                    </div>
+                    
+                    <p class="modal-text">Nous favorisons l'augmentation des revenus, l'alphabétisation et l'intégration des femmes dans un cadre de travail collectif et structuré.</p>
+                    <p class="modal-text">À travers notre engagement, nous contribuons à la préservation de l'arganier et à la valorisation durable des produits du terroir marocain.</p>
+                    
+                    <div class="impact-list">
+                        <h3>Notre Impact Social</h3>
+                        <ul class="modal-list">
+                            <li><strong>Autonomisation économique</strong> des femmes berbères</li>
+                            <li><strong>Préservation des savoir-faire</strong> ancestraux</li>
+                            <li><strong>Développement durable</strong> des communautés rurales</li>
+                            <li><strong>Protection de l'écosystème</strong> de l'arganeraie</li>
+                            <li><strong>Commerce équitable</strong> et éthique</li>
+                            <li><strong>Augmentation des revenus</strong> familiaux</li>
+                            <li><strong>Alphabétisation</strong> et formation continue</li>
+                            <li><strong>Intégration professionnelle</strong> des femmes</li>
+                        </ul>
+                    </div>
+                `
+            },
+            'histoire': {
+                content: `
+                    <h2 class="modal-h2">Notre Histoire</h2>
+                    <p class="modal-text">Avant que l'Association Ibno al Baytar n'appuie la création de la coopérative en 2002, les femmes de Tiout se retrouvaient principalement au sein d'un foyer féminin de tissage. La production artisanale d'huile d'argan était alors une activité traditionnelle secondaire, pratiquée individuellement à domicile.</p>
+                    
+                    <p class="modal-text">À l'époque, deux coopératives féminines d'argan existaient à Essaouira et l'Association Ibno al Baytar finança aux femmes de Tiout une visite d'échange dans ces deux coopératives.</p>
+                    
+                    <p class="modal-text">Cette visite les inspira et c'est ainsi que <strong>18 femmes fondèrent la Coopérative agricole féminine de Taitmatine</strong>. Soutenues par l'Association Ibno al Baytar et puis par un Projet financé par la Principauté de Monaco, la coopérative reçut différents appuis, en particulier de nombreuses formations.</p>
+                    
+                    <p class="modal-text">Aujourd'hui, notre coopérative continue de perpétuer ce savoir-faire ancestral tout en valorisant le travail des femmes berbères et en préservant l'écosystème unique de l'arganeraie marocaine.</p>
+                    
+                    <div class="impact-list">
+                        <h3>Points Clés</h3>
+                        <ul class="modal-list">
+                            <li><strong>Création en 2002</strong> - Fondation par 18 femmes inspirées</li>
+                            <li><strong>Coopérative féminine de Taitmatine</strong> - Notre nom et notre identité</li>
+                            <li><strong>Soutien de l'Association Ibno al Baytar</strong> - Partenaire fondateur</li>
+                            <li><strong>Projet financé par la Principauté de Monaco</strong> - Soutien international</li>
+                            <li><strong>Formations continues</strong> - Développement des compétences</li>
+                            <li><strong>Savoir-faire ancestral préservé</strong> - Tradition et modernité</li>
+                            <li><strong>Valorisation du travail des femmes berbères</strong> - Empowerment</li>
+                            <li><strong>Préservation de l'écosystème de l'arganeraie</strong> - Engagement écologique</li>
+                        </ul>
+                    </div>
+                `
+            },
+            'processus': {
+                content: `
+                    <h2 class="modal-h2">Notre Processus de Production</h2>
+                    <p class="modal-text">Découvrez les 7 étapes artisanales de fabrication de notre huile d'argan, un savoir-faire ancestral préservé. Un processus artisanal en 7 étapes pour une huile d'argan de qualité exceptionnelle, du fruit à la bouteille.</p>
+                    
+                    <div class="process-grid">
+                        <div class="process-step">
+                            <img src="https://github.com/user-attachments/assets/026d526f-4549-4ee5-9efe-9eed98bb5aab" alt="Étape 1 - Récolte" class="process-img">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Récolte des fruits</div>
+                            <p>Les femmes et hommes berbères récoltent les fruits à maturité dans les arganeraies.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <img src="https://github.com/user-attachments/assets/08ed7431-0a11-4fa0-b804-61041e0c246f" alt="Étape 2 - Dépulpage" class="process-img">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Dépulpage & Séchage</div>
+                            <p>Séparation de la pulpe sèche suivie d'un séchage naturel au soleil.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <img src="https://github.com/user-attachments/assets/a9266aaf-0ace-4531-bc24-5198fc69e844" alt="Étape 3 - Concassage" class="process-img">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Concassage Manuel</div>
+                            <p>Ouverture précise de la noix sans endommager les précieux amandons.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <img src="https://github.com/user-attachments/assets/479a8a97-e1f9-45d8-b6d0-ae15353d8b65" alt="Étape 4 - Extraction" class="process-img">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Extraction à Froid</div>
+                            <p>Pressage des amandons à froid pour préserver tous les nutriments.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <img src="https://github.com/user-attachments/assets/8d145d37-bb80-40b9-82a2-eb73c5b1608f" alt="Étape 5 - Décantation" class="process-img">
+                            <div class="step-number">5</div>
+                            <div class="step-title">Décantation</div>
+                            <p>Repos de 15-20 jours pour éliminer les particules en suspension.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <img src="https://github.com/user-attachments/assets/9193708f-989d-442b-8e12-64ecad41b669" alt="Étape 6 - Filtrage" class="process-img">
+                            <div class="step-number">6</div>
+                            <div class="step-title">Filtrage</div>
+                            <p>Filtration à travers des tissus fins pour une huile parfaitement claire.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <img src="https://github.com/user-attachments/assets/b60ab570-d1cc-4ba8-bada-d0e86c3a758b" alt="Étape 7 - Mise en bouteille" class="process-img">
+                            <div class="step-number">7</div>
+                            <div class="step-title">Mise en Bouteille</div>
+                            <p>Conditionnement, étiquetage et contrôle qualité avant expédition.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="impact-list">
+                        <h3>Liste des 7 Étapes de Fabrication</h3>
+                        <ul class="modal-list">
+                            <li><strong>Récolte des fruits d'argan</strong> - Lorsque les fruits arrivent à maturité, ils sont récoltés par les femmes et les hommes berbères dans les arganeraies.</li>
+                            <li><strong>Dépulpage et séchage</strong> - Séparation de la pulpe sèche de la noix d'argan, suivie d'un séchage au soleil.</li>
+                            <li><strong>Concassage manuel</strong> - Étape traditionnelle qui demande de la maîtrise et de la précision pour ouvrir la noix sans endommager les amandons.</li>
+                            <li><strong>Extraction à froid</strong> - Les amandons sont pressés à froid pour préserver toutes les propriétés nutritives de l'huile.</li>
+                            <li><strong>Décantation</strong> - L'huile est laissée au repos pendant 15 à 20 jours pour éliminer les particules en suspension.</li>
+                            <li><strong>Filtrage</strong> - Filtration soigneuse à travers des tissus fins pour obtenir une huile parfaitement claire et pure.</li>
+                            <li><strong>Mise en bouteille</strong> - Conditionnement dans des bouteilles, étiquetage et contrôle qualité avant expédition.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="impact-list">
+                        <h3>Caractéristiques de Notre Production</h3>
+                        <ul class="modal-list">
+                            <li><strong>100% Artisanal</strong> - Respect des méthodes traditionnelles</li>
+                            <li><strong>Pressage à froid</strong> - Préservation des nutriments</li>
+                            <li><strong>Qualité Premium</strong> - Normes de qualité strictes</li>
+                            <li><strong>Écologique</strong> - Processus respectueux de l'environnement</li>
+                            <li><strong>Traçabilité</strong> - Contrôle à chaque étape</li>
+                            <li><strong>Commerce équitable</strong> - Rémunération juste des productrices</li>
+                            <li><strong>Certifications</strong> - Produits biologiques certifiés</li>
+                            <li><strong>Emballage durable</strong> - Matériaux écologiques et recyclables</li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
 
         function showInfo(id) { 
             document.getElementById('modalBody').innerHTML = infoData[id].content; 
@@ -1238,6 +1514,16 @@
                 closeModal();
             }
         }
+
+        // Gestion de l'URL pour les liens directs
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const product = urlParams.get('product');
+            
+            if (product && ['antichute', 'gommage', 'argalux50', 'ghassoul'].includes(product)) {
+                openProductPage(product);
+            }
+        });
     </script>
 </body>
 </html>
