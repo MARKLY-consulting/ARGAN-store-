@@ -1301,6 +1301,8 @@
             });
             // Afficher la page d'accueil
             document.getElementById('home-page').classList.add('active');
+            // Changer l'URL sans recharger la page
+            window.history.pushState({}, '', window.location.pathname);
             // Remonter en haut de la page
             window.scrollTo(0, 0);
         }
@@ -1312,6 +1314,8 @@
             });
             // Afficher la page du produit sélectionné
             document.getElementById('product-' + id).classList.add('active');
+            // Changer l'URL sans recharger la page
+            window.history.pushState({}, '', `?product=${id}`);
             // Remonter en haut de la page
             window.scrollTo(0, 0);
             // Fermer le menu mobile si ouvert
@@ -1329,6 +1333,70 @@
             });
             event.currentTarget.classList.add('active');
         }
+
+        // GESTION DES LIENS UNIQUES POUR CHAQUE PRODUIT
+        // Quand la page se charge, vérifier l'URL
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const product = urlParams.get('product');
+            
+            if (product) {
+                // Si un produit est spécifié dans l'URL, l'afficher directement
+                switch(product) {
+                    case 'pack-anti-chute':
+                    case 'antichute':
+                        openProductPage('antichute');
+                        break;
+                    case 'gommage-figue':
+                    case 'gommage':
+                        openProductPage('gommage');
+                        break;
+                    case 'huile-argan':
+                    case 'argalux50':
+                        openProductPage('argalux50');
+                        break;
+                    case 'masque-ghassoul':
+                    case 'ghassoul':
+                        openProductPage('ghassoul');
+                        break;
+                    default:
+                        showHomePage();
+                }
+            } else {
+                showHomePage();
+            }
+        });
+
+        // Gérer le bouton retour du navigateur
+        window.addEventListener('popstate', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const product = urlParams.get('product');
+            
+            if (product) {
+                switch(product) {
+                    case 'pack-anti-chute':
+                    case 'antichute':
+                        openProductPage('antichute');
+                        break;
+                    case 'gommage-figue':
+                    case 'gommage':
+                        openProductPage('gommage');
+                        break;
+                    case 'huile-argan':
+                    case 'argalux50':
+                        openProductPage('argalux50');
+                        break;
+                    case 'masque-ghassoul':
+                    case 'ghassoul':
+                        openProductPage('ghassoul');
+                        break;
+                    default:
+                        showHomePage();
+                }
+            } else {
+                showHomePage();
+            }
+        });
 
         const productDetails = {
             'antichute': {
@@ -1514,16 +1582,6 @@
                 closeModal();
             }
         }
-
-        // Gestion de l'URL pour les liens directs
-        window.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const product = urlParams.get('product');
-            
-            if (product && ['antichute', 'gommage', 'argalux50', 'ghassoul'].includes(product)) {
-                openProductPage(product);
-            }
-        });
     </script>
 </body>
 </html>
