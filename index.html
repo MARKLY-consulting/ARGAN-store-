@@ -116,7 +116,7 @@
             text-align: center; 
             color: white; 
             border-bottom-right-radius: 60px; 
-            margin-top: 95px; /* Ajusté pour header + announcement */
+            margin-top: 95px; /* CORRIGÉ : Ajusté pour header + announcement */
         }
         
         #hero h1 { 
@@ -548,7 +548,7 @@
         /* NOUVEAU : STYLES POUR LES PAGES PRODUITS */
         .page-container {
             display: none;
-            padding-top: 120px;
+            padding-top: 0; /* CORRIGÉ : Pas de padding-top ici */
             min-height: calc(100vh - 200px);
         }
 
@@ -561,6 +561,7 @@
             padding: 3rem 5%;
             border-bottom-left-radius: 60px;
             margin-bottom: 2rem;
+            padding-top: 120px; /* CORRIGÉ : Padding seulement pour les pages produits */
         }
 
         .product-page-content {
@@ -831,6 +832,11 @@
                 border-bottom: 1px solid #f0f0f0;
             }
             
+            #hero {
+                margin-top: 95px; /* CORRIGÉ : Garder le margin pour mobile */
+                height: 35vh; /* Réduire légèrement la hauteur sur mobile */
+            }
+            
             #hero h1 {
                 font-size: 2rem;
             }
@@ -845,6 +851,10 @@
             
             .product-card {
                 width: calc(50% - 0.75rem);
+            }
+
+            .product-page-hero {
+                padding-top: 110px; /* CORRIGÉ : Réduire sur mobile */
             }
 
             .product-page-title {
@@ -864,6 +874,11 @@
             .product-card {
                 width: 100%;
                 max-width: 300px;
+            }
+            
+            #hero {
+                height: 30vh; /* Encore plus petit sur très petits écrans */
+                margin-top: 95px; /* CORRIGÉ */
             }
         }
     </style>
